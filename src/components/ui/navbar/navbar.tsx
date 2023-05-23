@@ -13,7 +13,7 @@ export const Navbar: FunctionComponent = () => {
       <Wrapper>
         <div className="flex items-center justify-between">
           <h1>Alvaro Aguirre</h1>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <MainMenu />
             <ThemeToggle />
           </div>
