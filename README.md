@@ -1,3 +1,8 @@
-# Next Tailwind Template
+# Portfolio
 
-Template of a react production-ready application Typescript, Prettier, ESlint, Pre-commit, Tailwind and Dark Mode
+### Blog:
+- next template
+- flex 1
+- asincronismo
+- csr ssr
+- z index
