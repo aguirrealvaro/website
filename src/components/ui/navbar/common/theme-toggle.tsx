@@ -1,7 +1,8 @@
 import { FunctionComponent } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Icon, IconButton } from "@/components/ui";
+import { Icon } from "@/components/ui/icon";
+import { IconButton } from "@/components/ui/icon-button";
 
 export const ThemeToggle: FunctionComponent = () => {
   const { theme, setTheme } = useTheme();

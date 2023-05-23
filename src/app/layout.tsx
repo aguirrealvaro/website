@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { FunctionComponent, ReactNode } from "react";
 import { Metadata } from "next";
-import { Navbar } from "@/components/ui";
+import { Navbar } from "@/components/ui/navbar";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { inter } from "@/utils/fonts";

@@ -2,7 +2,7 @@
 
 import { FunctionComponent } from "react";
 import { MainMenu, ThemeToggle } from "./common";
-import { Wrapper } from "@/components";
+import { Wrapper } from "@/components/wrapper";
 import { cn } from "@/utils/cn";
 
 export const Navbar: FunctionComponent = () => {
