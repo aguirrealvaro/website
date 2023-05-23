@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { FunctionComponent, ReactNode } from "react";
 import { Metadata } from "next";
+import { Navbar } from "@/components/ui";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { inter } from "@/utils/fonts";
@@ -25,7 +26,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
       >
         <ThemeProvider>
           <div className="flex h-screen flex-col">
-            <header>Header</header>
+            <Navbar />
             <main className="flex-1">{children}</main>
             <footer>Footer</footer>
           </div>
