@@ -9,7 +9,7 @@ type IconProps = {
 
 export const Icon: FunctionComponent<IconProps> = ({
   icon: IconComponent,
-  size = 20,
+  size = 24,
   ...restProps
 }) => {
   return <IconComponent size={size} {...restProps} />;

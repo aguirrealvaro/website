@@ -1,7 +1,7 @@
 "use client";
 
 import { FunctionComponent } from "react";
-import { MainMenu, ThemeToggle } from "./common";
+import { MainMenu, ThemeToggle, Burger } from "./common";
 import { Wrapper } from "@/components/wrapper";
 import { cn } from "@/utils/cn";
 
@@ -15,6 +15,7 @@ export const Navbar: FunctionComponent = () => {
           <h1>Alvaro Aguirre</h1>
           <div className="flex items-center gap-4">
             <MainMenu />
+            <Burger />
             <ThemeToggle />
           </div>
         </div>
