@@ -30,8 +30,8 @@ module.exports = {
         "disabled-secondary": "var(--disabled-secondary)",
       },
       fontFamily: {
-        heading: "var(--font-inter)",
-        body: "var(--font-inter)",
+        heading: "var(--font-raleway)",
+        body: "var(--font-raleway)",
       },
     },
   },

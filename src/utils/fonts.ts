@@ -1,6 +1,6 @@
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 
-export const inter = Inter({
+export const inter = Raleway({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-raleway",
 });
