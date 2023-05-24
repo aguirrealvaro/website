@@ -1,12 +1,11 @@
 "use client";
 
 import { FunctionComponent } from "react";
-import { MainMenu, ThemeToggle, Burger } from "./common";
+import { MainMenu, ThemeToggle, Burger, MobileMenu } from "./common";
+import { NAVBAR_TRANSITION_TIME } from "./constants";
 import { Wrapper } from "@/components/wrapper";
 import { useDisclosure } from "@/hooks";
 import { cn } from "@/utils/cn";
-
-const TRANSITION_TIME = 200;
 
 type NavbarProps = {
   id: string;
@@ -16,8 +15,8 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
   const {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
-    //onClose: closeMobileMenu,
-  } = useDisclosure({ timeout: TRANSITION_TIME, closeOnResize: true });
+    onClose: closeMobileMenu,
+  } = useDisclosure({ timeout: NAVBAR_TRANSITION_TIME, closeOnResize: true });
 
   const burgerId = `${id}-burger`;
   const mobileMenuId = `${id}-mobile-menu`;
@@ -40,9 +39,16 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
             />
             <ThemeToggle />
             {isMobileMenuOpen && (
-              <div id={mobileMenuId} role="menu" aria-labelledby={burgerId}>
+              <MobileMenu
+                isMobileMenuOpen={isMobileMenuOpen}
+                navbarHeight={80}
+                closeMobileMenu={closeMobileMenu}
+                id={mobileMenuId}
+                role="menu"
+                aria-labelledby={burgerId}
+              >
                 mobile menu
-              </div>
+              </MobileMenu>
             )}
           </div>
         </div>
