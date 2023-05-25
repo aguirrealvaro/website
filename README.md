@@ -7,8 +7,10 @@
 - pass className prop to components
 
 ### Blog:
-- next template
+
+- animate unmounting
 - flex 1
-- asincronismo
-- csr ssr
 - z index
+- csr ssr
+- next template
+- asincronismo
