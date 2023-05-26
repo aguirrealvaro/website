@@ -29,7 +29,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
     >
       <Wrapper>
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-medium hover:text-red-500">
+          <h1 className="text-lg font-medium">
             <Link href="/">Alvaro Aguirre</Link>
           </h1>
           <div className="flex items-center gap-4">

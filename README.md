@@ -2,6 +2,7 @@
 
 ### To do:
 
+- fix font flashing
 - index to components and ui
 - hover transition
 - hover not disabled
