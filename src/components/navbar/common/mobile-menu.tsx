@@ -16,7 +16,8 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       style={{ top: `${navbarHeight}px` }}
       className={cn(
         "fixed inset-x-0 bottom-0 bg-red-500",
-        isMobileMenuOpen ? "opacity-100" : "opacity-0"
+        isMobileMenuOpen ? "opacity-100" : "opacity-0",
+        "transition-opacity"
       )}
     >
       Mobile Menu Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus natus nam

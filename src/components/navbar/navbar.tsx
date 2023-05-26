@@ -1,6 +1,7 @@
 "use client";
 
 import { FunctionComponent } from "react";
+import Link from "next/link";
 import { MainMenu, ThemeToggle, Burger, MobileMenu } from "./common";
 import { NAVBAR_TRANSITION_TIME } from "./constants";
 import { Wrapper } from "@/components/wrapper";
@@ -27,8 +28,10 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
     >
       <Wrapper>
         <div className="flex items-center justify-between">
-          <h1>Alvaro Aguirre</h1>
-          <div className="flex items-center gap-4">
+          <h1 className="text-lg font-medium">
+            <Link href="/">Alvaro Aguirre</Link>
+          </h1>
+          <div className="flex items-center gap-8">
             <MainMenu />
             <Burger
               isMobileMenuOpen={isMobileMenuOpen}
@@ -38,7 +41,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
               aria-controls={mobileMenuId}
             />
             <ThemeToggle />
-            {isMobileMenuOpen && (
+            {true && (
               <MobileMenu
                 isMobileMenuOpen={isMobileMenuOpen}
                 navbarHeight={80}
