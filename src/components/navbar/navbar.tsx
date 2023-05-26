@@ -17,6 +17,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
     onClose: closeMobileMenu,
+    isUnmounting,
   } = useDisclosure({ timeout: NAVBAR_TRANSITION_TIME, closeOnResize: true });
 
   const burgerId = `${id}-burger`;
@@ -28,10 +29,10 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
     >
       <Wrapper>
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-medium">
+          <h1 className="text-lg font-medium hover:text-red-500">
             <Link href="/">Alvaro Aguirre</Link>
           </h1>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4">
             <MainMenu />
             <Burger
               isMobileMenuOpen={isMobileMenuOpen}
@@ -41,11 +42,12 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
               aria-controls={mobileMenuId}
             />
             <ThemeToggle />
-            {true && (
+            {isMobileMenuOpen && (
               <MobileMenu
                 isMobileMenuOpen={isMobileMenuOpen}
                 navbarHeight={80}
                 closeMobileMenu={closeMobileMenu}
+                isUnmounting={isUnmounting}
                 id={mobileMenuId}
                 role="menu"
                 aria-labelledby={burgerId}

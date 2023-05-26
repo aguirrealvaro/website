@@ -5,19 +5,21 @@ type MobileMenuProps = {
   isMobileMenuOpen: boolean;
   navbarHeight: number | undefined;
   closeMobileMenu: () => void;
+  isUnmounting: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   isMobileMenuOpen,
   navbarHeight,
+  isUnmounting,
 }) => {
   return (
     <div
       style={{ top: `${navbarHeight}px` }}
       className={cn(
         "fixed inset-x-0 bottom-0 bg-red-500",
-        isMobileMenuOpen ? "opacity-100" : "opacity-0",
-        "transition-opacity"
+        isMobileMenuOpen && "animate-navbar-open",
+        isUnmounting && "animated-navbar-close"
       )}
     >
       Mobile Menu Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus natus nam

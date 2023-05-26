@@ -33,6 +33,20 @@ module.exports = {
         heading: "var(--font-raleway)",
         body: "var(--font-raleway)",
       },
+      keyframes: {
+        "fade-in": {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        "fade-out": {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
+      },
+      animation: {
+        "navbar-open": "fade-in 150ms ease-in-out forwards",
+        "navbar-close": "fade-out 150ms ease-in-out forwards",
+      },
     },
   },
   plugins: [],
