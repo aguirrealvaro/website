@@ -1,4 +1,6 @@
 import { FunctionComponent, HTMLAttributes } from "react";
+import Link from "next/link";
+import { navigationLinks } from "@/constants";
 import { useKeyPress } from "@/hooks";
 import { cn } from "@/utils/cn";
 
@@ -25,14 +27,25 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     <div
       style={{ top: `${navbarHeight}px` }}
       className={cn(
-        "fixed inset-x-0 bottom-0 bg-red-500",
+        "flex items-center justify-center",
+        "fixed inset-x-0 bottom-0 bg-bg-secondary",
         isMobileMenuOpen && !isUnmounting && "animate-navbar-open",
         isUnmounting && "animate-navbar-close"
       )}
     >
-      Mobile Menu Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus natus nam
-      animi quisquam vel, asperiores et magnam! Ipsum reiciendis incidunt cumque quos fuga,
-      nulla nemo quia explicabo eveniet exercitationem voluptatum!
+      <nav className="mb-4">
+        <ul className="flex flex-col gap-4">
+          {navigationLinks.map(({ name, href }, index) => {
+            return (
+              <li key={index} className="text-center">
+                <Link href={href} className="rounded p-1.5 transition hover:bg-hover-primary">
+                  {name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </div>
   );
 };
