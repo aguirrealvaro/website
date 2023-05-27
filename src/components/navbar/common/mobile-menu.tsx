@@ -22,7 +22,6 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
         isUnmounting && "animate-navbar-close"
       )}
     >
-      <div className="animate-fade"></div>
       Mobile Menu Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus natus nam
       animi quisquam vel, asperiores et magnam! Ipsum reiciendis incidunt cumque quos fuga,
       nulla nemo quia explicabo eveniet exercitationem voluptatum!
