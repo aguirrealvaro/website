@@ -2,12 +2,15 @@
 
 ### To do:
 
-- cn eslint
-- fix font flashing
+- cn eslint?
+- pass className prop to components, remove div from burger wrapper, work twMerge?
 - index to components and ui
 - hover transition?
 - hover not disabled
-- pass className prop to components, remove div from burger wrapper
+
+- cn eslint
+- fix font flashing
+- icon hydration
 
 ### Blog:
 

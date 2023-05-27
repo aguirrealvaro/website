@@ -1,6 +1,6 @@
 "use client";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { MainMenu, ThemeToggle, Burger, MobileMenu } from "./common";
 import { NAVBAR_TRANSITION_TIME } from "./constants";
@@ -13,6 +13,9 @@ type NavbarProps = {
 };
 
 export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [navbarHeight, setNavbarHeight] = useState<number | undefined>(0);
+
   const {
     isOpen: isMobileMenuOpen,
     onToggle: toggleMobileMenu,
@@ -20,11 +23,17 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
     isUnmounting,
   } = useDisclosure({ timeout: NAVBAR_TRANSITION_TIME, closeOnResize: true });
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+    setNavbarHeight(containerRef.current?.offsetHeight);
+  }, []);
+
   const burgerId = `${id}-burger`;
   const mobileMenuId = `${id}-mobile-menu`;
 
   return (
     <header
+      ref={containerRef}
       className={cn("sticky inset-x-0 top-0 h-20 bg-bg-secondary shadow", "flex items-center")}
     >
       <Wrapper>
@@ -45,7 +54,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
             {isMobileMenuOpen && (
               <MobileMenu
                 isMobileMenuOpen={isMobileMenuOpen}
-                navbarHeight={80}
+                navbarHeight={navbarHeight}
                 closeMobileMenu={closeMobileMenu}
                 isUnmounting={isUnmounting}
                 id={mobileMenuId}

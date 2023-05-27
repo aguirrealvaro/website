@@ -1,4 +1,5 @@
 import { FunctionComponent, HTMLAttributes } from "react";
+import { useKeyPress } from "@/hooks";
 import { cn } from "@/utils/cn";
 
 type MobileMenuProps = {
@@ -11,8 +12,15 @@ type MobileMenuProps = {
 export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   isMobileMenuOpen,
   navbarHeight,
+  closeMobileMenu,
   isUnmounting,
 }) => {
+  useKeyPress({
+    targetKey: "Escape",
+    handler: closeMobileMenu,
+    enabled: isMobileMenuOpen,
+  });
+
   return (
     <div
       style={{ top: `${navbarHeight}px` }}
