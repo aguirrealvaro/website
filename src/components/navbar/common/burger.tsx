@@ -1,7 +1,6 @@
 import { ButtonHTMLAttributes, FunctionComponent } from "react";
 import { Menu, X } from "lucide-react";
-import { Icon } from "@/components/ui/icon";
-import { IconButton } from "@/components/ui/icon-button";
+import { Icon, IconButton } from "@/components/ui";
 
 type BurgerProps = {
   isMobileMenuOpen: boolean;

@@ -2,8 +2,6 @@
 
 ### To do:
 
-- cn eslint?
-- pass className prop to components, remove div from burger wrapper, work twMerge?
 - index to components and ui
 - hover transition?
 - hover not disabled
