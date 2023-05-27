@@ -46,6 +46,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
             <Burger
               isMobileMenuOpen={isMobileMenuOpen}
               toggleMobileMenu={toggleMobileMenu}
+              id={burgerId}
               aria-expanded={isMobileMenuOpen}
               aria-haspopup="menu"
               aria-controls={mobileMenuId}

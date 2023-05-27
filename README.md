@@ -3,8 +3,8 @@
 ### Backlog:
 
 - cn eslint
-- fix font flashing (leerob)
-- icon hydration (shadcn)
+- fix font flashing
+- icon hydration
 
 ### Blog:
 
