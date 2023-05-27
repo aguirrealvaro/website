@@ -2,8 +2,6 @@
 
 ### To do:
 
-- hover not disabled
-
 - cn eslint
 - fix font flashing (leerob)
 - icon hydration (shadcn)

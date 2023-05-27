@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
+import { cn } from "@/utils/cn";
 
 type IconButtonProps = {
   children: ReactNode;
@@ -10,7 +11,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       <button
         ref={ref}
         type="button"
-        className="flex rounded p-1.5 transition hover:bg-hover-primary"
+        className={cn(
+          "flex rounded p-1.5",
+          "transition enabled:hover:bg-hover-primary",
+          "disabled:cursor-not-allowed"
+        )}
         {...props}
       >
         {children}
