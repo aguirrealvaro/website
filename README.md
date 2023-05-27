@@ -7,8 +7,8 @@
 - hover not disabled
 
 - cn eslint
-- fix font flashing
-- icon hydration
+- fix font flashing (leerob)
+- icon hydration (shadcn)
 
 ### Blog:
 

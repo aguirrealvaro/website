@@ -4,7 +4,7 @@ import { FunctionComponent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { MainMenu, ThemeToggle, Burger, MobileMenu } from "./common";
 import { NAVBAR_TRANSITION_TIME } from "./constants";
-import { Wrapper } from "@/components/wrapper";
+import { Wrapper } from "@/components";
 import { useDisclosure } from "@/hooks";
 import { cn } from "@/utils/cn";
 
