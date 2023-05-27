@@ -2,8 +2,6 @@
 
 ### To do:
 
-- index to components and ui
-- hover transition?
 - hover not disabled
 
 - cn eslint

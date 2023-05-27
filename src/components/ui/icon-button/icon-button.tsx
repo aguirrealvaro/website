@@ -10,7 +10,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       <button
         ref={ref}
         type="button"
-        className="flex rounded p-1.5 hover:bg-hover-primary"
+        className="flex rounded p-1.5 transition hover:bg-hover-primary"
         {...props}
       >
         {children}

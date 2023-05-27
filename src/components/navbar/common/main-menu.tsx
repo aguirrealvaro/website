@@ -9,7 +9,7 @@ export const MainMenu: FunctionComponent = () => {
         {navigationLinks.map(({ name, href }, index) => {
           return (
             <li key={index}>
-              <Link href={href} className="rounded p-1.5 hover:bg-hover-primary">
+              <Link href={href} className="rounded p-1.5 transition hover:bg-hover-primary">
                 {name}
               </Link>
             </li>
