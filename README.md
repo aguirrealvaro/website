@@ -1,6 +1,6 @@
 # Portfolio
 
-### To do:
+### Backlog:
 
 - cn eslint
 - fix font flashing (leerob)

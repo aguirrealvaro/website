@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
-import { inter } from "@/utils/fonts";
+import { raleway } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "Alvaro Aguirre",
@@ -21,7 +21,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
       <body
         className={cn(
           "bg-bg-primary text-text-primary antialiased",
-          `${inter.variable} font-body`
+          `${raleway.variable} font-body`
         )}
       >
         <ThemeProvider>
