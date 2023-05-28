@@ -1,5 +1,9 @@
 # Portfolio
 
+### To do:
+
+- default theme
+
 ### Backlog:
 
 - cn eslint
