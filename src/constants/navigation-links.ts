@@ -8,5 +8,4 @@ export const navigationLinks: NavigationLinkType[] = [
   { name: "Trajectory", href: "/trajectory" },
   { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
 ];

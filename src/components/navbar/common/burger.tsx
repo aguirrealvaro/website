@@ -15,7 +15,7 @@ export const Burger: FunctionComponent<BurgerProps> = ({
   const icon = isMobileMenuOpen ? X : Menu;
 
   return (
-    <div className="hidden md:block">
+    <div className="hidden sm:block">
       <IconButton onClick={toggleMobileMenu} {...restProps}>
         <Icon icon={icon} />
       </IconButton>

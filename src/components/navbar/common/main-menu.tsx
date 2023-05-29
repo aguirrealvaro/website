@@ -4,7 +4,7 @@ import { navigationLinks } from "@/constants";
 
 export const MainMenu: FunctionComponent = () => {
   return (
-    <nav className="md:hidden">
+    <nav className="sm:hidden">
       <ul className="flex gap-4">
         {navigationLinks.map(({ name, href }, index) => {
           return (
