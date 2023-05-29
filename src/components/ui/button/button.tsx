@@ -42,6 +42,7 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
+      // Primary
       {
         variant: "primary",
         colorScheme: "neutral",
@@ -60,6 +61,36 @@ const buttonVariants = cva(
           "hover:border-sky-700 hover:bg-sky-700",
           "dark:border-sky-500 dark:bg-sky-500 dark:text-black",
           "dark:hover:border-sky-400 dark:hover:bg-sky-400",
+        ],
+      },
+      {
+        variant: "primary",
+        colorScheme: "green",
+        className: [
+          "border-emerald-600 bg-emerald-600 text-white",
+          "hover:border-emerald-700 hover:bg-emerald-700",
+          "dark:border-emerald-500 dark:bg-emerald-500 dark:text-black",
+          "dark:hover:border-emerald-400 dark:hover:bg-emerald-400",
+        ],
+      },
+      {
+        variant: "primary",
+        colorScheme: "yellow",
+        className: [
+          "border-yellow-500 bg-yellow-500 text-black",
+          "hover:border-yellow-600 hover:bg-yellow-600",
+          "dark:border-yellow-400 dark:bg-yellow-400 dark:text-black",
+          "dark:hover:border-yellow-300 dark:hover:bg-yellow-300",
+        ],
+      },
+      {
+        variant: "primary",
+        colorScheme: "red",
+        className: [
+          "border-red-600 bg-red-600 text-white",
+          "hover:border-red-700 hover:bg-red-700",
+          "dark:border-red-500 dark:bg-red-500 dark:text-black",
+          "dark:hover:border-red-400 dark:hover:bg-red-400",
         ],
       },
     ],
