@@ -1,6 +1,7 @@
 # Portfolio
 
 ### To do:
+- exports 
 
 ### Backlog:
 

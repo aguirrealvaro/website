@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/utils/cn";
 
@@ -28,11 +28,15 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
-export const Button: FunctionComponent<ButtonProps> = ({ children, size, ...restProps }) => {
-  return (
-    <button className={cn(buttonVariants({ size }))} {...restProps}>
-      <span className="hidden disabled:text-disabled-secondary"></span>
-      {children}
-    </button>
-  );
-};
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, size, ...restProps }, ref) => {
+    return (
+      <button ref={ref} className={cn(buttonVariants({ size }))} {...restProps}>
+        <span className="hidden disabled:text-disabled-secondary"></span>
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";
