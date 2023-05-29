@@ -5,19 +5,16 @@ type IconButtonProps = {
   children: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
+export const iconButtonClassNames = [
+  "flex rounded p-1.5",
+  "transition hover:bg-hover-primary",
+  "disabled:cursor-not-allowed",
+];
+
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ children, ...props }, ref) => {
     return (
-      <button
-        ref={ref}
-        type="button"
-        className={cn(
-          "flex rounded p-1.5",
-          "transition enabled:hover:bg-hover-primary",
-          "disabled:cursor-not-allowed"
-        )}
-        {...props}
-      >
+      <button ref={ref} type="button" className={cn(iconButtonClassNames)} {...props}>
         {children}
       </button>
     );

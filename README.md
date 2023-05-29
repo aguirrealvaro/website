@@ -2,7 +2,7 @@
 
 ### To do:
 
-- Add linkedin github on navbar
+- Replace icon button with button ghost
 
 ### Backlog:
 
