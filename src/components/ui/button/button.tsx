@@ -6,6 +6,7 @@ const buttonVariants = cva(
   [
     "flex items-center justify-center gap-2",
     "border border-transparent",
+    // TO DO: disabled not working
     "disabled:cursor-not-allowed disabled:bg-disabled-primary disabled:text-disabled-secondary",
     "transition",
   ],
@@ -27,7 +28,7 @@ const buttonVariants = cva(
       },
       variant: {
         primary: "",
-        secondary: "",
+        secondary: "border-transparent",
         outlined: "",
         ghost: "",
         link: "",
@@ -93,10 +94,63 @@ const buttonVariants = cva(
           "dark:hover:border-red-400 dark:hover:bg-red-400",
         ],
       },
+      // Secondary
+      {
+        variant: "secondary",
+        colorScheme: "neutral",
+        className: [
+          "bg-neutral-200 text-neutral-600",
+          "hover:bg-neutral-300",
+          "dark:bg-neutral-700 dark:text-neutral-300",
+          "dark:hover:bg-neutral-600",
+        ],
+      },
+      {
+        variant: "secondary",
+        colorScheme: "blue",
+        className: [
+          "bg-sky-100 text-sky-600",
+          "hover:bg-sky-200",
+          "dark:bg-sky-950 dark:text-sky-300",
+          "dark:hover:bg-sky-900",
+        ],
+      },
+      {
+        variant: "secondary",
+        colorScheme: "green",
+        className: [
+          "bg-green-100 text-green-700",
+          "hover:bg-green-200",
+          "dark:bg-green-950 dark:text-green-300",
+          "dark:hover:bg-green-900",
+        ],
+      },
+      {
+        variant: "secondary",
+        colorScheme: "yellow",
+        className: [
+          "bg-yellow-100 text-yellow-600",
+          "hover:bg-yellow-200",
+          "dark:bg-yellow-950 dark:text-yellow-300",
+          "dark:hover:bg-yellow-900",
+        ],
+      },
+      {
+        variant: "secondary",
+        colorScheme: "red",
+        className: [
+          "bg-red-100 text-red-700",
+          "hover:bg-red-200",
+          "dark:bg-red-950 dark:text-red-200",
+          "dark:hover:bg-red-900",
+        ],
+      },
     ],
     defaultVariants: {
       size: "md",
       shape: "default",
+      variant: "primary",
+      colorScheme: "neutral",
     },
   }
 );
