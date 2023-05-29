@@ -8,7 +8,9 @@ export default function Home() {
     <div>
       <Wrapper>
         <PageContainer>
-          <Button>boton</Button>
+          <Button variant="primary" colorScheme="neutral">
+            Boton
+          </Button>
         </PageContainer>
       </Wrapper>
     </div>

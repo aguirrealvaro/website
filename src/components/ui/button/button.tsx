@@ -4,10 +4,10 @@ import { cn } from "@/utils/cn";
 
 const buttonVariants = cva(
   [
-    "flex items-center justify-center gap-2 bg-red-500",
+    "flex items-center justify-center gap-2",
     "border border-transparent",
     "disabled:cursor-not-allowed disabled:bg-disabled-primary disabled:text-disabled-secondary",
-    // TO DO: add transitions
+    "transition",
   ],
   {
     variants: {
@@ -41,6 +41,18 @@ const buttonVariants = cva(
         yellow: "",
       },
     },
+    compoundVariants: [
+      {
+        variant: "primary",
+        colorScheme: "neutral",
+        className: [
+          "border-black bg-black text-white",
+          "hover:border-neutral-800 hover:bg-neutral-800",
+          "dark:border-white dark:bg-white dark:text-black",
+          "dark:hover:border-neutral-200 dark:hover:bg-neutral-200",
+        ],
+      },
+    ],
     defaultVariants: {
       size: "md",
       shape: "default",
