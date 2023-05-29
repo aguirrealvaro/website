@@ -1,9 +1,13 @@
 "use client";
 
+import { PageContainer, Wrapper } from "@/components";
+
 export default function Home() {
   return (
     <div>
-      <h1>Content</h1>
+      <Wrapper>
+        <PageContainer>content</PageContainer>
+      </Wrapper>
     </div>
   );
 }

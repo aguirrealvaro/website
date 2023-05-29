@@ -2,8 +2,6 @@
 
 ### To do:
 
-- Replace icon button with button ghost
-
 ### Backlog:
 
 - cn eslint
