@@ -16,9 +16,15 @@ const buttonVariants = cva(
         md: "h-10 px-4 text-base",
         lg: "h-12 px-5 text-lg",
       },
+      shape: {
+        default: "rounded",
+        pill: "rounded-xl",
+        rectangle: "rounded-none",
+      },
     },
     defaultVariants: {
       size: "md",
+      shape: "default",
     },
   }
 );
@@ -29,9 +35,9 @@ type ButtonProps = {
   VariantProps<typeof buttonVariants>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, size, ...restProps }, ref) => {
+  ({ children, size, shape, ...restProps }, ref) => {
     return (
-      <button ref={ref} className={cn(buttonVariants({ size }))} {...restProps}>
+      <button ref={ref} className={cn(buttonVariants({ size, shape }))} {...restProps}>
         <span className="hidden text-sm"></span>
         {children}
       </button>
