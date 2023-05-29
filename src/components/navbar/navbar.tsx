@@ -2,7 +2,7 @@
 
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { MainMenu, ThemeToggle, Burger, MobileMenu } from "./common";
+import { MainMenu, ThemeToggle, Burger, MobileMenu, MediaLinks } from "./common";
 import { NAVBAR_TRANSITION_TIME } from "./constants";
 import { Wrapper } from "@/components";
 import { useDisclosure } from "@/hooks";
@@ -41,8 +41,10 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
           <h1 className="text-lg font-medium">
             <Link href="/">Alvaro Aguirre</Link>
           </h1>
+          <MainMenu />
           <div className="flex items-center gap-4">
-            <MainMenu />
+            <MediaLinks />
+            <ThemeToggle />
             <Burger
               isMobileMenuOpen={isMobileMenuOpen}
               toggleMobileMenu={toggleMobileMenu}
@@ -51,21 +53,20 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
               aria-haspopup="menu"
               aria-controls={mobileMenuId}
             />
-            <ThemeToggle />
-            {isMobileMenuOpen && (
-              <MobileMenu
-                isMobileMenuOpen={isMobileMenuOpen}
-                navbarHeight={navbarHeight}
-                closeMobileMenu={closeMobileMenu}
-                isUnmounting={isUnmounting}
-                id={mobileMenuId}
-                role="menu"
-                aria-labelledby={burgerId}
-              >
-                mobile menu
-              </MobileMenu>
-            )}
           </div>
+          {isMobileMenuOpen && (
+            <MobileMenu
+              isMobileMenuOpen={isMobileMenuOpen}
+              navbarHeight={navbarHeight}
+              closeMobileMenu={closeMobileMenu}
+              isUnmounting={isUnmounting}
+              id={mobileMenuId}
+              role="menu"
+              aria-labelledby={burgerId}
+            >
+              mobile menu
+            </MobileMenu>
+          )}
         </div>
       </Wrapper>
     </header>

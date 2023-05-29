@@ -2,6 +2,8 @@
 
 ### To do:
 
+- Add linkedin github on navbar
+
 ### Backlog:
 
 - cn eslint
