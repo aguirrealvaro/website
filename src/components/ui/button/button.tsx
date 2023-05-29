@@ -25,6 +25,21 @@ const buttonVariants = cva(
         pill: "rounded-xl",
         rectangle: "rounded-none",
       },
+      variant: {
+        primary: "",
+        secondary: "",
+        outlined: "",
+        ghost: "",
+        link: "",
+        // TO DO: Add empty?
+      },
+      colorScheme: {
+        neutral: "",
+        blue: "",
+        green: "",
+        red: "",
+        yellow: "",
+      },
     },
     defaultVariants: {
       size: "md",
@@ -39,9 +54,13 @@ type ButtonProps = {
   VariantProps<typeof buttonVariants>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, block, size, shape, ...restProps }, ref) => {
+  ({ children, block, size, shape, variant, colorScheme, ...restProps }, ref) => {
     return (
-      <button ref={ref} className={cn(buttonVariants({ block, size, shape }))} {...restProps}>
+      <button
+        ref={ref}
+        className={cn(buttonVariants({ block, size, shape, variant, colorScheme }))}
+        {...restProps}
+      >
         <span className="hidden text-sm"></span>
         {children}
       </button>
