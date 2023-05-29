@@ -28,7 +28,7 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, size, ...restProps }, ref) => {
     return (
       <button ref={ref} className={cn(buttonVariants({ size }))} {...restProps}>
@@ -40,3 +40,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = "Button";
+
+export { Button, buttonVariants };
