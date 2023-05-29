@@ -1,20 +1,33 @@
 import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/utils/cn";
+
+const iconButtonVariants = cva(
+  ["flex rounded", "transition hover:bg-hover-primary", "disabled:cursor-not-allowed"],
+  {
+    variants: {
+      size: {
+        xs: "p-0.5",
+        sm: "p-1",
+        md: "p-1.5",
+        lg: "p-2",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
 
 type IconButtonProps = {
   children: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof iconButtonVariants>;
 
-export const iconButtonClassNames = [
-  "flex rounded p-1.5",
-  "transition hover:bg-hover-primary",
-  "disabled:cursor-not-allowed",
-];
-
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ children, ...props }, ref) => {
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  ({ children, size, ...props }, ref) => {
     return (
-      <button ref={ref} type="button" className={cn(iconButtonClassNames)} {...props}>
+      <button ref={ref} type="button" className={cn(iconButtonVariants({ size }))} {...props}>
         {children}
       </button>
     );
@@ -22,3 +35,5 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 );
 
 IconButton.displayName = "IconButton";
+
+export { IconButton, iconButtonVariants, type IconButtonProps };
