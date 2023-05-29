@@ -31,7 +31,7 @@ const buttonVariants = cva(
         outlined: "",
         ghost: "",
         link: "",
-        // TO DO: Add empty?
+        // TO DO: Add plain?
       },
       colorScheme: {
         neutral: "",
@@ -50,6 +50,16 @@ const buttonVariants = cva(
           "hover:border-neutral-800 hover:bg-neutral-800",
           "dark:border-white dark:bg-white dark:text-black",
           "dark:hover:border-neutral-200 dark:hover:bg-neutral-200",
+        ],
+      },
+      {
+        variant: "primary",
+        colorScheme: "blue",
+        className: [
+          "border-sky-600 bg-sky-600 text-white",
+          "hover:border-sky-700 hover:bg-sky-700",
+          "dark:border-sky-500 dark:bg-sky-500 dark:text-black",
+          "dark:hover:border-sky-400 dark:hover:bg-sky-400",
         ],
       },
     ],
