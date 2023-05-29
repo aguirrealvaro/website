@@ -11,10 +11,10 @@ const buttonVariants = cva(
   {
     variants: {
       size: {
-        xs: "",
-        sm: "",
-        md: "",
-        lg: "",
+        xs: "h-6 px-2 text-xs",
+        sm: "h-8 px-3 text-sm",
+        md: "h-10 px-4 text-base",
+        lg: "h-12 px-5 text-lg",
       },
     },
     defaultVariants: {
@@ -32,7 +32,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, size, ...restProps }, ref) => {
     return (
       <button ref={ref} className={cn(buttonVariants({ size }))} {...restProps}>
-        <span className="hidden disabled:text-disabled-secondary"></span>
+        <span className="hidden text-sm"></span>
         {children}
       </button>
     );

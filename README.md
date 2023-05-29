@@ -2,7 +2,6 @@
 
 ### To do:
 
-- iconButtonVariants
 - exports
 
 ### Backlog:
