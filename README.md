@@ -14,6 +14,7 @@
 ### Blog:
 
 - animate unmounting
+- styled components vs tailwind
 - flex 1
 - z index
 - csr ssr
