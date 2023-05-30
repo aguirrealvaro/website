@@ -2,13 +2,11 @@
 
 ### To do:
 
-- exports
-
 ### Backlog:
 
 - remove classes on disabled state for button, iconbutton
 - cn eslint
-- fix font flashing
+- font flashing
 - icon hydration
 
 ### Blog:
