@@ -29,7 +29,7 @@ const buttonVariants = cva(
       variant: {
         primary: "",
         secondary: "border-transparent",
-        outlined: "",
+        outlined: "bg-transparent",
         ghost: "",
         link: "",
         // TO DO: Add plain?
@@ -143,6 +143,57 @@ const buttonVariants = cva(
           "hover:bg-red-200",
           "dark:bg-red-950 dark:text-red-200",
           "dark:hover:bg-red-900",
+        ],
+      },
+      // Outlined
+      {
+        variant: "outlined",
+        colorScheme: "neutral",
+        className: [
+          "border-neutral-200 text-neutral-600",
+          "hover:bg-neutral-100",
+          "dark:border-neutral-600 dark:text-neutral-400",
+          "dark:hover:bg-neutral-700",
+        ],
+      },
+      {
+        variant: "outlined",
+        colorScheme: "blue",
+        className: [
+          "border-sky-200 text-sky-600",
+          "hover:bg-sky-100",
+          "dark:border-sky-900 dark:text-sky-400",
+          "dark:hover:bg-sky-950",
+        ],
+      },
+      {
+        variant: "outlined",
+        colorScheme: "green",
+        className: [
+          "border-green-200 text-green-600",
+          "hover:bg-green-100",
+          "dark:border-green-900 dark:text-green-400",
+          "dark:hover:bg-green-950",
+        ],
+      },
+      {
+        variant: "outlined",
+        colorScheme: "yellow",
+        className: [
+          "border-yellow-200 text-yellow-600",
+          "hover:bg-yellow-100",
+          "dark:border-yellow-900 dark:text-yellow-600",
+          "dark:hover:bg-yellow-950",
+        ],
+      },
+      {
+        variant: "outlined",
+        colorScheme: "red",
+        className: [
+          "border-red-200 text-red-600",
+          "hover:bg-red-100",
+          "dark:border-red-900 dark:text-red-400",
+          "dark:hover:bg-red-950",
         ],
       },
     ],
