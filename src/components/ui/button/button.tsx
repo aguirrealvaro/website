@@ -30,7 +30,7 @@ const buttonVariants = cva(
         primary: "",
         secondary: "border-transparent",
         outlined: "bg-transparent",
-        ghost: "",
+        ghost: "bg-transparent",
         link: "",
         // TO DO: Add plain?
       },
@@ -119,10 +119,10 @@ const buttonVariants = cva(
         variant: "secondary",
         colorScheme: "green",
         className: [
-          "bg-green-100 text-green-700",
-          "hover:bg-green-200",
-          "dark:bg-green-950 dark:text-green-300",
-          "dark:hover:bg-green-900",
+          "bg-emerald-100 text-emerald-700",
+          "hover:bg-emerald-200",
+          "dark:bg-emerald-950 dark:text-emerald-300",
+          "dark:hover:bg-emerald-900",
         ],
       },
       {
@@ -170,10 +170,10 @@ const buttonVariants = cva(
         variant: "outlined",
         colorScheme: "green",
         className: [
-          "border-green-200 text-green-600",
-          "hover:bg-green-100",
-          "dark:border-green-900 dark:text-green-400",
-          "dark:hover:bg-green-950",
+          "border-emerald-200 text-emerald-600",
+          "hover:bg-emerald-100",
+          "dark:border-emerald-900 dark:text-emerald-400",
+          "dark:hover:bg-emerald-950",
         ],
       },
       {
@@ -193,6 +193,57 @@ const buttonVariants = cva(
           "border-red-200 text-red-600",
           "hover:bg-red-100",
           "dark:border-red-900 dark:text-red-400",
+          "dark:hover:bg-red-950",
+        ],
+      },
+      // Ghost
+      {
+        variant: "ghost",
+        colorScheme: "neutral",
+        className: [
+          "text-black",
+          "hover:bg-neutral-200",
+          "dark:text-white",
+          "dark:hover:bg-neutral-900",
+        ],
+      },
+      {
+        variant: "ghost",
+        colorScheme: "blue",
+        className: [
+          "text-sky-600",
+          "hover:bg-sky-100",
+          "dark:text-sky-600",
+          "dark:hover:bg-sky-950",
+        ],
+      },
+      {
+        variant: "ghost",
+        colorScheme: "green",
+        className: [
+          "text-emerald-600",
+          "hover:bg-emerald-100",
+          "dark:text-emerald-600",
+          "dark:hover:bg-emerald-950",
+        ],
+      },
+      {
+        variant: "ghost",
+        colorScheme: "yellow",
+        className: [
+          "text-yellow-600",
+          "hover:bg-yellow-100",
+          "dark:text-yellow-600",
+          "dark:hover:bg-yellow-950",
+        ],
+      },
+      {
+        variant: "ghost",
+        colorScheme: "red",
+        className: [
+          "text-red-600",
+          "hover:bg-red-100",
+          "dark:text-red-600",
           "dark:hover:bg-red-950",
         ],
       },
