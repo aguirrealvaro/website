@@ -6,9 +6,11 @@ const buttonVariants = cva(
   [
     "flex items-center justify-center gap-2",
     "border border-transparent",
-    // TO DO: disabled not working
-    "disabled:cursor-not-allowed disabled:bg-disabled-primary disabled:text-disabled-secondary",
     "transition",
+    "disabled:cursor-not-allowed",
+    "disabled:border-disabled-primary disabled:bg-disabled-primary disabled:text-disabled-secondary",
+    // It should not be necessary since disabled-primary and disabled-secondary are CSS Variables that depends on theme
+    "dark:disabled:border-disabled-primary dark:disabled:bg-disabled-primary dark:disabled:text-disabled-secondary",
   ],
   {
     variants: {
