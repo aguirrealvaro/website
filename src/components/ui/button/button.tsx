@@ -34,7 +34,7 @@ const buttonVariants = cva(
         outlined: "bg-transparent",
         ghost: "bg-transparent",
         link: "bg-transparent hover:underline",
-        // TO DO: Add plain?
+        plain: "h-auto w-auto rounded-none border-none bg-none p-0",
       },
       colorScheme: {
         neutral: "",
@@ -275,6 +275,32 @@ const buttonVariants = cva(
         colorScheme: "red",
         className: ["text-red-600", "dark: text-red-500"],
       },
+      // Plain
+      {
+        variant: "plain",
+        colorScheme: "neutral",
+        className: "text-black dark:text-white",
+      },
+      {
+        variant: "plain",
+        colorScheme: "blue",
+        className: "text-sky-500 dark:text-sky-500",
+      },
+      {
+        variant: "plain",
+        colorScheme: "green",
+        className: "text-emerald-500 dark:text-emerald-500",
+      },
+      {
+        variant: "plain",
+        colorScheme: "yellow",
+        className: "text-yellow-500 dark:text-yellow-400",
+      },
+      {
+        variant: "plain",
+        colorScheme: "red",
+        className: "text-red-500 dark:text-red-500",
+      },
     ],
     defaultVariants: {
       size: "md",
@@ -298,7 +324,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ block, size, shape, variant, colorScheme }))}
         {...restProps}
       >
-        <span className="hidden text-sm"></span>
         {children}
       </button>
     );
