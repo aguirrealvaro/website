@@ -31,7 +31,7 @@ const buttonVariants = cva(
         secondary: "border-transparent",
         outlined: "bg-transparent",
         ghost: "bg-transparent",
-        link: "",
+        link: "bg-transparent hover:underline",
         // TO DO: Add plain?
       },
       colorScheme: {
@@ -246,6 +246,32 @@ const buttonVariants = cva(
           "dark:text-red-600",
           "dark:hover:bg-red-950",
         ],
+      },
+      // Link
+      {
+        variant: "link",
+        colorScheme: "neutral",
+        className: ["text-black", "dark:text-white"],
+      },
+      {
+        variant: "link",
+        colorScheme: "blue",
+        className: ["text-sky-600", "dark: text-sky-500"],
+      },
+      {
+        variant: "link",
+        colorScheme: "green",
+        className: ["text-emerald-600", "dark: text-emerald-500"],
+      },
+      {
+        variant: "link",
+        colorScheme: "yellow",
+        className: ["text-yellow-600", "dark: text-yellow-500"],
+      },
+      {
+        variant: "link",
+        colorScheme: "red",
+        className: ["text-red-600", "dark: text-red-500"],
       },
     ],
     defaultVariants: {
