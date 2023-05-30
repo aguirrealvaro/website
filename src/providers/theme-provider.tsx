@@ -7,10 +7,12 @@ type ThemeProviderProps = {
   children: ReactNode;
 };
 
-export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
+const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
   return (
     <NextThemeProvider attribute="class" defaultTheme="dark">
       {children}
     </NextThemeProvider>
   );
 };
+
+export { ThemeProvider };

@@ -3,7 +3,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Icon, IconButton } from "@/components/ui";
 
-export const ThemeToggle: FunctionComponent = () => {
+const ThemeToggle: FunctionComponent = () => {
   const { theme, setTheme } = useTheme();
 
   const handleToggle = () => {
@@ -18,3 +18,5 @@ export const ThemeToggle: FunctionComponent = () => {
     </IconButton>
   );
 };
+
+export { ThemeToggle };

@@ -1,6 +1,6 @@
 import { PageContainer, Wrapper } from "@/components";
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Wrapper>
@@ -8,4 +8,6 @@ export default function Home() {
       </Wrapper>
     </div>
   );
-}
+};
+
+export default Home;

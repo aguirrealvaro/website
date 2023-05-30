@@ -15,7 +15,7 @@ type UseDisclosureReturn = {
   isUnmounting: boolean;
 };
 
-export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosureReturn => {
+const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosureReturn => {
   const defaultParams: UseDisclosureParams = { timeout: 200, closeOnResize: false };
   const params: UseDisclosureParams = { ...defaultParams, ...objParams };
   const { timeout, closeOnResize } = params;
@@ -61,3 +61,5 @@ export const useDisclosure = (objParams: UseDisclosureParams = {}): UseDisclosur
 
   return { isOpen, onOpen, onClose, onToggle, isUnmounting };
 };
+
+export { useDisclosure };

@@ -6,11 +6,7 @@ type UseKeyPressParams = {
   enabled?: boolean;
 };
 
-export const useKeyPress = ({
-  targetKey,
-  handler,
-  enabled = true,
-}: UseKeyPressParams): void => {
+const useKeyPress = ({ targetKey, handler, enabled = true }: UseKeyPressParams): void => {
   useEffect(() => {
     if (!enabled) return;
 
@@ -24,3 +20,5 @@ export const useKeyPress = ({
     };
   }, [handler, enabled, targetKey]);
 };
+
+export { useKeyPress };

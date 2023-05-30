@@ -13,7 +13,7 @@ const mediaLinks = [
   },
 ];
 
-export const MediaLinks: FunctionComponent = () => {
+const MediaLinks: FunctionComponent = () => {
   return (
     <>
       {mediaLinks.map(({ href, icon }, index) => {
@@ -32,3 +32,5 @@ export const MediaLinks: FunctionComponent = () => {
     </>
   );
 };
+
+export { MediaLinks };

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import Link from "next/link";
 import { navigationLinks } from "@/constants";
 
-export const MainMenu: FunctionComponent = () => {
+const MainMenu: FunctionComponent = () => {
   return (
     <nav className="sm:hidden">
       <ul className="flex gap-4">
@@ -19,3 +19,5 @@ export const MainMenu: FunctionComponent = () => {
     </nav>
   );
 };
+
+export { MainMenu };

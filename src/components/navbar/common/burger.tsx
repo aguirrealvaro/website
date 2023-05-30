@@ -7,7 +7,7 @@ type BurgerProps = {
   toggleMobileMenu: () => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Burger: FunctionComponent<BurgerProps> = ({
+const Burger: FunctionComponent<BurgerProps> = ({
   isMobileMenuOpen,
   toggleMobileMenu,
   ...restProps
@@ -22,3 +22,5 @@ export const Burger: FunctionComponent<BurgerProps> = ({
     </div>
   );
 };
+
+export { Burger };

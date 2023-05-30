@@ -11,7 +11,7 @@ type MobileMenuProps = {
   isUnmounting: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
+const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   isMobileMenuOpen,
   navbarHeight,
   closeMobileMenu,
@@ -49,3 +49,5 @@ export const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     </div>
   );
 };
+
+export { MobileMenu };
