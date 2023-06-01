@@ -1,6 +1,6 @@
 "use client";
 
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent } from "react";
 import { LucideIcon, LucideProps } from "lucide-react";
 
 type IconProps = {
