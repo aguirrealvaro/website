@@ -17,16 +17,15 @@ const Home = () => {
             easy to maintain and scale.
           </p>
           <p>
-            I specialize in working with technologies such as React, TypeScript, Next.js, React
-            Query, Styled Components, Tailwind CSS, NodeJS, among others. I am always willing
-            to learn and stay up-to-date with the latest trends and technologies.
+            I specialize in working with technologies such as React, TypeScript, Next, React
+            Query, Styled Components, Tailwind and Node, among others. I am always willing to
+            learn and stay up-to-date with the latest trends and technologies.
           </p>
           <p>
             I&apos;ll be sharing some of my personal projects and publishing articles about
-            topics that interest me and things I&apos;ve learned throughout my career as a web
-            developer.
+            topics that interest me and things I&apos;ve learned throughout my career.
           </p>
-          <p>I&apos; m currently looking for a new role as a developer. Hire me?</p>
+          <p>I&apos; m currently looking for a new role as a front end developer. Hire me?</p>
         </PageContainer>
       </Wrapper>
     </div>
