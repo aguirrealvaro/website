@@ -6,9 +6,9 @@ const Home = () => {
     <div>
       <Wrapper>
         <PageContainer>
-          <Typography.H1 className="mb-4">
+          <Typography.H2 className="mb-4">
             Hello, there! Welcome to my personal website
-          </Typography.H1>
+          </Typography.H2>
           <Typography.Paragraph>
             I&apos;m Alvaro, a developer based in Buenos Aires, Argentina. With over 4 years
             ofexperience in web development, I specialize in front-end development while also

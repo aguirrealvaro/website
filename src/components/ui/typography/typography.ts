@@ -1,7 +1,7 @@
-import { H1, Paragraph } from "./components";
+import { H2, Paragraph } from "./components";
 
 const Typography = {
-  H1,
+  H2,
   Paragraph,
 };
 
