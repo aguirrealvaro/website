@@ -1,6 +1,6 @@
 "use client";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { LucideIcon, LucideProps } from "lucide-react";
 
 type IconProps = {
@@ -14,13 +14,13 @@ export const Icon: FunctionComponent<IconProps> = ({
   size = 20,
   ...restProps
 }) => {
-  /* const [mounted, setMounted] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; */
+  if (!mounted) return null;
 
   return <IconComponent size={size} {...restProps} />;
 };
