@@ -9,7 +9,7 @@ const Home: FunctionComponent = () => {
         <PageContainer>
           <div className="flex justify-between gap-10">
             <IntroductionText />
-            <ProfilePicutre />
+            {/* <ProfilePicutre /> */}
           </div>
         </PageContainer>
       </Wrapper>
