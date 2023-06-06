@@ -52,7 +52,7 @@ const Trajectory: FunctionComponent = () => {
             <Item
               image="/up.png"
               company="Universidad de Palermo"
-              time="Sept 2019 - Dec 2019"
+              time="Jan 2016 - Dec 2022"
               description="Degree in Computer Science"
             />
           </section>
