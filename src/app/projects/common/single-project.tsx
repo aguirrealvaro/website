@@ -28,7 +28,9 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({
         className="mb-4 rounded shadow-lg"
       />
       <Typography.H4 className="mb-2">{title}</Typography.H4>
-      <Typography.Paragraph className="mb-4">{description}</Typography.Paragraph>
+      <Typography.Paragraph className="mb-4 text-text-secondary">
+        {description}
+      </Typography.Paragraph>
       <div className="flex gap-4">
         <a
           href={projectLink}
