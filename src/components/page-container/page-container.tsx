@@ -5,7 +5,7 @@ type PageContainerProps = {
 };
 
 const PageContainer: FunctionComponent<PageContainerProps> = ({ children }) => {
-  return <div className="mt-8">{children}</div>;
+  return <div className="mb-8 mt-28">{children}</div>;
 };
 
 export { PageContainer };

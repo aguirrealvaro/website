@@ -34,7 +34,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ id }) => {
   return (
     <header
       ref={containerRef}
-      className={cn("sticky inset-x-0 top-0 h-20 bg-bg-secondary shadow", "flex items-center")}
+      className={cn("fixed inset-x-0 top-0 h-20 bg-bg-secondary shadow", "flex items-center")}
     >
       <Wrapper>
         <div className="flex items-center justify-between">

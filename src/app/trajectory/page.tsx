@@ -7,7 +7,7 @@ const Trajectory: FunctionComponent = () => {
   return (
     <PageContainer>
       <Wrapper>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-12">
           <section>
             <Typography.H3 className="mb-4">Experience</Typography.H3>
             <Item
