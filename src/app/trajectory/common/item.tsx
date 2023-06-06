@@ -29,7 +29,7 @@ const Item: FunctionComponent<ItemProps> = ({
           className="rounded"
         />
         <div className="flex flex-col">
-          <h4 className="font-semibold">{company}</h4>
+          <Typography.H4>{company}</Typography.H4>
           <span className="text-text-secondary">{time}</span>
           {description && <Typography.Paragraph>{description}</Typography.Paragraph>}
         </div>
