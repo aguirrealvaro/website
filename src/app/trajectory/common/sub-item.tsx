@@ -1,7 +1,10 @@
 import { FunctionComponent } from "react";
+import { ItemProps } from "./item";
 import { cn } from "@/utils/cn";
 
-const SubExperience: FunctionComponent = () => {
+type SubItemProps = Omit<ItemProps, "subItems">;
+
+const SubItem: FunctionComponent<SubItemProps> = () => {
   return (
     <div
       className={cn(
@@ -14,4 +17,4 @@ const SubExperience: FunctionComponent = () => {
   );
 };
 
-export { SubExperience };
+export { SubItem };

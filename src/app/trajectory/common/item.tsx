@@ -1,20 +1,15 @@
 import { FunctionComponent } from "react";
 import Image from "next/image";
-import { SubExperience } from "./sub-experience";
+import { SubItem } from "./sub-item";
 
-type SingleExperienceProps = {
+type ItemProps = {
   image: string;
   company: string;
   time: string;
-  subExperiences?: SingleExperienceProps[];
+  subItems?: ItemProps[];
 };
 
-const SingleExperience: FunctionComponent<SingleExperienceProps> = ({
-  image,
-  company,
-  time,
-  subExperiences,
-}) => {
+const Item: FunctionComponent<ItemProps> = ({ image, company, time, subItems }) => {
   return (
     <div>
       <div className="flex gap-4">
@@ -30,11 +25,11 @@ const SingleExperience: FunctionComponent<SingleExperienceProps> = ({
           <span className="text-text-secondary">{time}</span>
         </div>
       </div>
-      {subExperiences?.map(({ company }, index) => {
-        return <SubExperience key={index} />;
+      {subItems?.map(({ company, image, time }, index) => {
+        return <SubItem key={index} company={company} image={image} time={time} />;
       })}
     </div>
   );
 };
 
-export { SingleExperience };
+export { Item, type ItemProps };

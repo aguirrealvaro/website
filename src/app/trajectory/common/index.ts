@@ -1,2 +1,2 @@
-export { Experience } from "./experience";
-export { Education } from "./education";
+export { Item } from "./item";
+export { SubItem } from "./sub-item";
