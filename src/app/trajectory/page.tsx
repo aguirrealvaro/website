@@ -14,7 +14,23 @@ const Trajectory: FunctionComponent = () => {
               image="/phinxlab.jpg"
               company="Phinx Lab"
               time="Jan 2020 - Dec 2022"
-              subItems={[{ company: "Blockfi", time: "time", image: "/blockfi.png" }]}
+              description="Software factory where I work for different clients, primarily BlockFi."
+              subItems={[
+                {
+                  company: "Team Lead at Blockfi",
+                  time: "Feb 2021 - Dec 2022",
+                  image: "/blockfi2.png",
+                  description:
+                    "I led a small team in the development of Trading, performing frontend tasks and launching high-impact features on the web app. I contributed to the success of the product, resulting in a significant improvement in the user experience and an increase in user engagement.",
+                },
+                {
+                  company: "Frontend Developer at Blockfi",
+                  time: "Jan 2020 - Feb 2021",
+                  image: "/blockfi2.png",
+                  description:
+                    "As a junior front-end developer, I was involved in the reconstruction of the Trading product.",
+                },
+              ]}
             />
           </section>
           <section>
