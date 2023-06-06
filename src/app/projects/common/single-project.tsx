@@ -6,14 +6,23 @@ import { cn } from "@/utils/cn";
 type SingleProjectType = {
   title: string;
   description: string;
+  image: string;
+  projectLink: string;
+  codeLink: string;
 };
 
-const SingleProject: FunctionComponent<SingleProjectType> = ({ title, description }) => {
+const SingleProject: FunctionComponent<SingleProjectType> = ({
+  title,
+  description,
+  image,
+  projectLink,
+  codeLink,
+}) => {
   return (
     <div>
       <Image
-        src="/components.webp"
-        alt="UI Kit picture"
+        src={image}
+        alt={`${title} Picture`}
         width={600}
         height={300}
         className="mb-4 rounded shadow-lg"
@@ -22,7 +31,7 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({ title, descriptio
       <Typography.Paragraph>{description}</Typography.Paragraph>
       <div className="flex gap-4">
         <a
-          href="https://ui-kit7.vercel.app/"
+          href={projectLink}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(buttonVariants())}
@@ -30,7 +39,7 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({ title, descriptio
           View Project
         </a>
         <a
-          href="https://github.com/aguirrealvaro/ui-kit"
+          href={codeLink}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(buttonVariants({ variant: "outlined" }))}

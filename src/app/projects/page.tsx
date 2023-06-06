@@ -12,6 +12,9 @@ const Projects: FunctionComponent = () => {
           <SingleProject
             title="UI Kit"
             description="React custom hooks and isolated components with accesibility"
+            image="/components.webp"
+            projectLink="https://ui-kit7.vercel.app"
+            codeLink="https://github.com/aguirrealvaro/ui-kit"
           />
         </div>
       </Wrapper>
