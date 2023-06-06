@@ -32,6 +32,12 @@ const Trajectory: FunctionComponent = () => {
                 },
               ]}
             />
+            <Item
+              image="/agora.png"
+              company="Ágora"
+              time="Jan 2021 - Oct 2021"
+              description="I was involved in the early stages of the project. I was responsible for designing and implementing the user interface. I worked closely with the design team and end-users to create user-friendly interface designs."
+            />
           </section>
           <section>
             <Typography.H3 className="mb-4">Education</Typography.H3>
