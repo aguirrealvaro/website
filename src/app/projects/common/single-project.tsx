@@ -27,8 +27,8 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({
         height={300}
         className="mb-4 rounded shadow-lg"
       />
-      <Typography.H4>{title}</Typography.H4>
-      <Typography.Paragraph>{description}</Typography.Paragraph>
+      <Typography.H4 className="mb-2">{title}</Typography.H4>
+      <Typography.Paragraph className="mb-4">{description}</Typography.Paragraph>
       <div className="flex gap-4">
         <a
           href={projectLink}
