@@ -1,7 +1,12 @@
 import { FunctionComponent } from "react";
+import { Typography } from "@/components/ui";
 
 const Education: FunctionComponent = () => {
-  return <div>Education</div>;
+  return (
+    <div>
+      <Typography.H3 className="mb-4">Education</Typography.H3>
+    </div>
+  );
 };
 
 export { Education };
