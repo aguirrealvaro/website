@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { Github, Linkedin } from "lucide-react";
 import { Icon, iconButtonVariants } from "@/components/ui";
+import { cn } from "@/utils/cn";
 
 const mediaLinks = [
   {
@@ -23,7 +24,7 @@ const MediaLinks: FunctionComponent = () => {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={iconButtonVariants()}
+            className={cn(iconButtonVariants())}
           >
             <Icon icon={icon} />
           </a>

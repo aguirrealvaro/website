@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { IntroductionText, ProfilePicutre } from "./common";
+import { ContactButtons, IntroductionText, ProfilePicutre } from "./common";
 import { PageContainer, Wrapper } from "@/components";
 
 const Home: FunctionComponent = () => {
@@ -8,7 +8,10 @@ const Home: FunctionComponent = () => {
       <Wrapper>
         <PageContainer>
           <div className="flex justify-between gap-10">
-            <IntroductionText />
+            <div>
+              <IntroductionText />
+              <ContactButtons />
+            </div>
             {/* <ProfilePicutre /> */}
           </div>
         </PageContainer>

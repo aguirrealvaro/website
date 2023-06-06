@@ -3,7 +3,7 @@ import { Typography } from "@/components/ui";
 
 const IntroductionText: FunctionComponent = () => {
   return (
-    <div>
+    <div className="mb-8">
       <Typography.H2 className="mb-4">Hello, there!</Typography.H2>
       <Typography.Paragraph>
         I&apos;m Alvaro, a developer based in Buenos Aires, Argentina. With over 4 years
