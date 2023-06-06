@@ -49,6 +49,12 @@ const Trajectory: FunctionComponent = () => {
           </section>
           <section>
             <Typography.H3 className="mb-4">Education</Typography.H3>
+            <Item
+              image="/up.png"
+              company="Universidad de Palermo"
+              time="Sept 2019 - Dec 2019"
+              description="Degree in Computer Science"
+            />
           </section>
         </div>
       </Wrapper>
