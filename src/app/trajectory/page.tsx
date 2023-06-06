@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { Item } from "./common";
 import { PageContainer, Wrapper } from "@/components";
-import { Typography } from "@/components/ui";
+import { Typography, Separator } from "@/components/ui";
 
 const Trajectory: FunctionComponent = () => {
   return (
@@ -32,6 +32,7 @@ const Trajectory: FunctionComponent = () => {
                 },
               ]}
             />
+            <Separator />
             <Item
               image="/agora.png"
               company="Ágora"
