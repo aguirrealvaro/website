@@ -1,19 +1,20 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent } from "react";
+import Image from "next/image";
 
 type SingleExperienceProps = {
-  children: ReactNode;
+  image: string;
   company: string;
   time: string;
 };
 
 const SingleExperience: FunctionComponent<SingleExperienceProps> = ({
-  children,
+  image,
   company,
   time,
 }) => {
   return (
     <div className="flex gap-4">
-      <div>{children}</div>
+      <Image src={image} alt={`${company} Logo`} width={50} height={50} className="rounded" />
       <div className="flex flex-col">
         <span>{company}</span>
         <span className="text-text-secondary">{time}</span>
