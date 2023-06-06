@@ -35,9 +35,16 @@ const Trajectory: FunctionComponent = () => {
             <Separator />
             <Item
               image="/agora.png"
-              company="Ágora"
+              company="Frontend Developer at Ágora"
               time="Jan 2021 - Oct 2021"
               description="I was involved in the early stages of the project. I was responsible for designing and implementing the user interface. I worked closely with the design team and end-users to create user-friendly interface designs."
+            />
+            <Separator />
+            <Item
+              image="/company.png"
+              company="Fullstack Developer at Coihue Software"
+              time="Sept 2019 - Dec 2019"
+              description="I have built different custom websites for various clients using React and Node for frontend and backend, respectively. I have also worked with relational databases to store and access important site data."
             />
           </section>
           <section>
