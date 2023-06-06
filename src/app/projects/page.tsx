@@ -8,7 +8,21 @@ const Projects: FunctionComponent = () => {
     <PageContainer>
       <Wrapper>
         <Typography.H3 className="mb-4">Projects</Typography.H3>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
+          <SingleProject
+            title="UI Kit"
+            description="React custom hooks and isolated components with accesibility"
+            image="/components.webp"
+            projectLink="https://ui-kit7.vercel.app"
+            codeLink="https://github.com/aguirrealvaro/ui-kit"
+          />
+          <SingleProject
+            title="UI Kit"
+            description="React custom hooks and isolated components with accesibility"
+            image="/components.webp"
+            projectLink="https://ui-kit7.vercel.app"
+            codeLink="https://github.com/aguirrealvaro/ui-kit"
+          />
           <SingleProject
             title="UI Kit"
             description="React custom hooks and isolated components with accesibility"

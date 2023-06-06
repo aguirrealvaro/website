@@ -19,7 +19,7 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({
   codeLink,
 }) => {
   return (
-    <div>
+    <div className="w-[calc(50%-1rem)]">
       <Image
         src={image}
         alt={`${title} Picture`}
