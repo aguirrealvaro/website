@@ -10,7 +10,8 @@ const Experience: FunctionComponent = () => {
         image="/phinxlab.jpg"
         company="Phinx Lab"
         time="Jan 2020 - Dec 2022"
-      ></SingleExperience>
+        subExperiences={[{ company: "asd", time: "time", image: "asd" }]}
+      />
     </div>
   );
 };
