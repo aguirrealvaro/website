@@ -8,18 +8,18 @@ const Trajectory: FunctionComponent = () => {
     <PageContainer>
       <Wrapper>
         <div className="flex flex-col gap-8">
-          <div>
+          <section>
             <Typography.H3 className="mb-4">Experience</Typography.H3>
             <Item
               image="/phinxlab.jpg"
               company="Phinx Lab"
               time="Jan 2020 - Dec 2022"
-              subItems={[{ company: "asd", time: "time", image: "asd" }]}
+              subItems={[{ company: "Blockfi", time: "time", image: "/blockfi.png" }]}
             />
-          </div>
-          <div>
+          </section>
+          <section>
             <Typography.H3 className="mb-4">Education</Typography.H3>
-          </div>
+          </section>
         </div>
       </Wrapper>
     </PageContainer>
