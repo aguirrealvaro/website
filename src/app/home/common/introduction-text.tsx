@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { RoughNotation } from "react-rough-notation";
 import { Typography } from "@/components/ui";
 
 const IntroductionText: FunctionComponent = () => {
@@ -9,31 +8,20 @@ const IntroductionText: FunctionComponent = () => {
       <Typography.Paragraph>
         I&apos;m Alvaro, a developer based in Buenos Aires, Argentina. With over 4 years
         ofexperience in web development, I specialize in{" "}
-        <RoughNotation type="highlight" color="#0ea5e9" show>
-          front-end
-        </RoughNotation>{" "}
-        development while also having a solid background in back-end technologies.
+        <Typography.Bold>front-end</Typography.Bold> development while also having a solid
+        background in back-end technologies.
       </Typography.Paragraph>
       <Typography.Paragraph>
         I&apos;m passionate about modern web architectures, building{" "}
-        <RoughNotation type="box" color="#ec4899" show>
-          user-friendly
-        </RoughNotation>{" "}
-        and simple digital products. I believe in writing{" "}
-        <RoughNotation type="underline" color="#f59e0b" show>
-          clean and efficient code
-        </RoughNotation>{" "}
-        that&apos;s easy to{" "}
-        <RoughNotation type="circle" color="#14b8a6" show>
-          maintain and scale
-        </RoughNotation>
-        .
+        <Typography.Bold>user-friendly</Typography.Bold> and simple digital products. I believe
+        in writing <Typography.Bold>clean and efficient code</Typography.Bold> that&apos;s easy
+        to <Typography.Bold>maintain and scale</Typography.Bold>.
       </Typography.Paragraph>
       <Typography.Paragraph>
         I specialize in working with technologies such as{" "}
-        <RoughNotation type="underline" color="#84cc16" show>
+        <Typography.Bold>
           React, TypeScript, Next, React Query, Styled Components, Tailwind and Node
-        </RoughNotation>
+        </Typography.Bold>
         , among others. I am always willing to learn and stay up-to-date with the latest trends
         and technologies.
       </Typography.Paragraph>
@@ -43,9 +31,7 @@ const IntroductionText: FunctionComponent = () => {
       </Typography.Paragraph>
       <Typography.Paragraph>
         I&apos; m currently looking for a new role as a front end developer.{" "}
-        <RoughNotation type="circle" color="#6366f1" show>
-          Hire me?
-        </RoughNotation>
+        <Typography.Bold>Hire me?</Typography.Bold>
       </Typography.Paragraph>
     </div>
   );
