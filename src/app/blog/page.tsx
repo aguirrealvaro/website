@@ -23,12 +23,12 @@ const Blog: FunctionComponent = () => {
               });
 
               return (
-                <li
-                  key={slug}
-                  className="border-b p-4 transition last:border-b-0 hover:bg-border-primary"
-                >
-                  <Link href={`/blog/${slug}`} className="flex flex-col">
-                    <span>{title}</span>
+                <li key={slug} className="border-b last:border-b-0 ">
+                  <Link
+                    href={`/blog/${slug}`}
+                    className="flex flex-col p-4 transition hover:bg-hover-primary"
+                  >
+                    <h2>{title}</h2>
                     <time dateTime={dateObject.toString()} className="text-text-secondary">
                       {formattedDate}
                     </time>
