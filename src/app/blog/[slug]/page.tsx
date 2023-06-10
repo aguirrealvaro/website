@@ -3,13 +3,13 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { PageContainer, Wrapper } from "@/components";
 import { allPosts } from "contentlayer/generated";
 
-type SinglePostPageProps = {
+type PostProps = {
   params: {
     slug: string | undefined;
   };
 };
 
-const SinglePostPage: FunctionComponent<SinglePostPageProps> = ({ params }) => {
+const Post: FunctionComponent<PostProps> = ({ params }) => {
   const post = allPosts.find((post) => post.slug === params?.slug);
 
   const MDXContent = useMDXComponent(post?.body.code || "");
@@ -28,7 +28,7 @@ const SinglePostPage: FunctionComponent<SinglePostPageProps> = ({ params }) => {
   );
 };
 
-export default SinglePostPage;
+export default Post;
 
 export const dynamicParams = false;
 

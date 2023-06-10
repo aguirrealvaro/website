@@ -13,14 +13,14 @@
 
 - review headings
 
-### Posts:
+### Blog:
 
+- lastest posts
 - prisma, views + likes
-- tags?
 
 ### Posts:
 
-- animate unmounting
+- exit animations
 - styled components vs tailwind
 - flex 1
 - z index
