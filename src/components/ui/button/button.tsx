@@ -313,15 +313,18 @@ const buttonVariants = cva(
 
 type ButtonProps = {
   children: ReactNode;
+  className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, block, size, shape, variant, colorScheme, ...restProps }, ref) => {
+  ({ children, block, size, shape, variant, colorScheme, className, ...restProps }, ref) => {
     return (
       <button
         ref={ref}
-        className={cn(buttonVariants({ block, size, shape, variant, colorScheme }))}
+        className={
+          (cn(buttonVariants({ block, size, shape, variant, colorScheme })), className)
+        }
         {...restProps}
       >
         {children}

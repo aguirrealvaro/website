@@ -5,18 +5,20 @@
 ### Backlog:
 
 - remove classes on disabled state for button, iconbutton
-- pass className to ui components
 - cn eslint
 - font flashing
 - icon hydration
 
 ### To do:
 
-- renme post to article
-- title artile
 - review headings
 
-### Blog:
+### Posts:
+
+- prisma, views + likes
+- tags?
+
+### Posts:
 
 - animate unmounting
 - styled components vs tailwind

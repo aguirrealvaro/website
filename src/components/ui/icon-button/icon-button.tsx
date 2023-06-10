@@ -21,13 +21,19 @@ const iconButtonVariants = cva(
 
 type IconButtonProps = {
   children: ReactNode;
+  className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof iconButtonVariants>;
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ children, size, ...props }, ref) => {
+  ({ children, size, className, ...props }, ref) => {
     return (
-      <button ref={ref} type="button" className={cn(iconButtonVariants({ size }))} {...props}>
+      <button
+        ref={ref}
+        type="button"
+        className={cn(iconButtonVariants({ size }), className)}
+        {...props}
+      >
         {children}
       </button>
     );
