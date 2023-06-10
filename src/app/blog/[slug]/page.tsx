@@ -10,7 +10,6 @@ type SinglePostPageProps = {
 };
 
 const SinglePostPage: FunctionComponent<SinglePostPageProps> = ({ params }) => {
-  console.log(params);
   const post = allPosts.find((post) => post.slug === params?.slug);
 
   const MDXContent = useMDXComponent(post?.body.code || "");

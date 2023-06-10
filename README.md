@@ -11,8 +11,10 @@
 - icon hydration
 
 ### To do:
-- not found
 
+- renme post to article
+- title artile
+- review headings
 
 ### Blog:
 
@@ -22,4 +24,3 @@
 - z index
 - keyboard interactions
 - precommit + lint staged with tsc + lint
-

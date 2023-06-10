@@ -9,6 +9,10 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    publishedAt: {
+      type: "string",
+      required: true,
+    },
   },
   computedFields: {
     slug: {
