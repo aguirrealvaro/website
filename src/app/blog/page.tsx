@@ -29,7 +29,7 @@ const Blog: FunctionComponent = () => {
                     className="flex flex-col p-4 transition hover:bg-hover-primary"
                   >
                     <h2>{title}</h2>
-                    <time dateTime={dateObject.toString()} className="text-text-secondary">
+                    <time dateTime={dateObject.toISOString()} className="text-text-secondary">
                       {formattedDate}
                     </time>
                   </Link>
