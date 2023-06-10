@@ -15,7 +15,6 @@
 
 ### Blog:
 
-- lastest posts
 - prisma, views + likes
 
 ### Posts:

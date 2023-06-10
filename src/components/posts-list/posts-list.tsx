@@ -2,12 +2,18 @@ import { FunctionComponent } from "react";
 import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 
-const PostsList: FunctionComponent = () => {
+type PostsListProps = {
+  sliced?: boolean;
+};
+
+const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
   const sortedPosts = allPosts.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
+  const displayPosts = sliced ? sortedPosts.slice(0, 3) : sortedPosts;
 
   return (
     <ul>
-      {sortedPosts.map((post) => {
+      {displayPosts.map((post) => {
         const { title, slug, publishedAt } = post;
         const dateObject = new Date(publishedAt);
 
