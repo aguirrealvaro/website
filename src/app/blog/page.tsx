@@ -5,21 +5,23 @@ import { Typography } from "@/components/ui";
 import { allPosts } from "contentlayer/generated";
 
 const Blog: FunctionComponent = () => {
+  const sortedPosts = allPosts.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
   return (
     <PageContainer>
       <Wrapper>
         <Typography.H3 className="mb-4">Blog</Typography.H3>
         <div>
           <ul>
-            {allPosts.map((post) => {
+            {sortedPosts.map((post) => {
               const { title, slug, publishedAt } = post;
-
               const dateObject = new Date(publishedAt);
 
               const formattedDate = dateObject.toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
+                timeZone: "UTC",
               });
 
               return (
