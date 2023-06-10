@@ -10,6 +10,7 @@ type SinglePostPageProps = {
 };
 
 const SinglePostPage: FunctionComponent<SinglePostPageProps> = ({ params }) => {
+  console.log(params);
   const post = allPosts.find((post) => post.slug === params?.slug);
 
   const MDXContent = useMDXComponent(post?.body.code || "");
@@ -30,15 +31,12 @@ const SinglePostPage: FunctionComponent<SinglePostPageProps> = ({ params }) => {
 
 export default SinglePostPage;
 
-export const getStaticPaths = () => {
-  return {
-    paths: allPosts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
-};
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return allPosts.map((post) => {
+    return {
+      slug: post.slug,
+    };
+  });
+}
