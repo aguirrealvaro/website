@@ -26,7 +26,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
       >
         <ThemeProvider>
           <div className="flex h-screen flex-col">
-            <Navbar id="navbar" />
+            <Navbar />
             <main className="flex-1">{children}</main>
           </div>
         </ThemeProvider>
