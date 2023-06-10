@@ -12,9 +12,6 @@
 ### To do:
 
 - review headings
-
-### Blog:
-
 - prisma, views + likes
 
 ### Posts:
