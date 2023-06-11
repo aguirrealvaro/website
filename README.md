@@ -11,6 +11,8 @@
 
 ### To do:
 
+- dates on trajectory
+- navbar
 - review headings
 - prisma, views + likes
 

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { ContactButtons, IntroductionText } from "./common";
+import { ContactButtons, IntroductionText, ProfilePicture } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
 
@@ -15,7 +15,7 @@ const Home: FunctionComponent = () => {
                 <IntroductionText />
                 <ContactButtons />
               </div>
-              {/* <ProfilePicutre /> */}
+              {/* <ProfilePicture /> */}
             </div>
           </div>
           <div>

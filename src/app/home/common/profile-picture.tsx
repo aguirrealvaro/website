@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import Image from "next/image";
 
-const ProfilePicutre: FunctionComponent = () => {
+const ProfilePicture: FunctionComponent = () => {
   return (
     <Image
       src="/avatar.jpg"
@@ -13,4 +13,4 @@ const ProfilePicutre: FunctionComponent = () => {
   );
 };
 
-export { ProfilePicutre };
+export { ProfilePicture };

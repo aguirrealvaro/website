@@ -7,5 +7,5 @@ type ParagraphProps = {
 };
 
 export const Paragraph: FunctionComponent<ParagraphProps> = ({ children, className }) => {
-  return <p className={cn("mb-4 last:mb-0", className)}>{children}</p>;
+  return <p className={cn("mb-4 text-justify last:mb-0", className)}>{children}</p>;
 };
