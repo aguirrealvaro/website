@@ -6,18 +6,22 @@ import prisma from "@/utils/prisma";
 export async function GET() {
   const sessions = await prisma.session.findMany();
 
-  return NextResponse.json(sessions);
+  return NextResponse.json(sessions, { status: 400 });
 }
 
 export async function POST() {
-  //const ipAddress = request.headers["x-forwarded-for"] || "0.0.0.0";
-
   const headersList = headers();
   const ipAddress = headersList.get("x-forwarded-for") || "0.0.0.0";
 
   const currentUserId = createHash("md5")
     .update(ipAddress + (process.env.IP_ADDRESS_SALT || ""), "utf8")
     .digest("hex");
+
+  const sessionExists = await prisma.session.findUnique({ where: { id: currentUserId } });
+
+  if (sessionExists) {
+    return NextResponse.json({ error: "Session exists" }, { status: 401 });
+  }
 
   const newSession = await prisma.session.create({
     data: {
