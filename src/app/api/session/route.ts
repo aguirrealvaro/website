@@ -2,12 +2,6 @@ import { NextResponse } from "next/server";
 import { getSession } from "@/app/api/utils";
 import prisma from "@/utils/prisma";
 
-export async function GET() {
-  const sessions = await prisma.session.findMany();
-
-  return NextResponse.json(sessions);
-}
-
 export async function POST() {
   const currentSessionId = getSession();
   const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
