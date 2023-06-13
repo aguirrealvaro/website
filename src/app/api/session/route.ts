@@ -1,6 +1,5 @@
-import { createHash } from "crypto";
-import { headers } from "next/headers";
 import { NextResponse } from "next/server";
+import { getSession } from "@/app/api/utils";
 import prisma from "@/utils/prisma";
 
 export async function GET() {
@@ -10,14 +9,8 @@ export async function GET() {
 }
 
 export async function POST() {
-  const headersList = headers();
-  const ipAddress = headersList.get("x-forwarded-for") || "0.0.0.0";
-
-  const currentUserId = createHash("md5")
-    .update(ipAddress + (process.env.IP_ADDRESS_SALT || ""), "utf8")
-    .digest("hex");
-
-  const sessionExists = await prisma.session.findUnique({ where: { id: currentUserId } });
+  const currentSessionId = getSession();
+  const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
 
   if (sessionExists) {
     return NextResponse.json({ error: "Session exists" }, { status: 401 });
@@ -25,7 +18,7 @@ export async function POST() {
 
   const newSession = await prisma.session.create({
     data: {
-      id: currentUserId,
+      id: currentSessionId,
     },
   });
 

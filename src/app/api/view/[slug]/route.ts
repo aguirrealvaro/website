@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getSession } from "@/app/api/utils";
 import prisma from "@/utils/prisma";
 
 type ParamsType = {
@@ -22,6 +23,8 @@ export async function GET(_: Request, { params }: ParamsType) {
 }
 
 export async function POST(_: Request, { params }: ParamsType) {
+  const currentSessionId = getSession();
+
   const { slug } = params;
 
   const post = await prisma.post.findUnique({ where: { slug } });
@@ -32,7 +35,7 @@ export async function POST(_: Request, { params }: ParamsType) {
 
   const newView = await prisma.view.create({
     data: {
-      sessionId: "29eea006b596b70a382bfddc9ed2467e",
+      sessionId: currentSessionId,
       postId: post.id,
     },
   });
