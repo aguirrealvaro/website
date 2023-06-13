@@ -1,10 +1,10 @@
 import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
-import prisma from "@/utils/prisma";
+//import prisma from "@/utils/prisma";
 
-const getPosts = async () => {
-  /* const response = await fetch("/api/post", {
+/* const getPosts = async () => {
+  const response = await fetch("/api/post", {
     headers: { "Content-Type": "application/json" },
   });
 
@@ -14,13 +14,13 @@ const getPosts = async () => {
   }
 
   const posts = await response.json();
- */
-  /* const posts = await prisma.post.findMany({
+
+  const posts = await prisma.post.findMany({
     include: { views: true, likes: true },
   });
 
-  return posts; */
-};
+  return posts;
+}; */
 
 // TO DO: type Home
 const Home = async () => {

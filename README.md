@@ -24,3 +24,4 @@
 - z index
 - keyboard interactions
 - precommit + lint staged with tsc + lint
+- stack
