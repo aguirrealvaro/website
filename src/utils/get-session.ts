@@ -1,7 +1,7 @@
 import { createHash } from "crypto";
 import { headers } from "next/headers";
 
-const getSession = () => {
+export const getSession = () => {
   const headersList = headers();
   const ipAddress = headersList.get("x-forwarded-for") || "0.0.0.0";
 
@@ -11,5 +11,3 @@ const getSession = () => {
 
   return currentSessionId;
 };
-
-export { getSession };
