@@ -1,9 +1,33 @@
-import { FunctionComponent } from "react";
 import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
+import prisma from "@/utils/prisma";
 
-const Home: FunctionComponent = () => {
+const getPosts = async () => {
+  /* const response = await fetch("/api/post", {
+    headers: { "Content-Type": "application/json" },
+  });
+
+  // This will activate the closest `error.js` Error Boundary
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  const posts = await response.json();
+ */
+  const posts = await prisma.post.findMany({
+    include: { views: true, likes: true },
+  });
+
+  return posts;
+};
+
+// TO DO: type Home
+const Home = async () => {
+  const posts = await getPosts();
+
+  console.log(posts);
+
   return (
     <div>
       <Wrapper>
