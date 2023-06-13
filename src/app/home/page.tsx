@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { ContactButtons, IntroductionText, ProfilePicture } from "./common";
+import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
 
