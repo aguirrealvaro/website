@@ -6,7 +6,7 @@ import prisma from "@/utils/prisma";
 export async function GET() {
   const sessions = await prisma.session.findMany();
 
-  return NextResponse.json(sessions, { status: 400 });
+  return NextResponse.json(sessions);
 }
 
 export async function POST() {
