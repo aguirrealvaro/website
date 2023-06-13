@@ -14,19 +14,19 @@ model Session {
   id        String   @id
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  View      View[]
+  views      View[]
 }
 
 model Post {
-  id        String   @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   slug      String   @unique
-  View      View[]
+  views      View[]
 }
 
 model View {
-  id        String   @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -35,6 +35,6 @@ model View {
   sessionId String
 
   // View 1 - M Post (A post has multiple views)
-  post   Post   @relation(fields: [postId], references: [id])
-  postId String
+  post   Post @relation(fields: [postId], references: [id])
+  postId Int
 }

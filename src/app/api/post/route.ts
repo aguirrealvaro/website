@@ -2,7 +2,11 @@ import { NextResponse } from "next/server";
 import prisma from "@/utils/prisma";
 
 export async function GET() {
-  const posts = await prisma.post.findMany();
+  const posts = await prisma.post.findMany({
+    include: {
+      views: true,
+    },
+  });
 
-  return NextResponse.json(posts, { status: 400 });
+  return NextResponse.json(posts);
 }
