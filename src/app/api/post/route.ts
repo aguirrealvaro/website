@@ -5,6 +5,7 @@ export async function GET() {
   const posts = await prisma.post.findMany({
     include: {
       views: true,
+      likes: true,
     },
   });
 
