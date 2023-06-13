@@ -15,19 +15,15 @@ const getPosts = async () => {
 
   const posts = await response.json();
  */
-  const posts = await prisma.post.findMany({
+  /* const posts = await prisma.post.findMany({
     include: { views: true, likes: true },
   });
 
-  return posts;
+  return posts; */
 };
 
 // TO DO: type Home
 const Home = async () => {
-  const posts = await getPosts();
-
-  console.log(posts);
-
   return (
     <div>
       <Wrapper>
