@@ -19,6 +19,7 @@ type RootLayoutProps = {
 
 const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
   //createSession();
+  console.log("create session!");
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -41,7 +42,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
 
 export default RootLayout;
 
-export const dynamic = "force-dynamic";
+/* export const dynamic = "force-dynamic";
 
 const createSession = async () => {
   const currentSessionId = getSession();
@@ -56,4 +57,4 @@ const createSession = async () => {
       id: currentSessionId,
     },
   });
-};
+}; */
