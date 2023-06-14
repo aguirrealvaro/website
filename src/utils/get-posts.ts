@@ -9,6 +9,7 @@ export const getPosts = async () => {
 
   const posts = dbPosts.map((dbPost) => {
     const relatedPost = allPosts.find((contentPost) => contentPost.slug === dbPost.slug);
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { _id, _raw, body, slug, type, ...restProps } = relatedPost || {};
 
