@@ -9,7 +9,5 @@ export const getSession = () => {
     .update(ipAddress + (process.env.IP_ADDRESS_SALT || ""), "utf8")
     .digest("hex");
 
-  return ipAddress;
-
-  //return currentSessionId;
+  return currentSessionId;
 };

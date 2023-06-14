@@ -24,14 +24,8 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
 
     const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
 
-    if (sessionExists) {
-      console.log("alredy exists****");
-      return;
-    }
+    if (sessionExists) return;
 
-    console.log("create session***");
-
-    // creates new session
     await prisma.session.create({
       data: {
         id: currentSessionId,
