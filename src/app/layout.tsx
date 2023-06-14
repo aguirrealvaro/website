@@ -5,6 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { raleway } from "@/utils/fonts";
+import { getSession } from "@/utils/get-session";
+import prisma from "@/utils/prisma";
 
 export const metadata: Metadata = {
   title: "Alvaro Aguirre",
@@ -16,6 +18,8 @@ type RootLayoutProps = {
 };
 
 const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
+  createSession();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -36,3 +40,18 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
 };
 
 export default RootLayout;
+
+const createSession = async () => {
+  const currentSessionId = getSession();
+
+  const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
+
+  if (sessionExists) return;
+
+  //creates new session
+  await prisma.session.create({
+    data: {
+      id: currentSessionId,
+    },
+  });
+};
