@@ -1,10 +1,10 @@
-import { type Post as DatabasePostType, type View, type Like } from "@prisma/client";
+import { type Post as DatabasePostType, type Views, type Likes } from "@prisma/client";
 import prisma from "@/utils/prisma";
 import { allPosts, type Post as ContentPostType } from "contentlayer/generated";
 
 type PostIncludeType = {
-  views: View[];
-  likes: Like[];
+  views: Views[];
+  likes: Likes[];
 };
 
 type ContentPostTypeOmit = Omit<ContentPostType, "_id" | "_raw" | "body" | "slug" | "type">;

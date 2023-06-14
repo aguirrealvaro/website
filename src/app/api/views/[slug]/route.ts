@@ -19,20 +19,12 @@ export async function POST(_: Request, { params }: ParamsType) {
     return NextResponse.json({ error: "Post does not exists" }, { status: 401 });
   }
 
-  const like = await prisma.like.findFirst({
-    where: { sessionId: currentSessionId, postId: post.id },
-  });
-
-  if (like) {
-    return NextResponse.json({ error: "Like alredy exists" }, { status: 401 });
-  }
-
-  const newLike = await prisma.like.create({
+  const newView = await prisma.views.create({
     data: {
       sessionId: currentSessionId,
       postId: post.id,
     },
   });
 
-  return NextResponse.json(newLike);
+  return NextResponse.json(newView);
 }
