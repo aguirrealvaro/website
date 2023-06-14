@@ -18,7 +18,7 @@ type RootLayoutProps = {
 };
 
 const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
-  createSession();
+  //createSession();
 
   return (
     <html lang="en" suppressHydrationWarning>
