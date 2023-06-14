@@ -1,9 +1,11 @@
-import { type Post as DatabasePostType } from "@prisma/client";
+import { type Post as DatabasePostType, type View, type Like } from "@prisma/client";
 import prisma from "@/utils/prisma";
 import { allPosts, type Post as ContentPostType } from "contentlayer/generated";
 
-type PostType = DatabasePostType &
-  Omit<ContentPostType, "_id" | "_raw" | "body" | "slug" | "type">;
+type PostType = DatabasePostType & { views: View[]; likes: Like[] } & Omit<
+    ContentPostType,
+    "_id" | "_raw" | "body" | "slug" | "type"
+  >;
 
 const getPosts = async (): Promise<PostType[]> => {
   const dbPosts = await prisma.post.findMany({
