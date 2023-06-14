@@ -3,8 +3,8 @@ import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
 //import prisma from "@/utils/prisma";
 
-/* const getPosts = async () => {
-  const response = await fetch("/api/post", {
+const getPosts = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
     headers: { "Content-Type": "application/json" },
   });
 
@@ -14,16 +14,21 @@ import { Typography } from "@/components/ui";
   }
 
   const posts = await response.json();
+  return posts;
 
+  /*
   const posts = await prisma.post.findMany({
     include: { views: true, likes: true },
   });
-
-  return posts;
-}; */
+  */
+};
 
 // TO DO: type Home
 const Home = async () => {
+  const asd = await getPosts();
+
+  console.log(asd);
+
   return (
     <div>
       <Wrapper>
