@@ -1,8 +1,8 @@
+import { Prisma } from "@prisma/client";
 import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
 import prisma from "@/utils/prisma";
-//import prisma from "@/utils/prisma";
 
 const getPosts = async () => {
   const posts = await prisma.post.findMany({
@@ -12,7 +12,8 @@ const getPosts = async () => {
   return posts;
 };
 
-// TO DO: type Home
+export type UsersWithCars = Prisma.PromiseReturnType<typeof getPosts>;
+
 const Home = async () => {
   const posts = await getPosts();
 
