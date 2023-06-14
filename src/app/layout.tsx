@@ -41,6 +41,8 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
 
 export default RootLayout;
 
+export const dynamic = "force-dynamic";
+
 const createSession = async () => {
   const currentSessionId = getSession();
 
