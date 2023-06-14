@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { FunctionComponent, ReactNode } from "react";
+import { ReactNode } from "react";
 import { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/providers";
@@ -17,9 +17,10 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
-const RootLayout = async ({ children }: RootLayoutProps) => {
+const RootLayout = ({ children }: RootLayoutProps) => {
   const createSession = async () => {
     "use server";
+
     const currentSessionId = getSession();
 
     const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
@@ -33,7 +34,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
     });
   };
 
-  await createSession();
+  createSession();
 
   return (
     <html lang="en" suppressHydrationWarning>
