@@ -12,9 +12,8 @@
 ### To do:
 
 - dates on trajectory
-- navbar
 - review headings
-- prisma, views + likes
+- lib folder? actions folder?
 
 ### Posts:
 
