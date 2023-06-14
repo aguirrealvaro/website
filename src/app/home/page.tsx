@@ -1,7 +1,7 @@
 import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
-import { getPosts, PostsType } from "@/utils/get-posts";
+import { getPosts } from "@/utils/get-posts";
 
 const Home = async () => {
   const posts = await getPosts();

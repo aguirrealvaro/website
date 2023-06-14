@@ -1,17 +1,26 @@
-import { Prisma } from "@prisma/client";
+import { type Post as DatabasePostType } from "@prisma/client";
 import prisma from "@/utils/prisma";
-import { allPosts } from "contentlayer/generated";
+import { allPosts, type Post as ContentPostType } from "contentlayer/generated";
 
-export const getPosts = async () => {
+type PostType = DatabasePostType &
+  Omit<ContentPostType, "_id" | "_raw" | "body" | "slug" | "type">;
+
+const getPosts = async (): Promise<PostType[]> => {
   const dbPosts = await prisma.post.findMany({
     include: { views: true, likes: true },
   });
 
-  const posts = dbPosts.map((dbPost) => {
+  // Using map, it will return undefined if there is no relatedPost found getting a type of (PostType | undefined)[]
+  // leading to issues because of the undefined type there
+  // using flatMap, i return [], and then merge all inner arrays,
+  // achieving the avoid of the undefined type if there is no relatedPost
+  const posts = dbPosts.flatMap((dbPost) => {
     const relatedPost = allPosts.find((contentPost) => contentPost.slug === dbPost.slug);
 
+    if (!relatedPost) return [];
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { _id, _raw, body, slug, type, ...restProps } = relatedPost || {};
+    const { _id, _raw, body, slug, type, ...restProps } = relatedPost;
 
     return {
       ...dbPost,
@@ -19,7 +28,9 @@ export const getPosts = async () => {
     };
   });
 
-  return posts;
+  const validPosts = posts.filter((post) => Boolean(post));
+
+  return validPosts;
 };
 
-export type PostsType = Prisma.PromiseReturnType<typeof getPosts>;
+export { getPosts, type PostType };

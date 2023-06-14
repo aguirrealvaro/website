@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
-import { PostsType } from "@/utils/get-posts";
+import { type PostType } from "@/utils/get-posts";
 
 type PostsListProps = {
-  posts: PostsType;
+  posts: PostType[];
   sliced?: boolean;
 };
 
