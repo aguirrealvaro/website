@@ -1,18 +1,7 @@
-import { Prisma } from "@prisma/client";
 import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
-import prisma from "@/utils/prisma";
-
-const getPosts = async () => {
-  const posts = await prisma.post.findMany({
-    include: { views: true, likes: true },
-  });
-
-  return posts;
-};
-
-export type UsersWithCars = Prisma.PromiseReturnType<typeof getPosts>;
+import { getPosts } from "@/utils/get-posts";
 
 const Home = async () => {
   const posts = await getPosts();
