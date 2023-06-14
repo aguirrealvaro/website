@@ -29,7 +29,7 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
     });
   };
 
-  incrementView();
+  //incrementView();
 
   const post = allPosts.find((post) => post.slug === params?.slug);
 
