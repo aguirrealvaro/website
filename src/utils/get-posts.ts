@@ -36,7 +36,9 @@ const getPosts = async (): Promise<PostType[]> => {
 
   const validPosts = posts.filter((post) => Boolean(post));
 
-  return validPosts;
+  const sortedPosts = validPosts.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
+  return sortedPosts;
 };
 
 export { getPosts, type PostType };

@@ -8,11 +8,7 @@ type PostsListProps = {
 };
 
 const PostsList: FunctionComponent<PostsListProps> = ({ posts, sliced = false }) => {
-  const sortedPosts = posts.sort((a, b) =>
-    (b.publishedAt || "").localeCompare(a.publishedAt || "")
-  );
-
-  const displayPosts = sliced ? sortedPosts.slice(0, 3) : sortedPosts;
+  const displayPosts = sliced ? posts.slice(0, 3) : posts;
 
   return (
     <ul>
