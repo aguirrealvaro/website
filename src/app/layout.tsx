@@ -17,8 +17,29 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
-const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
-  //createSession();
+const RootLayout = async ({ children }: RootLayoutProps) => {
+  const createSession = async () => {
+    "use server";
+    const currentSessionId = getSession();
+
+    const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
+
+    if (sessionExists) {
+      console.log("alredy exists****");
+      return;
+    }
+
+    console.log("create session***");
+
+    // creates new session
+    await prisma.session.create({
+      data: {
+        id: currentSessionId,
+      },
+    });
+  };
+
+  await createSession();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -40,25 +61,3 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
 };
 
 export default RootLayout;
-
-export const dynamic = "force-dynamic";
-
-const createSession = async () => {
-  const currentSessionId = getSession();
-
-  const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
-
-  if (sessionExists) {
-    console.log("alredy exists****");
-    return;
-  }
-
-  console.log("create session***");
-
-  // creates new session
-  await prisma.session.create({
-    data: {
-      id: currentSessionId,
-    },
-  });
-};
