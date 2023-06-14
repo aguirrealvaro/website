@@ -13,7 +13,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ posts, sliced = false })
   return (
     <ul>
       {displayPosts.map((post) => {
-        const { title, slug, publishedAt } = post;
+        const { title, slug, publishedAt, views, likes } = post;
         const dateObject = new Date(publishedAt || "");
 
         const formattedDate = dateObject.toLocaleDateString("en-US", {
@@ -31,7 +31,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ posts, sliced = false })
             >
               <h2>{title}</h2>
               <time dateTime={dateObject.toISOString()} className="text-text-secondary">
-                {formattedDate}
+                {formattedDate} · {views.length} views · {likes.length} likes
               </time>
             </Link>
           </li>
