@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { ReactNode } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/providers";
@@ -17,7 +17,7 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
   const createSession = async () => {
     "use server";
 
