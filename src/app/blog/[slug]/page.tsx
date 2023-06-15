@@ -1,8 +1,6 @@
 import { PostContent } from "@/app/blog/[slug]/common";
 import { PageContainer, Wrapper } from "@/components";
 import { getPost } from "@/utils/get-post";
-import { getSession } from "@/utils/get-session";
-import prisma from "@/utils/prisma";
 import { allPosts } from "contentlayer/generated";
 
 type PostProps = {
@@ -14,7 +12,7 @@ type PostProps = {
 const Post = async ({ params }: PostProps) => {
   const post = await getPost(params.slug);
 
-  const incrementView = async () => {
+  /* const incrementView = async () => {
     "use server";
 
     const currentSessionId = getSession();
@@ -31,7 +29,7 @@ const Post = async ({ params }: PostProps) => {
     });
   };
 
-  // incrementView();
+  incrementView(); */
 
   if (!post) {
     return null;

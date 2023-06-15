@@ -1,12 +1,11 @@
 import "@/styles/globals.css";
 import { FunctionComponent, ReactNode } from "react";
 import { Metadata } from "next";
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { raleway } from "@/utils/fonts";
-import { getSession } from "@/utils/get-session";
-import prisma from "@/utils/prisma";
 
 export const metadata: Metadata = {
   title: "Alvaro Aguirre",
@@ -18,7 +17,7 @@ type RootLayoutProps = {
 };
 
 const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
-  const createSession = async () => {
+  /* const createSession = async () => {
     "use server";
 
     const currentSessionId = getSession();
@@ -34,7 +33,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
     });
   };
 
-  // createSession();
+  createSession(); */
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -48,6 +47,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
           <div className="flex h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

@@ -11,10 +11,6 @@
 
 ### To do:
 
-- review headings
-- client mutations
-- footer
-
 ### Posts:
 
 - exit animations
