@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { PostMetrics } from "@/components/posts-list";
+import { PostMetrics } from "@/components";
 import { Typography } from "@/components/ui";
 import { formatDate } from "@/utils/format-date";
 

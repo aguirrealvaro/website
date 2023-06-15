@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
-import { PostMetrics } from ".";
+import { PostMetrics } from "@/components";
 import { formatDate } from "@/utils/format-date";
 import { allPosts } from "contentlayer/generated";
 
