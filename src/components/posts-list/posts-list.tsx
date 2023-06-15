@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
+import { getParsedDate } from "@/utils/get-parsed-date";
 import { type PostType } from "@/utils/get-posts";
 
 type PostsListProps = {
@@ -14,14 +15,8 @@ const PostsList: FunctionComponent<PostsListProps> = ({ posts, sliced = false })
     <ul>
       {displayPosts.map((post) => {
         const { title, slug, publishedAt, views, likes } = post;
-        const dateObject = new Date(publishedAt || "");
 
-        const formattedDate = dateObject.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          timeZone: "UTC",
-        });
+        const { dateObject, formattedDate } = getParsedDate(publishedAt);
 
         return (
           <li key={slug} className="border-b last:border-b-0 ">
