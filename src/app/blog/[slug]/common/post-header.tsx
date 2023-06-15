@@ -14,7 +14,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({ slug, title, published
 
   return (
     <div className="mb-8">
-      <Typography.H3>{title}</Typography.H3>
+      <Typography.H2>{title}</Typography.H2>
       <span>
         <time dateTime={dateString}>{formattedDate}</time> · <PostMetrics slug={slug} />
       </span>
