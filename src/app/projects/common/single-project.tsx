@@ -25,7 +25,7 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({
         alt={`${title} Picture`}
         width={600}
         height={300}
-        className="mb-4 rounded shadow-lg"
+        className="mb-4 rounded shadow-lg md:w-full"
       />
       <Typography.H4 className="mb-2">{title}</Typography.H4>
       <Typography.Paragraph className="mb-4 text-text-secondary">

@@ -13,8 +13,8 @@
 
 - dates on trajectory
 - review headings
-- lib folder? actions folder?
 - client mutations
+- footer
 
 ### Posts:
 

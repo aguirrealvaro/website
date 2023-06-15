@@ -1,5 +1,5 @@
 import { FunctionComponent, HTMLAttributes } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { navigationLinks } from "@/constants";
 import { useKeyPress } from "@/hooks";
 import { cn } from "@/utils/cn";
@@ -17,11 +17,18 @@ const MobileMenu: FunctionComponent<MobileMenuProps> = ({
   closeMobileMenu,
   isUnmounting,
 }) => {
+  const router = useRouter();
+
   useKeyPress({
     targetKey: "Escape",
     handler: closeMobileMenu,
     enabled: isMobileMenuOpen,
   });
+
+  const handleClick = (href: string) => {
+    router.push(href);
+    closeMobileMenu();
+  };
 
   return (
     <div
@@ -38,9 +45,12 @@ const MobileMenu: FunctionComponent<MobileMenuProps> = ({
           {navigationLinks.map(({ name, href }, index) => {
             return (
               <li key={index} className="text-center">
-                <Link href={href} className="rounded p-1.5 transition hover:bg-hover-primary">
+                <button
+                  onClick={() => handleClick(href)}
+                  className="rounded p-1.5 transition hover:bg-hover-primary"
+                >
                   {name}
-                </Link>
+                </button>
               </li>
             );
           })}
