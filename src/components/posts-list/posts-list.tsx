@@ -1,38 +1,40 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
+import { PostMetrics, PostsFetch } from ".";
 import { getParsedDate } from "@/utils/get-parsed-date";
-import { type PostType } from "@/utils/get-posts";
+import { allPosts } from "contentlayer/generated";
 
 type PostsListProps = {
-  posts: PostType[];
   sliced?: boolean;
 };
 
-const PostsList: FunctionComponent<PostsListProps> = ({ posts, sliced = false }) => {
-  const displayPosts = sliced ? posts.slice(0, 3) : posts;
+const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
+  const displayPosts = sliced ? allPosts.slice(0, 3) : allPosts;
 
   return (
-    <ul>
-      {displayPosts.map((post) => {
-        const { title, slug, publishedAt, views, likes } = post;
+    <>
+      <PostsFetch />
+      <ul>
+        {displayPosts.map((post) => {
+          const { title, slug, publishedAt } = post;
+          const { dateObject, formattedDate } = getParsedDate(publishedAt);
 
-        const { dateObject, formattedDate } = getParsedDate(publishedAt);
-
-        return (
-          <li key={slug} className="border-b last:border-b-0 ">
-            <Link
-              href={`/blog/${slug}`}
-              className="flex flex-col p-4 transition hover:bg-hover-primary"
-            >
-              <h2 className="font-medium">{title}</h2>
-              <time dateTime={dateObject.toISOString()} className="text-text-secondary">
-                {formattedDate} · {views.length} views · {likes.length} likes
-              </time>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+          return (
+            <li key={slug} className="border-b last:border-b-0 ">
+              <Link
+                href={`/blog/${slug}`}
+                className="flex flex-col p-4 transition hover:bg-hover-primary"
+              >
+                <h2 className="font-medium">{title}</h2>
+                <time dateTime={dateObject.toISOString()} className="text-text-secondary">
+                  {formattedDate} · <PostMetrics slug={post.slug} />
+                </time>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 

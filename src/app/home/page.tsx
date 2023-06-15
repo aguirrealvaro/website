@@ -1,11 +1,9 @@
+import { FunctionComponent } from "react";
 import { ContactButtons, IntroductionText } from "./common";
 import { PageContainer, PostsList, Wrapper } from "@/components";
 import { Typography } from "@/components/ui";
-import { getPosts } from "@/utils/get-posts";
 
-const Home = async () => {
-  const posts = await getPosts();
-
+const Home: FunctionComponent = () => {
   return (
     <div>
       <Wrapper>
@@ -22,7 +20,7 @@ const Home = async () => {
           </div>
           <div>
             <Typography.H2 className="mb-4">Latest Posts</Typography.H2>
-            <PostsList posts={posts} sliced />
+            <PostsList sliced />
           </div>
         </PageContainer>
       </Wrapper>

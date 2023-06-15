@@ -1,6 +1,6 @@
+import { FunctionComponent } from "react";
 import { PostContent, PostHeader, ViewFetch } from "./common";
 import { PageContainer, Wrapper } from "@/components";
-import { getPost } from "@/utils/get-post";
 import { allPosts } from "contentlayer/generated";
 
 type PostProps = {
@@ -9,8 +9,8 @@ type PostProps = {
   };
 };
 
-const Post = async ({ params }: PostProps) => {
-  const post = await getPost(params.slug);
+const Post: FunctionComponent<PostProps> = ({ params }) => {
+  const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) return null;
 
