@@ -8,9 +8,17 @@ import { QueryProvider, ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { raleway } from "@/utils/fonts";
 
+const TITLE = "Alvaro Aguirre";
+const DESCRIPTION =
+  "Alvaro Aguirre's website. Here you fill find some of my personal projects, my trajectory, and publishing articles about topics that interest me and things I've learned throughout my career.";
+
 export const metadata: Metadata = {
-  title: "Alvaro Aguirre",
-  description: "Description",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 type RootLayoutProps = {

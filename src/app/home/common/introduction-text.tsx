@@ -25,8 +25,9 @@ const IntroductionText: FunctionComponent = () => {
         and technologies.
       </Typography.Paragraph>
       <Typography.Paragraph>
-        I&apos;ll be sharing some of my personal projects and publishing articles about topics
-        that interest me and things I&apos;ve learned throughout my career.
+        Here you will see my trajectory. Also, I&apos;ll be sharing some of my personal
+        projects and publishing articles about topics that interest me and things I&apos;ve
+        learned throughout my career.
       </Typography.Paragraph>
       <Typography.Paragraph>
         I&apos; m currently looking for a new role as a front end developer.{" "}
