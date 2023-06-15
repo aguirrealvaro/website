@@ -21,8 +21,8 @@ const Item: FunctionComponent<ItemProps> = ({
   description,
   subItems,
 }) => {
-  const parsedFromDate = formatDate(fromDate, false);
-  const parsedToDate = formatDate(toDate, false);
+  const parsedFromDate = formatDate(fromDate, { showDay: false });
+  const parsedToDate = formatDate(toDate, { showDay: false });
 
   return (
     <div className="flex-1">
