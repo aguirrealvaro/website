@@ -1,15 +1,22 @@
 "use client";
 
 import { FunctionComponent, useEffect } from "react";
-import { useMutation } from "react-query";
-import { postView } from "@/client/query-fns";
+import { useMutation, useQuery } from "react-query";
+import { getPosts, postView } from "@/client/query-fns";
 
 type ViewFetchProps = {
   slug: string;
 };
 
 const ViewFetch: FunctionComponent<ViewFetchProps> = ({ slug }) => {
-  const { mutate: incrementView } = useMutation(postView);
+  const postsQuery = useQuery({ queryKey: "posts", queryFn: getPosts, enabled: false });
+
+  // first create the view, then fetch posts
+  const { mutate: incrementView } = useMutation(postView, {
+    onSuccess: () => {
+      postsQuery.refetch();
+    },
+  });
 
   useEffect(() => {
     incrementView(slug);

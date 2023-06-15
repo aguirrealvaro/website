@@ -26,7 +26,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
               <h2 className="font-medium">{title}</h2>
               <span className="text-text-secondary">
                 <time dateTime={dateString}>{formattedDate}</time> ·{" "}
-                <PostMetrics slug={post.slug} />
+                <PostMetrics slug={post.slug} shouldFetch />
               </span>
             </Link>
           </li>

@@ -16,7 +16,9 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({ slug, title, published
     <div className="mb-8">
       <Typography.H2>{title}</Typography.H2>
       <span className="text-text-secondary">
-        <time dateTime={dateString}>{formattedDate}</time> · <PostMetrics slug={slug} />
+        <time dateTime={dateString}>{formattedDate}</time> ·{" "}
+        {/* shouldFetch false: Alredy fetched on ViewFetch.tsx */}
+        <PostMetrics slug={slug} shouldFetch={false} />
       </span>
     </div>
   );

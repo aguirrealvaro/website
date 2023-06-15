@@ -6,19 +6,18 @@ import { getPosts } from "@/client/query-fns";
 
 type PostMetricsProps = {
   slug: string;
+  shouldFetch: boolean;
 };
 
-const PostMetrics: FunctionComponent<PostMetricsProps> = ({ slug }) => {
-  // I am aware that i am querying /posts inside a map,
-  // but the query wont exec more than once since since is cached
-  const postsQuery = useQuery({ queryKey: "posts", queryFn: getPosts });
+const PostMetrics: FunctionComponent<PostMetricsProps> = ({ slug, shouldFetch }) => {
+  const postsQuery = useQuery({ queryKey: "posts", queryFn: getPosts, enabled: shouldFetch });
 
   const relatedPost = postsQuery.data?.find((post) => post.slug === slug);
 
   const { views, likes } = relatedPost || {};
 
   const renderMetric = (metric: number | undefined) => {
-    if (postsQuery.isFetching) {
+    if (postsQuery.isFetching || metric === undefined) {
       return "...";
     } else {
       return metric;
