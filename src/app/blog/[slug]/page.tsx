@@ -1,4 +1,4 @@
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { PostContent } from "@/app/blog/[slug]/common";
 import { PageContainer, Wrapper } from "@/components";
 import { getPost } from "@/utils/get-post";
 import { getSession } from "@/utils/get-session";
@@ -11,10 +11,8 @@ type PostProps = {
   };
 };
 
-const Post = ({ params }: PostProps) => {
-  //const post = getPost(params.slug);
-
-  //console.log(post);
+const Post = async ({ params }: PostProps) => {
+  const post = await getPost(params.slug);
 
   const incrementView = async () => {
     "use server";
@@ -33,12 +31,7 @@ const Post = ({ params }: PostProps) => {
     });
   };
 
-  //incrementView();
-
-  const post = allPosts.find((post) => post.slug === params?.slug);
-
-  // si uso async await no puedo usar, pasarlo a un componente?
-  const MDXContent = useMDXComponent(post?.body.code || "");
+  // incrementView();
 
   if (!post) {
     return null;
@@ -48,7 +41,7 @@ const Post = ({ params }: PostProps) => {
     <PageContainer>
       <Wrapper>
         <h2>{post.title}</h2>
-        <MDXContent />
+        <PostContent content={post.body.code} />
       </Wrapper>
     </PageContainer>
   );
