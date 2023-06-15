@@ -11,7 +11,6 @@
 
 ### To do:
 
-- dates on trajectory
 - review headings
 - client mutations
 - footer

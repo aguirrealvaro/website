@@ -4,7 +4,13 @@ import { cn } from "@/utils/cn";
 
 type SubItemProps = Omit<ItemProps, "subItems">;
 
-const SubItem: FunctionComponent<SubItemProps> = ({ company, image, time, description }) => {
+const SubItem: FunctionComponent<SubItemProps> = ({
+  company,
+  image,
+  fromDate,
+  toDate,
+  description,
+}) => {
   return (
     <div
       className={cn(
@@ -12,7 +18,13 @@ const SubItem: FunctionComponent<SubItemProps> = ({ company, image, time, descri
         "before:mr-8 before:h-2 before:w-2 before:rounded-full before:bg-text-primary before:content-['']"
       )}
     >
-      <Item image={image} company={company} time={time} description={description} />
+      <Item
+        image={image}
+        company={company}
+        fromDate={fromDate}
+        toDate={toDate}
+        description={description}
+      />
     </div>
   );
 };
