@@ -3,7 +3,7 @@ import { FunctionComponent, ReactNode } from "react";
 import { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
-import { ThemeProvider } from "@/providers";
+import { QueryProvider, ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { raleway } from "@/utils/fonts";
 
@@ -25,13 +25,15 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
           `${raleway.variable} font-body`
         )}
       >
-        <ThemeProvider>
-          <div className="flex h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider>
+            <div className="flex h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );
