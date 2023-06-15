@@ -1,4 +1,4 @@
-import { PostContent } from "@/app/blog/[slug]/common";
+import { PostContent, PostHeader } from "@/app/blog/[slug]/common";
 import { PageContainer, Wrapper } from "@/components";
 import { getPost } from "@/utils/get-post";
 import { allPosts } from "contentlayer/generated";
@@ -17,7 +17,7 @@ const Post = async ({ params }: PostProps) => {
   return (
     <PageContainer>
       <Wrapper>
-        <h2>{post.title}</h2>
+        <PostHeader title={post.title} />
         <PostContent content={post.body.code} />
       </Wrapper>
     </PageContainer>
