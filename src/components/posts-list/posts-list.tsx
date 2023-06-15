@@ -24,9 +24,10 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
               className="flex flex-col p-4 transition hover:bg-hover-primary"
             >
               <h2 className="font-medium">{title}</h2>
-              <time dateTime={dateString} className="text-text-secondary">
-                {formattedDate} · <PostMetrics slug={post.slug} />
-              </time>
+              <span className="text-text-secondary">
+                <time dateTime={dateString}>{formattedDate}</time> ·{" "}
+                <PostMetrics slug={post.slug} />
+              </span>
             </Link>
           </li>
         );
