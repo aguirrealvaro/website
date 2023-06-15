@@ -1,9 +1,9 @@
 import { fetcher } from "./fetcher";
 
 export const postSession = () => {
-  return fetcher("api/session", { method: "POST" });
+  return fetcher("session", { method: "POST" });
 };
 
 export const postView = (slug: string) => {
-  return fetcher(`api/views/${slug}`, { method: "POST" });
+  return fetcher(`views/${slug}`, { method: "POST" });
 };

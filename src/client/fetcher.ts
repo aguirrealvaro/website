@@ -14,7 +14,7 @@ export const fetcher = async <T>(
   const requestOptions = { ...defaultOptions, ...options };
 
   try {
-    const response = await fetch(`/${url}`, requestOptions);
+    const response = await fetch(`/api/${url}`, requestOptions);
     const data: T = await response.json();
 
     if (response.ok) {
