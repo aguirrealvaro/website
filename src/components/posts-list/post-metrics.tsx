@@ -15,11 +15,9 @@ const PostMetrics: FunctionComponent<PostMetricsProps> = ({ slug }) => {
 
   const relatedPost = postsQuery.data?.find((post) => post.slug === slug);
 
-  if (!relatedPost) return null;
+  const { views, likes } = relatedPost || {};
 
-  const { views, likes } = relatedPost;
-
-  const renderMetric = (metric: number) => {
+  const renderMetric = (metric: number | undefined) => {
     if (postsQuery.isFetching) {
       return "...";
     } else {
@@ -29,7 +27,7 @@ const PostMetrics: FunctionComponent<PostMetricsProps> = ({ slug }) => {
 
   return (
     <>
-      {renderMetric(views.length)} views · {renderMetric(likes.length)} likes
+      {renderMetric(views?.length)} views · {renderMetric(likes?.length)} likes
     </>
   );
 };
