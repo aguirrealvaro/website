@@ -17,24 +17,6 @@ type RootLayoutProps = {
 };
 
 const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
-  /* const createSession = async () => {
-    "use server";
-
-    const currentSessionId = getSession();
-
-    const sessionExists = await prisma.session.findUnique({ where: { id: currentSessionId } });
-
-    if (sessionExists) return;
-
-    await prisma.session.create({
-      data: {
-        id: currentSessionId,
-      },
-    });
-  };
-
-  createSession(); */
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body

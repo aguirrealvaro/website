@@ -12,28 +12,7 @@ type PostProps = {
 const Post = async ({ params }: PostProps) => {
   const post = await getPost(params.slug);
 
-  /* const incrementView = async () => {
-    "use server";
-
-    const currentSessionId = getSession();
-
-    const post = await prisma.post.findUnique({ where: { slug: params.slug } });
-
-    if (!post) return;
-
-    await prisma.views.create({
-      data: {
-        sessionId: currentSessionId,
-        postId: post.id,
-      },
-    });
-  };
-
-  incrementView(); */
-
-  if (!post) {
-    return null;
-  }
+  if (!post) return null;
 
   return (
     <PageContainer>

@@ -24,7 +24,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ posts, sliced = false })
               href={`/blog/${slug}`}
               className="flex flex-col p-4 transition hover:bg-hover-primary"
             >
-              <h2>{title}</h2>
+              <h2 className="font-medium">{title}</h2>
               <time dateTime={dateObject.toISOString()} className="text-text-secondary">
                 {formattedDate} · {views.length} views · {likes.length} likes
               </time>
