@@ -18,7 +18,7 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
     <PageContainer>
       <Wrapper>
         <ViewFetch slug={params.slug} />
-        <PostHeader title={post.title} />
+        <PostHeader slug={post.slug} title={post.title} publishedAt={post.publishedAt} />
         <PostContent content={post.body.code} />
       </Wrapper>
     </PageContainer>
