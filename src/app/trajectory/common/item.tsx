@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 import { SubItem } from "./sub-item";
 import { Typography } from "@/components/ui";
-import { getParsedDate } from "@/utils/get-parsed-date";
+import { formatDate } from "@/utils/format-date";
 
 type ItemProps = {
   image: string;
@@ -21,8 +21,8 @@ const Item: FunctionComponent<ItemProps> = ({
   description,
   subItems,
 }) => {
-  const parsedFromDate = getParsedDate(fromDate, false);
-  const parsedToDate = getParsedDate(toDate, false);
+  const parsedFromDate = formatDate(fromDate, false);
+  const parsedToDate = formatDate(toDate, false);
 
   return (
     <div className="flex-1">
@@ -37,13 +37,8 @@ const Item: FunctionComponent<ItemProps> = ({
         <div className="flex flex-col">
           <Typography.H4>{company}</Typography.H4>
           <span className="text-text-secondary">
-            <time dateTime={parsedFromDate.dateObject.toISOString()}>
-              {parsedFromDate.formattedDate}
-            </time>{" "}
-            -{" "}
-            <time dateTime={parsedToDate.dateObject.toISOString()}>
-              {parsedToDate.formattedDate}
-            </time>
+            <time dateTime={parsedFromDate.dateString}>{parsedFromDate.formattedDate}</time> -{" "}
+            <time dateTime={parsedToDate.dateString}>{parsedToDate.formattedDate}</time>
           </span>
           {description && <Typography.Paragraph>{description}</Typography.Paragraph>}
         </div>

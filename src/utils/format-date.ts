@@ -1,5 +1,7 @@
-const getParsedDate = (date: string, showDay = true) => {
+const formatDate = (date: string, showDay = true) => {
   const dateObject = new Date(date);
+
+  const dateString = dateObject.toISOString();
 
   const formattedDate = dateObject.toLocaleDateString("en-US", {
     year: "numeric",
@@ -8,7 +10,7 @@ const getParsedDate = (date: string, showDay = true) => {
     timeZone: "UTC",
   });
 
-  return { dateObject, formattedDate };
+  return { dateString, formattedDate };
 };
 
-export { getParsedDate };
+export { formatDate };
