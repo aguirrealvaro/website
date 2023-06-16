@@ -15,7 +15,7 @@ type PostProps = {
 const Post: FunctionComponent<PostProps> = ({ params }) => {
   const { post, isFetchingPost, isIncrementingView } = useSinglePost(params.slug);
 
-  const relatedPost = allPosts?.find((post) => post.slug === params.slug);
+  const relatedPost = allPosts.find((post) => post.slug === params.slug);
 
   if (!relatedPost) return null;
 
@@ -27,7 +27,7 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
         <PostHeader
           title={title}
           publishedAt={publishedAt}
-          views={post?.views.length}
+          views={post?.views}
           likes={post?.likes.length}
           isFetching={isFetchingPost || isIncrementingView}
         />

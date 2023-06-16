@@ -21,8 +21,28 @@ export async function GET(_: Request, { params }: ParamsType) {
       id: postExist.id,
     },
     include: {
-      views: true,
       likes: true,
+    },
+  });
+
+  return NextResponse.json(post);
+}
+
+export async function PUT(_: Request, { params }: ParamsType) {
+  const { slug } = params;
+
+  const postExist = await prisma.post.findUnique({ where: { slug } });
+
+  if (!postExist) {
+    return NextResponse.json({ error: "Post does not exists" }, { status: 401 });
+  }
+
+  const post = await prisma.post.update({
+    where: {
+      id: postExist.id,
+    },
+    data: {
+      views: { increment: 1 },
     },
   });
 

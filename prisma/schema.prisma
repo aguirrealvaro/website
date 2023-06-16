@@ -15,7 +15,6 @@ model Session {
   id        String   @id
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  views     Views[]
   likes     Likes[]
 }
 
@@ -24,25 +23,8 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   slug      String   @unique
-  views     Views[]
+  views     Int      @default(0)
   likes     Likes[]
-}
-
-model Views {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // View 1 - M Session (A session has multiple views)
-  session   Session @relation(fields: [sessionId], references: [id])
-  sessionId String
-
-  // View 1 - M Post (A post has multiple views)
-  post   Post @relation(fields: [postId], references: [id])
-  postId Int
-
-  @@index([sessionId])
-  @@index([postId])
 }
 
 model Likes {

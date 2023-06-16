@@ -23,8 +23,6 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
 
         const relatedPost = posts?.find((post) => post.slug === slug);
 
-        const { views, likes } = relatedPost || {};
-
         const renderMetric = (metric: number | undefined) => {
           if (isFetchingPosts) {
             return "...";
@@ -42,7 +40,8 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
               <h2 className="font-medium">{title}</h2>
               <span className="text-text-secondary">
                 <time dateTime={dateString}>{formattedDate}</time> ·{" "}
-                {renderMetric(views?.length)} views · {renderMetric(likes?.length)} likes
+                {renderMetric(relatedPost?.views)} views ·{" "}
+                {renderMetric(relatedPost?.likes.length)} likes
               </span>
             </Link>
           </li>
