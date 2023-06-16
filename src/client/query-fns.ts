@@ -1,7 +1,7 @@
 import { type Post, type Views, type Likes } from "@prisma/client";
 import { fetcher } from "./fetcher";
 
-type PostType = Post & {
+export type PostType = Post & {
   views: Views[];
   likes: Likes[];
 };

@@ -1,23 +1,21 @@
 "use client";
 
 import { FunctionComponent } from "react";
-import { useQuery } from "react-query";
-import { getPosts } from "@/client/query-fns";
+import { usePosts } from "@/hooks";
 
 type PostMetricsProps = {
   slug: string;
-  shouldFetch: boolean;
 };
 
-const PostMetrics: FunctionComponent<PostMetricsProps> = ({ slug, shouldFetch }) => {
-  const postsQuery = useQuery({ queryKey: "posts", queryFn: getPosts, enabled: shouldFetch });
+const PostMetrics: FunctionComponent<PostMetricsProps> = ({ slug }) => {
+  const { posts, isLoadingPosts } = usePosts();
 
-  const relatedPost = postsQuery.data?.find((post) => post.slug === slug);
+  const relatedPost = posts?.find((post) => post.slug === slug);
 
   const { views, likes } = relatedPost || {};
 
   const renderMetric = (metric: number | undefined) => {
-    if (postsQuery.isFetching || metric === undefined) {
+    if (isLoadingPosts) {
       return "...";
     } else {
       return metric;
