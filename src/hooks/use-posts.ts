@@ -11,7 +11,6 @@ const usePosts = (): UsePostsReturnType => {
   const { data: posts, isFetching } = useQuery({
     queryKey: "posts",
     queryFn: getPosts,
-    cacheTime: 0,
   });
 
   return { posts, isFetching };

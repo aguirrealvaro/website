@@ -15,7 +15,6 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const { data: post, isFetching } = useQuery({
     queryKey: ["single-post", slug],
     queryFn: getSinglePost,
-    cacheTime: 0,
   });
 
   const { mutate: incrementView, isLoading: isIncrementingView } = useMutation(putView, {
