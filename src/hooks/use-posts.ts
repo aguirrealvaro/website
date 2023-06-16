@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
-import { PostType, getPosts } from "@/client/query-fns";
+import { PostType } from "@/client/interfaces";
+import { getPosts } from "@/client/query-fns";
 
 type UsePostsReturnType = {
   posts: PostType[] | undefined;

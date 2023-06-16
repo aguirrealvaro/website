@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { PostType, getSinglePost, putView } from "@/client/query-fns";
+import { PostType } from "@/client/interfaces";
+import { getSinglePost, putView } from "@/client/query-fns";
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;

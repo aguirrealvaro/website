@@ -1,10 +1,6 @@
-import { type Post, type Likes } from "@prisma/client";
 import { QueryFunctionContext } from "react-query";
 import { fetcher } from "./fetcher";
-
-export type PostType = Post & {
-  likes: Likes[];
-};
+import { PostType } from "@/client/interfaces";
 
 export const getSinglePost = (
   context: QueryFunctionContext<[string, string]>

@@ -1,14 +1,5 @@
-export interface MemberI {
-  firstName: string;
-  lastName: string;
-  address: string;
-  ssn: string;
-}
+import { type Post, type Likes } from "@prisma/client";
 
-export type GetMembersResponseI = MemberI[];
-
-export interface UpdateTokenResponse {
-  iat: number;
-  exp: number;
-  token: string;
-}
+export type PostType = Post & {
+  likes: Likes[];
+};
