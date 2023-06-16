@@ -16,3 +16,15 @@ const usePosts = (): UsePostsReturnType => {
 };
 
 export { usePosts };
+
+/*
+  const queryClient = useQueryClient();
+const { mutate: incrementView } = useMutation(postView, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("posts");
+    },
+  });
+
+  useEffect(() => {
+    incrementView(params.slug);
+  }, [incrementView, params.slug]);*/

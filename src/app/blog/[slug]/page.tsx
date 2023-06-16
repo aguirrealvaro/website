@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { PostContent, PostHeader, ViewFetch } from "./common";
+import { PostContent, PostHeader } from "./common";
 import { PageContainer, Wrapper } from "@/components";
 import { allPosts } from "contentlayer/generated";
 
@@ -17,8 +17,7 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
   return (
     <PageContainer>
       <Wrapper>
-        <ViewFetch slug={params.slug} />
-        <PostHeader slug={post.slug} title={post.title} publishedAt={post.publishedAt} />
+        <PostHeader title={post.title} publishedAt={post.publishedAt} />
         <PostContent content={post.body.code} />
       </Wrapper>
     </PageContainer>
