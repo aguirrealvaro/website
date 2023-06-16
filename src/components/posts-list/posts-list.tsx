@@ -13,7 +13,7 @@ type PostsListProps = {
 const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
   const displayPosts = sliced ? allPosts.slice(0, 3) : allPosts;
 
-  const { posts, isFetchingPosts } = usePosts();
+  const { posts, isFetching } = usePosts();
 
   return (
     <ul>
@@ -24,7 +24,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
         const relatedPost = posts?.find((post) => post.slug === slug);
 
         const renderMetric = (metric: number | undefined) => {
-          if (isFetchingPosts) {
+          if (isFetching) {
             return "...";
           } else {
             return metric;

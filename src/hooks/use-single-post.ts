@@ -5,14 +5,14 @@ import { getSinglePost, putView } from "@/client/query-fns";
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;
-  isFetchingPost: boolean;
+  isFetching: boolean;
   isIncrementingView: boolean;
 };
 
 const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const queryClient = useQueryClient();
 
-  const { data: post, isFetching: isFetchingPost } = useQuery({
+  const { data: post, isFetching } = useQuery({
     queryKey: ["single-post", slug],
     queryFn: getSinglePost,
   });
@@ -27,7 +27,7 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
     incrementView(slug);
   }, [incrementView, slug]);
 
-  return { post, isFetchingPost, isIncrementingView };
+  return { post, isFetching, isIncrementingView };
 };
 
 export { useSinglePost };
