@@ -19,7 +19,7 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
 
   const { mutate: incrementView, isLoading: isIncrementingView } = useMutation(putView, {
     onSuccess: () => {
-      queryClient.invalidateQueries("single-post");
+      queryClient.invalidateQueries({ queryKey: ["single-post", "posts"] });
     },
   });
 
