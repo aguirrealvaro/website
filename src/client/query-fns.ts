@@ -1,9 +1,17 @@
 import { type Post, type Views, type Likes } from "@prisma/client";
+import { QueryFunctionContext } from "react-query";
 import { fetcher } from "./fetcher";
 
 export type PostType = Post & {
   views: Views[];
   likes: Likes[];
+};
+
+export const getSinglePost = (
+  context: QueryFunctionContext<[string, string]>
+): Promise<PostType> => {
+  const [, slug] = context.queryKey;
+  return fetcher(`post/${slug}`);
 };
 
 export const getPosts = (): Promise<PostType[]> => {

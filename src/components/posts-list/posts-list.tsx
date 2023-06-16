@@ -13,7 +13,7 @@ type PostsListProps = {
 const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
   const displayPosts = sliced ? allPosts.slice(0, 3) : allPosts;
 
-  const { posts, isLoadingPosts } = usePosts();
+  const { posts, isFetchingPosts } = usePosts();
 
   return (
     <ul>
@@ -26,7 +26,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
         const { views, likes } = relatedPost || {};
 
         const renderMetric = (metric: number | undefined) => {
-          if (isLoadingPosts) {
+          if (isFetchingPosts) {
             return "...";
           } else {
             return metric;

@@ -1,6 +1,9 @@
+"use client";
+
 import { FunctionComponent } from "react";
 import { PostContent, PostHeader } from "./common";
 import { PageContainer, Wrapper } from "@/components";
+import { useSinglePost } from "@/hooks";
 import { allPosts } from "contentlayer/generated";
 
 type PostProps = {
@@ -10,15 +13,25 @@ type PostProps = {
 };
 
 const Post: FunctionComponent<PostProps> = ({ params }) => {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const { post, isFetchingPost, isIncrementingView } = useSinglePost(params.slug);
 
-  if (!post) return null;
+  const relatedPost = allPosts?.find((post) => post.slug === params.slug);
+
+  if (!relatedPost) return null;
+
+  const { title, publishedAt, body } = relatedPost;
 
   return (
     <PageContainer>
       <Wrapper>
-        <PostHeader title={post.title} publishedAt={post.publishedAt} />
-        <PostContent content={post.body.code} />
+        <PostHeader
+          title={title}
+          publishedAt={publishedAt}
+          views={post?.views.length}
+          likes={post?.likes.length}
+          isFetching={isFetchingPost || isIncrementingView}
+        />
+        <PostContent content={body.code} />
       </Wrapper>
     </PageContainer>
   );
