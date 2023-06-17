@@ -2,13 +2,15 @@
 
 [aguirrealvaro.vercel.app](https://aguirrealvaro.vercel.app/)
 
-### Backlog:
+### To do:
 
 - remove classes on disabled state for button, iconbutton
 - cn eslint
-- font flashing
+- font flashing on development
 - icon hydration
 - "session exists"
+- status code 304
+- enabled, description, tags
 
 ### Posts:
 
