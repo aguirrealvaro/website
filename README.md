@@ -8,7 +8,6 @@
 - cn eslint
 - font flashing on development
 - icon hydration
-- "session exists"
 - dominio
 - old response
 - enabled, description, tags
