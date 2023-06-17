@@ -6,10 +6,9 @@ import { LucideIcon, LucideProps } from "lucide-react";
 type IconProps = {
   icon: LucideIcon;
   size?: string | number;
-  color?: string;
 } & LucideProps;
 
-export const Icon: FunctionComponent<IconProps> = ({
+const Icon: FunctionComponent<IconProps> = ({
   icon: IconComponent,
   size = 20,
   ...restProps
@@ -24,3 +23,5 @@ export const Icon: FunctionComponent<IconProps> = ({
 
   return <IconComponent size={size} {...restProps} />;
 };
+
+export { Icon };
