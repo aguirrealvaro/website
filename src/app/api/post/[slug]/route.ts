@@ -44,6 +44,9 @@ export async function PUT(_: Request, { params }: ParamsType) {
     data: {
       views: { increment: 1 },
     },
+    include: {
+      likes: true,
+    },
   });
 
   return NextResponse.json(post);

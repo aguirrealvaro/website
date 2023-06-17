@@ -17,6 +17,6 @@ export const postSession = () => {
   return fetcher("session", { method: "POST" });
 };
 
-export const putView = (slug: string) => {
+export const putView = (slug: string): Promise<PostType> => {
   return fetcher(`post/${slug}`, { method: "PUT" });
 };
