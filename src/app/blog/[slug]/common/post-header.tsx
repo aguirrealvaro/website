@@ -7,7 +7,7 @@ type PostHeaderProps = {
   publishedAt: string;
   views: number | undefined;
   likes: number | undefined;
-  isFetching: boolean;
+  isLoading: boolean;
 };
 
 const PostHeader: FunctionComponent<PostHeaderProps> = ({
@@ -15,12 +15,12 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
   publishedAt,
   views,
   likes,
-  isFetching,
+  isLoading,
 }) => {
   const { dateString, formattedDate } = formatDate(publishedAt);
 
   const renderMetric = (metric: number | undefined) => {
-    if (isFetching) {
+    if (isLoading) {
       return "...";
     } else {
       return metric;

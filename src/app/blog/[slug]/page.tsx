@@ -13,7 +13,7 @@ type PostProps = {
 };
 
 const Post: FunctionComponent<PostProps> = ({ params }) => {
-  const { post, isFetching } = useSinglePost(params.slug);
+  const { post, isLoading } = useSinglePost(params.slug);
 
   const relatedPost = allPosts.find((post) => post.slug === params.slug);
 
@@ -29,7 +29,7 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
           publishedAt={publishedAt}
           views={post?.views}
           likes={post?.likes.length}
-          isFetching={isFetching}
+          isLoading={isLoading}
         />
         <PostContent content={body.code} />
       </Wrapper>

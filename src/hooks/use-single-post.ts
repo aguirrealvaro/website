@@ -1,22 +1,31 @@
 import { useEffect } from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { PostType } from "@/client/interfaces";
 import { putView } from "@/client/query-fns";
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;
-  isFetching: boolean;
+  isLoading: boolean;
 };
 
 const useSinglePost = (slug: string): UseSinglePostReturnType => {
-  // Instead of mutate and then fetch, I can just do the mutation and take the data
-  const { mutate: incrementView, isLoading: isFetching, data: post } = useMutation(putView);
+  const queryClient = useQueryClient();
+
+  const {
+    mutate: incrementView,
+    isLoading,
+    data: post,
+  } = useMutation(putView, {
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: "posts" });
+    },
+  });
 
   useEffect(() => {
     incrementView(slug);
   }, [incrementView, slug]);
 
-  return { post, isFetching };
+  return { post, isLoading };
 };
 
 export { useSinglePost };

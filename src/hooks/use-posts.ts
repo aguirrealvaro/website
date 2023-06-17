@@ -8,7 +8,7 @@ type UsePostsReturnType = {
 };
 
 const usePosts = (): UsePostsReturnType => {
-  const { data: posts, isLoading: isFetching } = useQuery({
+  const { data: posts, isFetching } = useQuery({
     queryKey: "posts",
     queryFn: getPosts,
   });
