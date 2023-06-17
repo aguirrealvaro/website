@@ -13,9 +13,9 @@
 ### Posts:
 
 - exit animations
-- styled components vs tailwind
+- react query take
 - flex 1
 - z index
 - keyboard interactions
 - precommit + lint staged with tsc + lint
-- stack
+- styled components vs tailwind
