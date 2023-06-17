@@ -1,5 +1,6 @@
+import { createHash } from "crypto";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-import { getSession } from "@/utils/get-session";
 import prisma from "@/utils/prisma";
 
 type ParamsType = {
@@ -36,3 +37,14 @@ export async function POST(_: Request, { params }: ParamsType) {
 
   return NextResponse.json(newLike);
 }
+
+const getSession = () => {
+  const headersList = headers();
+  const ipAddress = headersList.get("x-forwarded-for") || "0.0.0.0";
+
+  const currentSessionId = createHash("md5")
+    .update(ipAddress + (process.env.IP_ADDRESS_SALT || ""), "utf8")
+    .digest("hex");
+
+  return currentSessionId;
+};

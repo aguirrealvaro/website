@@ -9,7 +9,8 @@
 - font flashing on development
 - icon hydration
 - "session exists"
-- status code 304
+- dominio
+- old response
 - enabled, description, tags
 
 ### Posts:

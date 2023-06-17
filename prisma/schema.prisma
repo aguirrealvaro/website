@@ -11,13 +11,6 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Session {
-  id        String   @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  likes     Likes[]
-}
-
 model Post {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -31,15 +24,11 @@ model Likes {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Like 1 - M Session (A session has multiple likes)
-  session   Session @relation(fields: [sessionId], references: [id])
   sessionId String
 
   // Like 1 - M Post (A post has multiple likes)
   post   Post @relation(fields: [postId], references: [id])
   postId Int
 
-  @@index([sessionId])
   @@index([postId])
 }
