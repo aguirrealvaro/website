@@ -13,18 +13,10 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    /* description: {
-      type: "string",
-      required: false,
-    },
-    tags: {
-      type: "string",
-      required: false,
-    },
     enabled: {
-      enabled: "boolean",
-      required: false,
-    }, */
+      type: "boolean",
+      required: true,
+    },
   },
   computedFields: {
     slug: {

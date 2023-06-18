@@ -12,7 +12,7 @@
 # To do:
 
 - old response
-- enabled, description, tags
+- enabled
 
 ### Posts:
 
