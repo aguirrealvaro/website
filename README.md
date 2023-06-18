@@ -11,7 +11,6 @@
 
 # To do:
 
-- dominio
 - old response
 - enabled, description, tags
 

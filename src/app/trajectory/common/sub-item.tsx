@@ -15,7 +15,7 @@ const SubItem: FunctionComponent<SubItemProps> = ({
     <div
       className={cn(
         "ml-8 mt-4 flex items-center",
-        "before:mr-8 before:h-2 before:w-2 before:rounded-full before:bg-text-primary before:content-['']"
+        "before:mr-8 before:h-2 before:w-2 before:rounded-full before:bg-text-primary before:content-[''] sm:before:hidden"
       )}
     >
       <Item

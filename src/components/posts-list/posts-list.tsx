@@ -33,10 +33,7 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
 
         return (
           <li key={slug} className="border-b last:border-b-0 ">
-            <Link
-              href={`/blog/${slug}`}
-              className="flex flex-col p-4 transition hover:bg-hover-primary"
-            >
+            <Link href={`/blog/${slug}`} className="flex flex-col py-4 transition">
               <h2 className="font-medium">{title}</h2>
               <span className="text-text-secondary">
                 <time dateTime={dateString}>{formattedDate}</time> ·{" "}
