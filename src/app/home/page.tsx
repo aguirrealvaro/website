@@ -5,26 +5,24 @@ import { Typography } from "@/components/ui";
 
 const Home: FunctionComponent = () => {
   return (
-    <div>
+    <PageContainer>
       <Wrapper>
-        <PageContainer>
-          <div className="mb-16">
-            <Typography.H2 className="mb-4">Hello, there!</Typography.H2>
-            <div className="flex justify-between gap-10">
-              <div>
-                <IntroductionText />
-                <ContactButtons />
-              </div>
-              {/* <ProfilePicture /> */}
+        <div className="mb-16">
+          <Typography.H2 className="mb-4">Hello, there!</Typography.H2>
+          <div className="flex justify-between gap-10">
+            <div>
+              <IntroductionText />
+              <ContactButtons />
             </div>
+            {/* <ProfilePicture /> */}
           </div>
-          <div>
-            <Typography.H2 className="mb-4">Latest Posts</Typography.H2>
-            <PostsList sliced />
-          </div>
-        </PageContainer>
+        </div>
+        <div>
+          <Typography.H2 className="mb-4">Latest Posts</Typography.H2>
+          <PostsList sliced />
+        </div>
       </Wrapper>
-    </div>
+    </PageContainer>
   );
 };
 
