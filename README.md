@@ -1,5 +1,8 @@
 # Website
 
+Made with Next, Typescript, Tailwind, Prisma, React Query & MDX
+Deployed to Vercel & PlanetScale
+
 [aguirrealvaro.vercel.app](https://aguirrealvaro.vercel.app/)
 
 ### Backlog:
@@ -12,7 +15,6 @@
 # To do:
 
 - old response
-- enabled
 
 ### Posts:
 
