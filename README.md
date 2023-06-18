@@ -2,12 +2,15 @@
 
 [aguirrealvaro.vercel.app](https://aguirrealvaro.vercel.app/)
 
-### To do:
+### Backlog:
 
 - remove classes on disabled state for button, iconbutton
 - cn eslint
 - font flashing on development
 - icon hydration
+
+# To do:
+
 - dominio
 - old response
 - enabled, description, tags
