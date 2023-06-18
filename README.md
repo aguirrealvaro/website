@@ -12,7 +12,7 @@ Deployed to Vercel & PlanetScale
 - font flashing on development
 - icon hydration
 
-# To do:
+### To do:
 
 - old response
 
