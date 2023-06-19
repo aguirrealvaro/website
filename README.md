@@ -11,7 +11,11 @@ Deployed to Vercel & PlanetScale
 - cn eslint
 - font flashing on development
 - icon hydration
+
+### To do:
+
 - old response
+- 404 post
 
 ### Posts:
 
