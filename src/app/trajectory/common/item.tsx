@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import Image from "next/image";
-import { SubItem } from "./sub-item";
 import { Typography } from "@/components/ui";
+import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/format-date";
 
 type ItemProps = {
@@ -11,6 +11,7 @@ type ItemProps = {
   toDate: string;
   description?: string;
   subItems?: ItemProps[];
+  isSubItem?: boolean;
 };
 
 const Item: FunctionComponent<ItemProps> = ({
@@ -20,12 +21,13 @@ const Item: FunctionComponent<ItemProps> = ({
   toDate,
   description,
   subItems,
+  isSubItem = false,
 }) => {
   const parsedFromDate = formatDate(fromDate, { showDay: false });
   const parsedToDate = formatDate(toDate, { showDay: false });
 
   return (
-    <div className="flex-1">
+    <div className={cn("flex-1", isSubItem ? "ml-8 mt-4" : "")}>
       <div className="flex items-center gap-4">
         <Image
           src={image}
@@ -45,13 +47,14 @@ const Item: FunctionComponent<ItemProps> = ({
       </div>
       {subItems?.map(({ company, image, fromDate, toDate, description }, index) => {
         return (
-          <SubItem
+          <Item
             key={index}
             company={company}
             image={image}
             fromDate={fromDate}
             toDate={toDate}
             description={description}
+            isSubItem
           />
         );
       })}

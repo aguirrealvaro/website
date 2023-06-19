@@ -10,7 +10,7 @@ import { raleway } from "@/utils/fonts";
 export const metadata: Metadata = {
   title: "Alvaro Aguirre",
   description:
-    "Here you will see my trajectory. Also, I'll be sharing some of my personal projects and publishing articles about topics that interest me and things I've learned throughout my career",
+    "I'll be sharing my journey, some of my personal projects and publishing articles about topics that interest me and things I've learned throughout my career",
 };
 
 type RootLayoutProps = {

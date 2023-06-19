@@ -10,8 +10,8 @@ const queryClient = new QueryClient({
       refetchOnReconnect: true,
       retry: false,
       // staleTime: Infinity: data will be always "fresh", avoiding background fetchs
-      // I will update the data manually through events
-      // using this method i should use `isFetching` instead of `isLoading`
+      // I will update the data manually through events (invalidating queries)
+      // using this method I should use `isFetching` instead of `isLoading`
       // pros: avoid background fetchs, avoid hard refreshs (without a loading state)
       // cons: The data may not always be up to date (third users interacting with the data).
       staleTime: Infinity,
