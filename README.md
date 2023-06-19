@@ -16,7 +16,7 @@ Deployed to Vercel & PlanetScale
 ### Posts:
 
 - exit animations
-- react query take
+- react query
 - flex 1
 - z index
 - keyboard interactions
