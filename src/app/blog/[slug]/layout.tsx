@@ -12,11 +12,11 @@ const SlugLayout: FunctionComponent<SlugLayoutProps> = ({ children }) => {
 
 export default SlugLayout;
 
-type Props = {
+type MetadataProps = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
   const slug = allPosts.find((post) => post.slug === params.slug);
 
   return {
