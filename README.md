@@ -3,7 +3,7 @@
 Made with Next, Typescript, Tailwind, Prisma, React Query & MDX
 Deployed to Vercel & PlanetScale
 
-[aguirrealvaro.vercel.app](https://aguirrealvaro.vercel.app/)
+[aguirrealvaro.dev](https://aguirrealvaro.dev/)
 
 ### Backlog:
 
@@ -11,9 +11,6 @@ Deployed to Vercel & PlanetScale
 - cn eslint
 - font flashing on development
 - icon hydration
-
-### To do:
-
 - old response
 
 ### Posts:
