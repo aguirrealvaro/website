@@ -7,7 +7,7 @@ type H2Props = {
 };
 
 const H2: FunctionComponent<H2Props> = ({ children, className }) => {
-  return <h2 className={cn("text-3xl font-bold", className)}>{children}</h2>;
+  return <h2 className={cn("text-3xl font-bold text-text-heading", className)}>{children}</h2>;
 };
 
 export { H2 };

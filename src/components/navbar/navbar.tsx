@@ -36,7 +36,7 @@ const Navbar: FunctionComponent = () => {
       <Wrapper>
         <div className="flex items-center justify-between">
           <Link href="/">
-            <h1 className="text-lg font-medium">Alvaro Aguirre </h1>
+            <h1 className="text-lg font-medium text-text-heading">Alvaro Aguirre </h1>
           </Link>
           <MainMenu />
           <div className="flex items-center gap-4">

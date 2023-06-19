@@ -7,7 +7,7 @@ type H4Props = {
 };
 
 const H4: FunctionComponent<H4Props> = ({ children, className }) => {
-  return <h4 className={cn("font-semibold", className)}>{children}</h4>;
+  return <h4 className={cn("font-semibold text-text-heading", className)}>{children}</h4>;
 };
 
 export { H4 };
