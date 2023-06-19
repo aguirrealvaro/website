@@ -15,7 +15,6 @@ Deployed to Vercel & PlanetScale
 ### To do:
 
 - old response
-- 404 post
 
 ### Posts:
 

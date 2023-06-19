@@ -25,6 +25,8 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return allPosts.map((post) => {
+    if (process.env.NODE_ENV === "production" && !post.enabled) return;
+
     return {
       slug: post.slug,
     };
