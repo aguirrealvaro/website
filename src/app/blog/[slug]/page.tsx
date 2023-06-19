@@ -13,13 +13,13 @@ type PostProps = {
 };
 
 const Post: FunctionComponent<PostProps> = ({ params }) => {
-  const { post, isLoading } = useSinglePost(params.slug);
+  const { post: relatedPost, isLoading } = useSinglePost(params.slug);
 
-  const relatedPost = allPosts.find((post) => post.slug === params.slug);
+  const pagePost = allPosts.find((post) => post.slug === params.slug);
 
-  if (!relatedPost) return null;
+  if (!pagePost) return null;
 
-  const { title, publishedAt, body } = relatedPost;
+  const { title, publishedAt, body } = pagePost;
 
   return (
     <PageContainer>
@@ -27,8 +27,8 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
         <PostHeader
           title={title}
           publishedAt={publishedAt}
-          views={post?.views}
-          likes={post?.likes.length}
+          views={relatedPost?.views}
+          likes={relatedPost?.likes.length}
           isLoading={isLoading}
         />
         <PostContent content={body.code} />
