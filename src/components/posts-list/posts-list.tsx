@@ -11,7 +11,9 @@ type PostsListProps = {
 };
 
 const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
-  const displayPosts = sliced ? allPosts.slice(0, 3) : allPosts;
+  const sortedPosts = allPosts.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
+  const displayPosts = sliced ? sortedPosts.slice(0, 3) : allPosts;
 
   const { posts, isFetching } = usePosts();
 
