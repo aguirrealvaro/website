@@ -9,6 +9,10 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    description: {
+      type: "string",
+      required: true,
+    },
     publishedAt: {
       type: "date",
       required: true,
@@ -16,10 +20,6 @@ export const Post = defineDocumentType(() => ({
     enabled: {
       type: "boolean",
       required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
     },
   },
   computedFields: {

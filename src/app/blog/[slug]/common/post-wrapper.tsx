@@ -16,13 +16,14 @@ const PostWrapper: FunctionComponent<PostWrapperProps> = ({ slug }) => {
 
   if (!pagePost) return null;
 
-  const { title, publishedAt, body } = pagePost;
+  const { title, publishedAt, description, body } = pagePost;
 
   return (
     <>
       <PostHeader
         title={title}
         publishedAt={publishedAt}
+        description={description}
         views={relatedPost?.views}
         likes={relatedPost?.likes.length}
         isLoading={isLoading}
