@@ -19,3 +19,71 @@ In this article, I will be explaining how to do it in a Dialog component, but it
 ### Without animation
 
 First, we will go with simple example with no animations. Just a state `isOpen` which determines if the Dialog is mounted or not:
+
+App.tsx
+```
+const App = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Open Dialog</button>
+      {isOpen && <Dialog onClose={() => setIsOpen(false)}>children</Dialog>}
+    </div>
+  );
+};
+```
+
+Dialog.tsx
+```
+type DialogProps = {
+  children: React.ReactNode;
+  onClose: () => void;
+};
+
+const Dialog = ({ children, onClose }: DialogProps) => {
+  return (
+    <Backdrop>
+      <Content>
+        <CloseButton onClick={onClose}>X</CloseButton>
+        {children}
+      </Content>
+    </Backdrop>
+  );
+};
+```
+
+styles.ts
+```
+const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+`;
+
+const Content = styled.div`
+  position: relative;
+  width: 20rem;
+  min-height: 7rem;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+`;
+```
