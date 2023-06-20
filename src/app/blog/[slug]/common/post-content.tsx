@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { Typography } from "@/components/ui";
+import { Separator, Typography } from "@/components/ui";
 
 type PostContentProps = {
   content: string;
@@ -15,5 +15,7 @@ const PostContent: FunctionComponent<PostContentProps> = ({ content }) => {
 export { PostContent };
 
 const components = {
+  h3: (props: any) => <Typography.H3 className="mb-4" {...props} />,
   p: (props: any) => <Typography.Paragraph {...props} />,
+  hr: (props: any) => <Separator {...props} />,
 };

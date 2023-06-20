@@ -7,9 +7,15 @@ enabled: false
 
 **gif**
 
+### Introduction
+
 Throughout my career, in the projects I've worked on, giving animation to the unmounting of a component is not something that is given much importance. Even some component libraries don't do it. 
 
 Some people think that exit animations are too much and that components should simply disappear. Maybe it's because implementing an exit animation is not as simple as giving it an entrance animation.
 In my opinion, a component with an enter animation should have an exit animation. Otherwise, it feels broken. 
 
 In this article, I will be explaining how to do it in a Dialog component, but it can be used for whatever is needed, for example, components like Popovers, Tooltips, etc. First, I will go with a simple example, and then with a more complex, comprehensive, and reusable one. I will be using styled components for the styles, but you can use any other styling library you prefer.
+
+### Without animation
+
+First, we will go with simple example with no animations. Just a state `isOpen` which determines if the Dialog is mounted or not:
