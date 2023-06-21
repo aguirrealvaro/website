@@ -6,4 +6,12 @@ div[data-rehype-pretty-code-fragment] {
 
 div[data-rehype-pretty-code-title] {
   background-color: #475569;
+  padding: 0 0.5rem;
+  color: #fff;
+}
+
+div[data-rehype-pretty-code-fragment] pre {
+  overflow-x: auto;
+  padding: 0.5rem;
+  font-size: 0.875rem;
 }
