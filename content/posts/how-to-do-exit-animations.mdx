@@ -1,6 +1,6 @@
 ---
 title: How to do exit animations on React
-description: My take on adding animations when a react component unmounts. Without any animation library.
+description: My take on adding animations when a react component unmounts. Without any animation library. Example with a Modal component
 publishedAt: 2023-06-19
 enabled: false
 ---
@@ -132,7 +132,7 @@ React.useEffect(() => {
 }, []);
 ```
 
-Then, we will pass `$isClosing` to the Dialog component
+Then, we will pass `isClosing` to the Dialog component
 
 ```js title="app.tsx"
 {

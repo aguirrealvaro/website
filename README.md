@@ -15,6 +15,7 @@ Deployed to Vercel & PlanetScale
 ### To do:
 
 - old response
+- link component
 
 ### Posts:
 

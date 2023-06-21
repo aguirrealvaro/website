@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FunctionComponent } from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { Typography } from "@/components/ui";
