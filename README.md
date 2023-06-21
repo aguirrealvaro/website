@@ -16,6 +16,7 @@ Deployed to Vercel & PlanetScale
 
 - old response
 - link component
+- avoid format mdx
 
 ### Posts:
 
