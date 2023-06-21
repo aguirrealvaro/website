@@ -332,19 +332,23 @@ Another alternative I have seen is to never unmount the component by doing
 and depending on the `isOpen` property, we add the styles (using `pointer-events: none`)
 
 ```js title="styles.tsx"
-transition: all 150ms;
-${({ $isOpen }) =>
-  $isOpen
-    ? css`
-        pointer-events: auto;
-        opacity: 1;
-        transform: scale(1);
-      `
-    : css`
-        pointer-events: none;
-        opacity: 0;
-        transform: scale(0.9);
-      `};
+const Content = styled.div`
+  ...
+  transition: all 150ms;
+  ${({ $isOpen }) =>
+    $isOpen
+      ? css`
+          pointer-events: auto;
+          opacity: 1;
+          transform: scale(1);
+        `
+      : css`
+          pointer-events: none;
+          opacity: 0;
+          transform: scale(0.9);
+        `};
+`
+
 ```
 
 Personally, I think this is not a good approach in terms of efficiency. We should only have mounted in the component tree what we are currently viewing.
