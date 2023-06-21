@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -33,7 +34,15 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+const rehypePrettyCodeOptions = {
+  theme: "one-dark-pro",
+  //keepBackground: true,
+};
+
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
+  mdx: {
+    rehypePlugins: [rehypePrettyCode, rehypePrettyCodeOptions],
+  },
 });

@@ -20,7 +20,7 @@ In this article, I will be explaining how to do it in a Dialog component, but it
 
 First, we will go with simple example with no animations. Just a state `isOpen` which determines if the Dialog is mounted or not:
 
-```
+```js title="app.tsx"
 const App = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -36,7 +36,7 @@ const App = () => {
 };
 ```
 
-```
+```js title="dialog.tsx"
 type DialogProps = {
   children: React.ReactNode;
   onClose: () => void;
@@ -54,7 +54,7 @@ const Dialog = ({ children, onClose }: DialogProps) => {
 };
 ```
 
-```
+```js title="styles.ts"
 const Backdrop = styled.div`
   position: fixed;
   top: 0;
@@ -90,7 +90,7 @@ const Content = styled.div`
 
 ### Adding enter animation
 
-```
+```js title="styles.ts"
 const fadeIn = keyframes`
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1);}
@@ -106,7 +106,7 @@ const Content = styled.div`
 
 We will need a state `isClosing` that refers to when the user closed the dialog. This will be accompanied by a setTimeout, where, after a certain amount of time, we will set `isOpen` to false.
 
-```
+```js title="app.tsx"
 const timeoutId = React.useRef<number>(0);
 
 const onClose = () => {
@@ -126,7 +126,7 @@ React.useEffect(() => {
 
 Then, we will pass `$isClosing` to the Dialog component
 
-```
+```js title="app.tsx"
 {isOpen && (
   <Dialog onClose={onClose} $isClosing={isClosing}>
     Dialog content
@@ -134,7 +134,7 @@ Then, we will pass `$isClosing` to the Dialog component
 )}
 ```
 
-```
+```js title="dialog.tsx"
 const Content = styled.div<{ $isClosing: boolean }>`
   ...
   animation: ${fadeIn} 150ms ease-in;
@@ -153,7 +153,7 @@ If we want the code to be more readable and easier to understand, we can do the 
 
 Pass `isOpen` to Dialog
 
-```
+```js title="app.tsx"
 <Dialog onClose={onClose} isOpen={isOpen} isClosing={isClosing}>
   Dialog content
 </Dialog>
@@ -161,7 +161,7 @@ Pass `isOpen` to Dialog
 
 Pass the same prop to Content styled component:
 
-```
+```js title="dialog.tsx"
 <Content $isOpen={isOpen} $isClosing={isClosing}>
   <CloseButton onClick={onClose}>X</CloseButton>
   {children}
@@ -170,7 +170,7 @@ Pass the same prop to Content styled component:
 
 And handle the animations this way
 
-```
+```js title="dialog.tsx"
 const Content = styled.div<{ $isOpen: boolean; $isClosing: boolean }>`
   ...
   animation-duration: 150ms;
