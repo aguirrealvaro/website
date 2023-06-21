@@ -10,6 +10,7 @@ type PostHeaderProps = {
   views: number | undefined;
   likes: number | undefined;
   isLoading: boolean;
+  likePostMutation: () => void;
 };
 
 const PostHeader: FunctionComponent<PostHeaderProps> = ({
@@ -19,6 +20,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
   views,
   likes,
   isLoading,
+  likePostMutation,
 }) => {
   const { dateString, formattedDate } = formatDate(publishedAt);
 
@@ -38,7 +40,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
       </span>
       <Typography.H2>{title}</Typography.H2>
       <p className="text-text-secondary">{description}</p>
-      <LikeButton onClick={() => console.log("like")} isActive />
+      <LikeButton onClick={likePostMutation} isActive={false} />
     </div>
   );
 };

@@ -9,7 +9,7 @@ type LikeButtonProps = {
 const LikeButton: FunctionComponent<LikeButtonProps> = ({ isActive, ...restProps }) => {
   return (
     <button {...restProps}>
-      <Heart fill={isActive ? "red" : undefined} color="red" />
+      <Heart fill={isActive ? "red" : "transparent"} color="red" />
     </button>
   );
 };
