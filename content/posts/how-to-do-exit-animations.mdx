@@ -197,3 +197,50 @@ const Content = styled.div<{ $isOpen: boolean; $isClosing: boolean }>`
   }};
 `;
 ```
+
+---
+
+### Creating a customHook
+
+Probably, we will need this same logic for future components. In that case, it would be a good practice to create a custom hook so that we can reuse it. Let's create a custom hook called `useDisclosure`.
+
+```js title use-disclosure.ts
+type UseDisclosureReturnType = {
+  isOpen: boolean,
+  isClosing: boolean,
+  onOpen: () => void,
+  onClose: () => void,
+};
+
+const useDisclosure = (timeout = 150): UseDisclosureReturnType => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isClosing, setIsClosing] = React.useState(false);
+
+  const onOpen = () => setIsOpen(true);
+
+  const timeoutId = React.useRef(0);
+
+  const onClose = () => {
+    setIsClosing(true);
+    timeoutId.current = window.setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, timeout);
+  };
+
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(timeoutId.current);
+    };
+  }, []);
+
+  return { isOpen, isClosing, onOpen, onClose };
+};
+```
+
+and consumit it on App:
+
+```js title="app.tx"
+const { isOpen, isClosing, onOpen, onClose } = useDisclosure();
+...
+```
