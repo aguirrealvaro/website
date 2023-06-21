@@ -1,0 +1,9 @@
+div[data-rehype-pretty-code-fragment] {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+div[data-rehype-pretty-code-title] {
+  background-color: #475569;
+}
