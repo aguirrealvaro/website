@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { PostType } from "@/client/interfaces";
-import { createView } from "@/client/query-fns";
+import { incrementView, likePost } from "@/client/query-fns";
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;
@@ -12,18 +12,18 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const queryClient = useQueryClient();
 
   const {
-    mutate: incrementView,
+    mutate: incrementViewMutation,
     isLoading,
     data: post,
-  } = useMutation(createView, {
+  } = useMutation(incrementView, {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: "posts" });
     },
   });
 
   useEffect(() => {
-    incrementView(slug);
-  }, [incrementView, slug]);
+    incrementViewMutation(slug);
+  }, [incrementViewMutation, slug]);
 
   return { post, isLoading };
 };
