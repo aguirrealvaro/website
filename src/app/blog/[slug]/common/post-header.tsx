@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { LikeButton } from "@/components";
 import { Typography } from "@/components/ui";
 import { formatDate } from "@/utils/format-date";
 
@@ -37,6 +38,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
       </span>
       <Typography.H2>{title}</Typography.H2>
       <p className="text-text-secondary">{description}</p>
+      <LikeButton onClick={() => console.log("like")} isActive />
     </div>
   );
 };
