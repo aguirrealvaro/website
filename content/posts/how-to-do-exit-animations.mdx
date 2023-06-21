@@ -9,10 +9,10 @@ enabled: false
 
 ### Introduction
 
-Throughout my career, in the projects I've worked on, giving animation to the unmounting of a component is not something that is given much importance. Even some component libraries don't do it. 
+Throughout my career, in the projects I've worked on, giving animation to the unmounting of a component is not something that is given much importance. Even some component libraries don't do it.
 
 Some people think that exit animations are too much and that components should simply disappear. Maybe it's because implementing an exit animation is not as simple as giving it an entrance animation.
-In my opinion, a component with an enter animation should have an exit animation. Otherwise, it feels broken. 
+In my opinion, a component with an enter animation should have an exit animation. Otherwise, it feels broken.
 
 In this article, I will be explaining how to do it in a Dialog component, but it can be used for whatever is needed, for example, components like Popovers, Tooltips, etc. First, I will go with a simple example, and then with a more complex, comprehensive, and reusable one. I will be using styled components for the styles, but you can use any other styling library you prefer.
 
@@ -20,21 +20,22 @@ In this article, I will be explaining how to do it in a Dialog component, but it
 
 First, we will go with simple example with no animations. Just a state `isOpen` which determines if the Dialog is mounted or not:
 
-App.tsx
 ```
 const App = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  const onOpen = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
+
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>Open Dialog</button>
-      {isOpen && <Dialog onClose={() => setIsOpen(false)}>children</Dialog>}
+      <button onClick={onOpen}>Open Dialog</button>
+      {isOpen && <Dialog onClose={onClose}>Dialog content</Dialog>}
     </div>
   );
 };
 ```
 
-Dialog.tsx
 ```
 type DialogProps = {
   children: React.ReactNode;
@@ -53,7 +54,6 @@ const Dialog = ({ children, onClose }: DialogProps) => {
 };
 ```
 
-styles.ts
 ```
 const Backdrop = styled.div`
   position: fixed;
@@ -85,5 +85,100 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
+`;
+```
+
+### Adding enter animation
+
+```
+const fadeIn = keyframes`
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1);}
+`;
+
+const Content = styled.div`
+  ...
+  animation: ${fadeIn} 150ms ease-in;
+`;
+```
+
+### Adding exit animation
+
+We will need a state `isClosing` that refers to when the user closed the dialog. This will be accompanied by a setTimeout, where, after a certain amount of time, we will set `isOpen` to false.
+
+```
+const timeoutId = React.useRef<number>(0);
+
+const onClose = () => {
+  setIsClosing(true);
+  timeoutId.current = window.setTimeout(() => {
+    setIsOpen(false);
+    setIsClosing(false);
+  }, 150);
+};
+
+React.useEffect(() => {
+  return () => {
+    clearTimeout(timeoutId.current);
+  };
+}, []);
+```
+
+Then, we will pass `$isClosing` to the Dialog component
+
+```
+{isOpen && (
+  <Dialog onClose={onClose} $isClosing={isClosing}>
+    Dialog content
+  </Dialog>
+)}
+```
+
+```
+const Content = styled.div<{ $isClosing: boolean }>`
+  ...
+  animation: ${fadeIn} 150ms ease-in;
+  ${({ $isClosing }) => {
+    if ($isClosing)
+      return css`
+        animation: ${fadeOut} 150ms ease-in forwards;
+      `;
+  }};
+`;
+```
+
+### Increasing the readability
+
+If we want the code to be more readable and easier to understand, we can do the following:
+
+Pass `isOpen` to Dialog
+
+```
+<Dialog onClose={onClose} isOpen={isOpen} isClosing={isClosing}>
+  Dialog content
+</Dialog>
+```
+
+Pass the same prop to Content styled component:
+
+```
+<Content $isOpen={isOpen} $isClosing={isClosing}>
+  <CloseButton onClick={onClose}>X</CloseButton>
+  {children}
+</Content>
+```
+
+And handle the animations this way
+
+```
+const Content = styled.div<{ $isOpen: boolean; $isClosing: boolean }>`
+  ...
+  animation-duration: 150ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-name: ${({ $isOpen, $isClosing }) => {
+    if ($isOpen && !$isClosing) return fadeIn;
+    if ($isClosing) return fadeOut;
+  }};
 `;
 ```
