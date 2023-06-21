@@ -18,4 +18,5 @@ const components = {
   h3: (props: any) => <Typography.H3 className="mb-4" {...props} />,
   p: (props: any) => <Typography.Paragraph {...props} />,
   hr: (props: any) => <Separator {...props} />,
+  //code: (props: any) => <Typography.Code {...props} />,
 };
