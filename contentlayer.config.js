@@ -36,13 +36,13 @@ export const Post = defineDocumentType(() => ({
 
 const rehypePrettyCodeOptions = {
   theme: "one-dark-pro",
-  //keepBackground: true,
+  keepBackground: true,
 };
 
 export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
   mdx: {
-    rehypePlugins: [rehypePrettyCode, rehypePrettyCodeOptions],
+    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
   },
 });
