@@ -7,6 +7,8 @@ enabled: false
 
 **gif**
 
+You can found the code on [CodeSandbox](https://codesandbox.io/s/exit-animations-z76gzr?file=/src/App.tsx:350-362)
+
 ---
 
 ### Introduction
@@ -303,8 +305,6 @@ export const useDisclosure = (timeout = 150): UseDisclosureReturn => {
 };
 ```
 
-Note that i renamed `isClosing` to `isUnmounting`. I think it's more appropriate.
+Note that I renamed `isClosing` to `isUnmounting`. I think it's more appropriate.
 
 Something that is worth to mention, we used 150ms for the transition between each phase for `useDisclosure` hook, and we also used the same value for the animation-time for the animations inside Dialog. Ideally we save this value inside a variable to make sure it is the same in all the places.
-
-You can found the code on [CodeSandbox](https://codesandbox.io/s/exit-animations-z76gzr?file=/src/App.tsx:350-362)
