@@ -200,7 +200,7 @@ const Content = styled.div<{ $isOpen: boolean; $isClosing: boolean }>`
 
 ---
 
-### Creating a customHook
+### Creating a custom hook useDisclosure
 
 Probably, we will need this same logic for future components. In that case, it would be a good practice to create a custom hook so that we can reuse it. Let's create a custom hook called `useDisclosure`.
 
@@ -240,7 +240,72 @@ const useDisclosure = (timeout = 150): UseDisclosureReturnType => {
 
 and consumit it on App:
 
-```js title="app.tx"
+```js title="app.tsx"
 const { isOpen, isClosing, onOpen, onClose } = useDisclosure();
 ...
 ```
+
+### Extending useDisclosure
+
+For a more comprehensive and reusable solution, we can extend the `useDisclosure` hook so that we have different transition stages:
+
+1. `unmounted`
+2. `mounting`
+3. `mounted`
+4. `unmounting`
+
+---
+
+```js title="use-disclosure.ts"
+type PhasesType = "unmounted" | "mounting" | "mounted" | "unmounting";
+
+type UseDisclosureReturn = {
+  isOpen: boolean,
+  onOpen: () => void,
+  onClose: () => void,
+  onToggle: () => void,
+  isUnmounting: boolean,
+  phase: PhasesType,
+};
+
+export const useDisclosure = (timeout = 150): UseDisclosureReturn => {
+  const [phase, setPhase] = React.useState < PhasesType > "unmounted";
+  const timeoutId = React.useRef < number > 0;
+
+  const onOpen = React.useCallback(() => {
+    if (phase !== "unmounted") return;
+    setPhase("mounting");
+  }, [phase]);
+
+  const onClose = React.useCallback(() => {
+    if (phase !== "mounted") return;
+    setPhase("unmounting");
+  }, [phase]);
+
+  const onToggle = React.useCallback(() => {
+    if (phase === "mounting" || phase === "mounted") onClose();
+    if (phase === "unmounting" || phase === "unmounted") onOpen();
+  }, [onClose, onOpen, phase]);
+
+  React.useEffect(() => {
+    if (phase === "unmounting") {
+      timeoutId.current = window.setTimeout(() => setPhase("unmounted"), timeout);
+    } else if (phase === "mounting") {
+      timeoutId.current = window.setTimeout(() => setPhase("mounted"), timeout);
+    }
+
+    return () => {
+      clearTimeout(timeoutId.current);
+    };
+  }, [phase, timeout]);
+
+  const isOpen = phase !== "unmounted";
+  const isUnmounting = phase === "unmounting";
+
+  return { isOpen, onOpen, onClose, onToggle, isUnmounting, phase };
+};
+```
+
+Note that i renamed `isClosing` to `isUnmounting`. I think it's more appropriate.
+
+You can found the code on [CodeSandbox](https://codesandbox.io/s/exit-animations-z76gzr?file=/src/App.tsx:350-362)
