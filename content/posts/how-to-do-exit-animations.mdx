@@ -1,6 +1,6 @@
 ---
 title: How to do exit animations on React
-description: My take on adding animations when a react component unmounts. Without any animation library. Example with a Modal component
+description: My take on adding animations when a react component unmounts. Without any animation library. Example with a Modal component.
 publishedAt: 2023-06-21
 enabled: true
 ---
@@ -20,7 +20,7 @@ In this article, I will be explaining how to do it in a Modal component, but it 
 
 ### Without animation
 
-First, we will go with simple example with no animations. Just a state `isOpen` which determines if the Modal is mounted or not:
+First, we will go with simple example with no animations. Just a state `isOpen` which determines if the Modal is mounted or not.
 
 ```js title="app.tsx"
 const App = () => {
@@ -130,7 +130,7 @@ React.useEffect(() => {
 }, []);
 ```
 
-Then, we will pass `isClosing` to the Modal component
+Then, we will pass `isClosing` to the Modal component.
 
 ```js title="app.tsx"
   isOpen && (
@@ -167,7 +167,7 @@ Pass `isOpen` to Modal
 </Modal>
 ```
 
-Pass the same prop to Content styled component:
+Pass the same prop to Content styled component
 
 ```js title="modal.tsx"
 <Content $isOpen={isOpen} $isClosing={isClosing}>
@@ -176,7 +176,7 @@ Pass the same prop to Content styled component:
 </Content>
 ```
 
-And handle the animations this way
+And handle the animations
 
 ```js title="modal.tsx"
 const Content = styled.div<{ $isOpen: boolean; $isClosing: boolean }>`
