@@ -17,6 +17,7 @@ export { PostContent };
 
 const components = {
   h3: (props: any) => <Typography.H3 className="mb-4" {...props} />,
+  h4: (props: any) => <Typography.H4 className="mb-4 text-lg" {...props} />,
   p: (props: any) => <Typography.Paragraph {...props} />,
   hr: (props: any) => <br {...props} />,
   //code: (props: any) => <Typography.Code {...props} />,

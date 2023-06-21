@@ -304,3 +304,55 @@ export const useDisclosure = (timeout = 150): UseDisclosureReturn => {
 Note that I renamed `isClosing` to `isUnmounting`. I think it's more appropriate.
 
 Something that is worth to mention, we used 150ms for the transition between each phase for `useDisclosure` hook, and we also used the same value for the animation-time for the animations inside Modal. Ideally we save this value inside a variable to make sure it is the same in all the places.
+
+---
+
+### Other alernatives
+
+#### Without unmounting the component
+
+Note that we are doing
+
+```js title="app.tsx"
+{isOpen && (
+  <Modal ...>
+    Modal content
+  </Modal>
+)}
+```
+
+Another alternative I have seen is to never unmount the component by doing
+
+```js title="app.tsx"
+<Modal ...>
+  Modal content
+</Modal>
+```
+
+and depending on the `isOpen` property, we add the styles (using `pointer-events: none`)
+
+```js title="styles.tsx"
+transition: all 150ms;
+${({ $isOpen }) =>
+  $isOpen
+    ? css`
+        pointer-events: auto;
+        opacity: 1;
+        transform: scale(1);
+      `
+    : css`
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(0.9);
+      `};
+```
+
+Personally, I think this is not a good approach in terms of efficiency. We should only have mounted in the component tree what we are currently viewing.
+
+---
+
+#### Using onAnimationEnd
+
+When a CSS animation is applied to an element and that animation finishes, the `onAnimationEnd` event is triggered. We can use this event to execute `onClose`.
+
+Again, I don't think it's the best way to do an exit animation. If we remove the animation in the future, the modal won't close.
