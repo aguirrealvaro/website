@@ -36,8 +36,8 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
 
   const { mutate: likePostMutation } = useMutation(likePost, {
     onSuccess: () => {
-      // invalidate isLiked
       queryClient.invalidateQueries({ queryKey: "posts" });
+      queryClient.invalidateQueries({ queryKey: ["user-has-liked", slug] });
     },
   });
 
