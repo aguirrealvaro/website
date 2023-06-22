@@ -17,6 +17,13 @@ export const incrementView = (slug: string): Promise<PostType> => {
   return fetcher(`post/${slug}`, { method: "PUT" });
 };
 
+export const getUserHasLiked = (
+  context: QueryFunctionContext<[string, string]>
+): Promise<boolean> => {
+  const [, slug] = context.queryKey;
+  return fetcher(`likes/${slug}`);
+};
+
 export const likePost = (slug: string): Promise<PostType> => {
   return fetcher(`likes/${slug}`, { method: "POST" });
 };
