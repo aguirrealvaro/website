@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { PostType } from "@/client/interfaces";
-import { incrementView, likePost } from "@/client/query-fns";
+import { getSinglePost, incrementView, likePost } from "@/client/query-fns";
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;
@@ -10,17 +10,27 @@ type UseSinglePostReturnType = {
 };
 
 const useSinglePost = (slug: string): UseSinglePostReturnType => {
+  const {
+    data: post,
+    isFetching: isFetchingPost,
+    refetch: fetchSinglePost,
+  } = useQuery({
+    queryKey: ["single-post", slug],
+    queryFn: getSinglePost,
+    enabled: false,
+  });
+
   const queryClient = useQueryClient();
 
-  const {
-    mutate: incrementViewMutation,
-    isLoading,
-    data: post,
-  } = useMutation(incrementView, {
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: "posts" });
-    },
-  });
+  const { mutate: incrementViewMutation, isLoading: isMutatingView } = useMutation(
+    incrementView,
+    {
+      onSuccess: () => {
+        fetchSinglePost();
+        queryClient.invalidateQueries({ queryKey: ["posts"] });
+      },
+    }
+  );
 
   useEffect(() => {
     incrementViewMutation(slug);
@@ -31,6 +41,8 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
       queryClient.invalidateQueries({ queryKey: "posts" });
     },
   });
+
+  const isLoading = isFetchingPost || isMutatingView;
 
   return { post, isLoading, likePostMutation };
 };
