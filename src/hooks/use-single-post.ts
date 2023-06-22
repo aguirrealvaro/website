@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { PostType } from "@/client/interfaces";
-import { getUserHasLiked, incrementView, likePost } from "@/client/query-fns";
+import { getSinglePost, getUserHasLiked, incrementView, likePost } from "@/client/query-fns";
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;
@@ -13,23 +13,29 @@ type UseSinglePostReturnType = {
 const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const queryClient = useQueryClient();
 
-  // Increment View
-  const {
-    mutate: incrementViewMutation,
-    isLoading,
-    data: post,
-  } = useMutation(incrementView, {
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: "posts" });
-    },
+  // Get single post
+  const getSinglePostQuery = useQuery({
+    queryKey: ["single-post", slug],
+    queryFn: getSinglePost,
+    enabled: false,
   });
+
+  // Increment View
+  const { mutate: incrementViewMutation, isLoading: isFetchingView } = useMutation(
+    incrementView,
+    {
+      onSuccess: () => {
+        getSinglePostQuery.refetch();
+        queryClient.invalidateQueries({ queryKey: "posts" });
+      },
+    }
+  );
 
   useEffect(() => {
     incrementViewMutation(slug);
   }, [incrementViewMutation, slug]);
 
   // Get userHasLiked
-
   const userHasLikedQuery = useQuery({
     queryKey: ["user-has-liked", slug],
     queryFn: getUserHasLiked,
@@ -40,12 +46,15 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   // Like Post
   const { mutate: likePostMutation } = useMutation(likePost, {
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: "posts" }); // no funciona, llamar a get single post
+      getSinglePostQuery.refetch();
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
       queryClient.invalidateQueries({ queryKey: ["user-has-liked", slug] });
     },
   });
 
-  return { post, isLoading, likePostMutation, userHasLiked };
+  const isLoading = isFetchingView || getSinglePostQuery.isFetching;
+
+  return { post: getSinglePostQuery.data, isLoading, likePostMutation, userHasLiked };
 };
 
 export { useSinglePost };
