@@ -13,13 +13,7 @@ type UseSinglePostReturnType = {
 const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const queryClient = useQueryClient();
 
-  const userHasLikedQuery = useQuery({
-    queryKey: ["user-has-liked", slug],
-    queryFn: getUserHasLiked,
-  });
-
-  const userHasLiked = userHasLikedQuery.data || false;
-
+  // Increment View
   const {
     mutate: incrementViewMutation,
     isLoading,
@@ -34,9 +28,19 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
     incrementViewMutation(slug);
   }, [incrementViewMutation, slug]);
 
+  // Get userHasLiked
+
+  const userHasLikedQuery = useQuery({
+    queryKey: ["user-has-liked", slug],
+    queryFn: getUserHasLiked,
+  });
+
+  const userHasLiked = userHasLikedQuery.data || false;
+
+  // Like Post
   const { mutate: likePostMutation } = useMutation(likePost, {
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: "posts" });
+      queryClient.invalidateQueries({ queryKey: "posts" }); // no funciona, llamar a get single post
       queryClient.invalidateQueries({ queryKey: ["user-has-liked", slug] });
     },
   });
