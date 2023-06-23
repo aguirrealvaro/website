@@ -1,5 +1,3 @@
-"use client";
-
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import { formatDate } from "@/utils/format-date";

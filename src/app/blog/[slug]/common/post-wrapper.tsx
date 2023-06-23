@@ -1,5 +1,3 @@
-"use client";
-
 import { FunctionComponent } from "react";
 import { PostHeader, PostContent } from ".";
 import { allPosts } from "contentlayer/generated";
