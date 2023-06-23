@@ -27,7 +27,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
   const { dateString, formattedDate } = formatDate(publishedAt);
 
   const renderMetric = (metric: number | undefined) => {
-    if (isLoading) {
+    if (isLoading || metric === undefined) {
       return "...";
     } else {
       return metric;
