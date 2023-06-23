@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { PostContent, PostHeader } from "./common";
+import { getSession } from "@/app/api/likes/[slug]/route";
 import { PageContainer, Wrapper } from "@/components";
 import prisma from "@/utils/prisma";
 import { allPosts } from "contentlayer/generated";
@@ -14,6 +15,8 @@ const Post: FunctionComponent<PostProps> = async ({ params }) => {
   const pagePost = allPosts.find((post) => post.slug === params.slug);
 
   const post = await getSinglePost(params.slug);
+  const hasLiked = await getUserHasLiked(params.slug);
+
   if (!pagePost || !post) return null;
 
   const { title, publishedAt, description, body } = pagePost;
@@ -28,7 +31,7 @@ const Post: FunctionComponent<PostProps> = async ({ params }) => {
           description={description}
           views={views}
           likes={likes.length}
-          userHasLiked={false}
+          userHasLiked={hasLiked}
         />
         <PostContent content={body.code} />
       </Wrapper>
@@ -51,7 +54,6 @@ export async function generateStaticParams() {
 }
 
 const getSinglePost = async (slug: string) => {
-  // increment view and get post
   const post = await prisma.post.update({
     where: {
       slug,
@@ -65,4 +67,20 @@ const getSinglePost = async (slug: string) => {
   });
 
   return post;
+};
+
+const getUserHasLiked = async (slug: string) => {
+  const post = await prisma.post.findUnique({ where: { slug } });
+
+  if (!post) return false;
+
+  const currentSessionId = getSession();
+
+  const likes = await prisma.likes.findMany({
+    where: { postId: post.id, sessionId: currentSessionId },
+  });
+
+  const userHasLiked = likes.length > 0;
+
+  return userHasLiked;
 };

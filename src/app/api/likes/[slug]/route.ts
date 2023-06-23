@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import prisma from "@/utils/prisma";
 
-const getSession = () => {
+export const getSession = () => {
   const headersList = headers();
   const ipAddress = headersList.get("x-forwarded-for") || "0.0.0.0";
 

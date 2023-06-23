@@ -19,6 +19,9 @@ const PostsList: FunctionComponent<PostsListProps> = async ({ sliced = false }) 
     <ul>
       {displayPosts.map((post) => {
         const { title, slug, publishedAt, enabled } = post;
+
+        if (process.env.NODE_ENV === "production" && !enabled) return null;
+
         const { dateString, formattedDate } = formatDate(publishedAt);
 
         const relatedPost = posts?.find((post) => post.slug === slug);
@@ -26,8 +29,6 @@ const PostsList: FunctionComponent<PostsListProps> = async ({ sliced = false }) 
         if (!relatedPost) return null;
 
         const { views, likes } = relatedPost;
-
-        if (process.env.NODE_ENV === "production" && !enabled) return null;
 
         return (
           <li key={slug} className="border-b last:border-b-0 ">
