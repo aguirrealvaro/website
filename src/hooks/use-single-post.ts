@@ -47,7 +47,6 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const { mutate: likePostMutation } = useMutation(likePost, {
     onSuccess: () => {
       getSinglePostQuery.refetch();
-      queryClient.invalidateQueries({ queryKey: ["posts"] });
       queryClient.invalidateQueries({ queryKey: ["user-has-liked", slug] });
     },
   });
