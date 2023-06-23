@@ -13,9 +13,7 @@ const PostsList: FunctionComponent<PostsListProps> = async ({ sliced = false }) 
 
   const displayPosts = sliced ? sortedPosts.slice(0, 3) : allPosts;
 
-  const posts = await prisma.post.findMany({
-    include: { likes: true },
-  });
+  const posts = await getPosts();
 
   return (
     <ul>
@@ -48,3 +46,10 @@ const PostsList: FunctionComponent<PostsListProps> = async ({ sliced = false }) 
 };
 
 export { PostsList };
+
+const getPosts = async () => {
+  const posts = await prisma.post.findMany({
+    include: { likes: true },
+  });
+  return posts;
+};

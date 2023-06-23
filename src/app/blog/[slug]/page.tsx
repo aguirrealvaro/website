@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { PostContent, PostHeader } from "./common";
 import { PageContainer, Wrapper } from "@/components";
+import prisma from "@/utils/prisma";
 import { allPosts } from "contentlayer/generated";
 
 type PostProps = {
@@ -9,12 +10,14 @@ type PostProps = {
   };
 };
 
-const Post: FunctionComponent<PostProps> = ({ params }) => {
+const Post: FunctionComponent<PostProps> = async ({ params }) => {
   const pagePost = allPosts.find((post) => post.slug === params.slug);
 
-  if (!pagePost) return null;
+  const post = await getSinglePost(params.slug);
+  if (!pagePost || !post) return null;
 
   const { title, publishedAt, description, body } = pagePost;
+  const { views, likes } = post;
 
   return (
     <PageContainer>
@@ -23,8 +26,8 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
           title={title}
           publishedAt={publishedAt}
           description={description}
-          views={5}
-          likes={5}
+          views={views}
+          likes={likes.length}
           userHasLiked={false}
         />
         <PostContent content={body.code} />
@@ -46,3 +49,20 @@ export async function generateStaticParams() {
     };
   });
 }
+
+const getSinglePost = async (slug: string) => {
+  // increment view and get post
+  const post = await prisma.post.update({
+    where: {
+      slug,
+    },
+    data: {
+      views: { increment: 1 },
+    },
+    include: {
+      likes: true,
+    },
+  });
+
+  return post;
+};

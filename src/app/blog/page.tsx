@@ -3,6 +3,7 @@ import { PageContainer, Wrapper, PostsList } from "@/components";
 import { Typography } from "@/components/ui";
 
 const Blog: FunctionComponent = () => {
+  console.log("Blog!");
   return (
     <PageContainer>
       <Wrapper>
