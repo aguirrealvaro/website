@@ -12,7 +12,7 @@ type PostHeaderProps = {
   isFetchingPost: boolean;
   likePostMutation: () => void;
   userHasLiked: boolean;
-  isLiking: boolean;
+  isFetchingLike: boolean;
 };
 
 const PostHeader: FunctionComponent<PostHeaderProps> = ({
@@ -24,7 +24,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
   isFetchingPost,
   likePostMutation,
   userHasLiked,
-  isLiking,
+  isFetchingLike,
 }) => {
   const { dateString, formattedDate } = formatDate(publishedAt);
 
@@ -44,7 +44,11 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
       </span>
       <Typography.H2>{title}</Typography.H2>
       <p className="text-text-secondary">{description}</p>
-      <LikeButton onClick={likePostMutation} isActive={userHasLiked} isFetching={isLiking} />
+      <LikeButton
+        onClick={likePostMutation}
+        isActive={userHasLiked}
+        isFetching={isFetchingLike}
+      />
     </div>
   );
 };

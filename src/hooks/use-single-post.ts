@@ -7,7 +7,7 @@ type UseSinglePostReturnType = {
   post: PostType | undefined;
   isFetchingPost: boolean;
   likePostMutation: (slug: string) => void;
-  isLiking: boolean;
+  isFetchingLike: boolean;
   userHasLiked: boolean;
 };
 
@@ -53,12 +53,13 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   });
 
   const isFetchingPost = isFetchingView || getSinglePostQuery.isFetching;
+  const isFetchingLike = isLiking || userHasLikedQuery.isFetching;
 
   return {
     post: getSinglePostQuery.data,
     isFetchingPost,
     likePostMutation,
-    isLiking,
+    isFetchingLike,
     userHasLiked,
   };
 };

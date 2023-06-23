@@ -14,7 +14,7 @@ const PostWrapper: FunctionComponent<PostWrapperProps> = ({ slug }) => {
     post: relatedPost,
     isFetchingPost,
     likePostMutation,
-    isLiking,
+    isFetchingLike,
     userHasLiked,
   } = useSinglePost(slug);
 
@@ -35,7 +35,7 @@ const PostWrapper: FunctionComponent<PostWrapperProps> = ({ slug }) => {
         isFetchingPost={isFetchingPost}
         likePostMutation={() => likePostMutation(slug)}
         userHasLiked={userHasLiked}
-        isLiking={isLiking}
+        isFetchingLike={isFetchingLike}
       />
       <PostContent content={body.code} />
     </>
