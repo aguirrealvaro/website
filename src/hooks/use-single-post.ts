@@ -6,7 +6,7 @@ import { getSinglePost, getUserHasLiked, incrementView, likePost } from "@/clien
 type UseSinglePostReturnType = {
   post: PostType | undefined;
   isFetchingPost: boolean;
-  likePostMutation: (slug: string) => void;
+  likePostMutate: (slug: string) => void;
   isFetchingLike: boolean;
   userHasLiked: boolean;
 };
@@ -45,7 +45,7 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   const userHasLiked = userHasLikedQuery.data || false;
 
   // Like Post
-  const { mutate: likePostMutation, isLoading: isLiking } = useMutation(likePost, {
+  const likePostMutation = useMutation(likePost, {
     onSuccess: () => {
       getSinglePostQuery.refetch();
       queryClient.invalidateQueries({ queryKey: ["user-has-liked", slug] });
@@ -53,12 +53,12 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
   });
 
   const isFetchingPost = isFetchingView || getSinglePostQuery.isFetching;
-  const isFetchingLike = isLiking || userHasLikedQuery.isFetching;
+  const isFetchingLike = likePostMutation.isLoading || userHasLikedQuery.isFetching;
 
   return {
     post: getSinglePostQuery.data,
     isFetchingPost,
-    likePostMutation,
+    likePostMutate: likePostMutation.mutate,
     isFetchingLike,
     userHasLiked,
   };
