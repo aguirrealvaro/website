@@ -56,7 +56,11 @@ export async function POST(_: Request, { params }: ParamsType) {
   });
 
   if (like) {
-    return NextResponse.json({ error: "Like alredy exists" }, { status: 401 });
+    const deletedLike = await prisma.likes.delete({
+      where: { id: like.id },
+    });
+
+    return NextResponse.json(deletedLike);
   }
 
   const newLike = await prisma.likes.create({
