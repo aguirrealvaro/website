@@ -2,7 +2,6 @@
 
 import { FunctionComponent } from "react";
 import Link from "next/link";
-import { usePosts } from "@/hooks";
 import { formatDate } from "@/utils/format-date";
 import { allPosts } from "contentlayer/generated";
 
@@ -15,18 +14,14 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
 
   const displayPosts = sliced ? sortedPosts.slice(0, 3) : allPosts;
 
-  const { posts, isFetching } = usePosts();
-
   return (
     <ul>
       {displayPosts.map((post) => {
         const { title, slug, publishedAt, enabled } = post;
         const { dateString, formattedDate } = formatDate(publishedAt);
 
-        const relatedPost = posts?.find((post) => post.slug === slug);
-
         const renderMetric = (metric: number | undefined) => {
-          if (isFetching) {
+          if (false) {
             return "...";
           } else {
             return metric;
@@ -40,9 +35,8 @@ const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
             <Link href={`/blog/${slug}`} className="flex flex-col py-4 transition">
               <h2 className="font-medium text-text-heading">{title}</h2>
               <span className="text-text-secondary">
-                <time dateTime={dateString}>{formattedDate}</time> ·{" "}
-                {renderMetric(relatedPost?.views)} views ·{" "}
-                {renderMetric(relatedPost?.likes.length)} likes
+                <time dateTime={dateString}>{formattedDate}</time> · {renderMetric(5)} views ·{" "}
+                {renderMetric(5)} likes
               </span>
             </Link>
           </li>
