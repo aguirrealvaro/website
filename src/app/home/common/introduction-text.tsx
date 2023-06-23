@@ -5,8 +5,8 @@ const IntroductionText: FunctionComponent = () => {
   return (
     <div className="mb-8">
       <Typography.Paragraph>
-        I&apos;m Alvaro, a developer based in Buenos Aires, Argentina. With over 4 years
-        ofexperience in web development, I specialize in{" "}
+        I&apos;m Alvaro, a developer based in Buenos Aires, Argentina. With over 4 years of
+        experience in web development, I specialize in{" "}
         <Typography.Bold>front-end</Typography.Bold> development while also having a solid
         background in back-end technologies.
       </Typography.Paragraph>
@@ -29,7 +29,7 @@ const IntroductionText: FunctionComponent = () => {
         about topics that interest me and things I&apos;ve learned throughout my career.
       </Typography.Paragraph>
       <Typography.Paragraph>
-        I&apos; m currently looking for a new role as a front end developer.{" "}
+        I&apos;m currently looking for a new role as a front end developer.{" "}
         <Typography.Bold>Hire me?</Typography.Bold>
       </Typography.Paragraph>
     </div>
