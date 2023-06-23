@@ -38,7 +38,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
 
   return (
     <div className="mb-8 flex items-center justify-between">
-      <div>
+      <div className="mr-4">
         <span className="text-text-secondary">
           <time dateTime={dateString}>{formattedDate}</time> · {renderMetric(views)} views ·{" "}
           {renderMetric(likes)} likes
