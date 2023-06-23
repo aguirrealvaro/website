@@ -25,9 +25,7 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
           description={description}
           views={5}
           likes={5}
-          isFetchingPost={false}
           userHasLiked={false}
-          isFetchingLike={false}
         />
         <PostContent content={body.code} />
       </Wrapper>
