@@ -15,7 +15,7 @@ const Post: FunctionComponent<PostProps> = async ({ params }) => {
   const pagePost = allPosts.find((post) => post.slug === params.slug);
 
   const post = await getSinglePost(params.slug);
-  const hasLiked = await getUserHasLiked(params.slug);
+  const hasLiked = false;
 
   if (!pagePost || !post) return null;
 

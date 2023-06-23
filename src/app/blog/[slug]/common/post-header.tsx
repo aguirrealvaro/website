@@ -29,7 +29,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
       </span>
       <Typography.H2>{title}</Typography.H2>
       <p className="text-text-secondary">{description}</p>
-      <LikeButton isActive={userHasLiked} isFetching={false} />
+      <LikeButton isActive={userHasLiked} />
     </div>
   );
 };
