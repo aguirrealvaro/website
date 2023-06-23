@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { PostWrapper } from "./common/post-wrapper";
+import { PostContent, PostHeader } from "./common";
 import { PageContainer, Wrapper } from "@/components";
 import { allPosts } from "contentlayer/generated";
 
@@ -10,10 +10,27 @@ type PostProps = {
 };
 
 const Post: FunctionComponent<PostProps> = ({ params }) => {
+  const pagePost = allPosts.find((post) => post.slug === params.slug);
+
+  if (!pagePost) return null;
+
+  const { title, publishedAt, description, body } = pagePost;
+
   return (
     <PageContainer>
       <Wrapper>
-        <PostWrapper slug={params.slug} />
+        <PostHeader
+          title={title}
+          publishedAt={publishedAt}
+          description={description}
+          views={5}
+          likes={5}
+          isFetchingPost={false}
+          //likePostMutate={() => console.log(slug)}
+          userHasLiked={false}
+          isFetchingLike={false}
+        />
+        <PostContent content={body.code} />
       </Wrapper>
     </PageContainer>
   );
