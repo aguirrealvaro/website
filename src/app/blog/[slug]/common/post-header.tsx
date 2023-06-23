@@ -10,7 +10,6 @@ type PostHeaderProps = {
   views: number | undefined;
   likes: number | undefined;
   isFetchingPost: boolean;
-  //likePostMutate: () => void;
   userHasLiked: boolean;
   isFetchingLike: boolean;
 };
@@ -22,7 +21,6 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
   views,
   likes,
   isFetchingPost,
-  //likePostMutate,
   userHasLiked,
   isFetchingLike,
 }) => {
@@ -44,11 +42,7 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
       </span>
       <Typography.H2>{title}</Typography.H2>
       <p className="text-text-secondary">{description}</p>
-      <LikeButton
-        //onClick={likePostMutate}
-        isActive={userHasLiked}
-        isFetching={isFetchingLike}
-      />
+      <LikeButton isActive={userHasLiked} isFetching={isFetchingLike} />
     </div>
   );
 };

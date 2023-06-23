@@ -26,7 +26,6 @@ const Post: FunctionComponent<PostProps> = ({ params }) => {
           views={5}
           likes={5}
           isFetchingPost={false}
-          //likePostMutate={() => console.log(slug)}
           userHasLiked={false}
           isFetchingLike={false}
         />
