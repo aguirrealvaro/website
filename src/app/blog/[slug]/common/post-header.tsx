@@ -37,13 +37,15 @@ const PostHeader: FunctionComponent<PostHeaderProps> = ({
   };
 
   return (
-    <div className="mb-8">
-      <span className="text-text-secondary">
-        <time dateTime={dateString}>{formattedDate}</time> · {renderMetric(views)} views ·{" "}
-        {renderMetric(likes)} likes
-      </span>
-      <Typography.H2>{title}</Typography.H2>
-      <p className="text-text-secondary">{description}</p>
+    <div className="mb-8 flex items-center justify-between">
+      <div>
+        <span className="text-text-secondary">
+          <time dateTime={dateString}>{formattedDate}</time> · {renderMetric(views)} views ·{" "}
+          {renderMetric(likes)} likes
+        </span>
+        <Typography.H2>{title}</Typography.H2>
+        <p className="text-text-secondary">{description}</p>
+      </div>
       <LikeButton
         onClick={likePostMutate}
         isActive={userHasLiked}

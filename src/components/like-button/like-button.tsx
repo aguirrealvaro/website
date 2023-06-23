@@ -12,13 +12,11 @@ const LikeButton: FunctionComponent<LikeButtonProps> = ({
   ...restProps
 }) => {
   return (
-    <div className="mt-4 flex items-center justify-center">
-      <div className="relative inline-flex">
-        <button {...restProps}>
-          <Heart fill={isActive ? "red" : "transparent"} color="red" />
-        </button>
-        {isFetching && <span className="absolute left-full">...</span>}
-      </div>
+    <div className="relative inline-flex">
+      <button type="button" {...restProps}>
+        <Heart fill={isActive ? "red" : "transparent"} color="red" />
+      </button>
+      {isFetching && <span className="absolute right-[calc(100%+2px)]">...</span>}
     </div>
   );
 };
