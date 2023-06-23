@@ -5,7 +5,7 @@ import { getSinglePost, getUserHasLiked, incrementView, likePost } from "@/clien
 
 type UseSinglePostReturnType = {
   post: PostType | undefined;
-  isLoading: boolean;
+  isFetchingPost: boolean;
   likePostMutation: (slug: string) => void;
   userHasLiked: boolean;
 };
@@ -51,9 +51,9 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
     },
   });
 
-  const isLoading = isFetchingView || getSinglePostQuery.isFetching;
+  const isFetchingPost = isFetchingView || getSinglePostQuery.isFetching;
 
-  return { post: getSinglePostQuery.data, isLoading, likePostMutation, userHasLiked };
+  return { post: getSinglePostQuery.data, isFetchingPost, likePostMutation, userHasLiked };
 };
 
 export { useSinglePost };
