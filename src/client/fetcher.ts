@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-catch */
-
 export const fetcher = async <T>(
   url: URL | RequestInfo,
   options?: RequestInit
