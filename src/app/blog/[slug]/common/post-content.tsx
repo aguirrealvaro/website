@@ -16,6 +16,7 @@ const PostContent: FunctionComponent<PostContentProps> = ({ content }) => {
 export { PostContent };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable jsx-a11y/alt-text */
 const components = {
   h3: (props: any) => <Typography.H3 className="mb-4" {...props} />,
   h4: (props: any) => <Typography.H4 className="mb-4 text-lg" {...props} />,
