@@ -1,23 +1,29 @@
 import { AnchorHTMLAttributes, ReactNode, forwardRef } from "react";
+import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils/cn";
 
-type LinkUnderlineType = boolean | "hover";
+const linkVariants = cva(["text-sky-600 dark:text-sky-500"], {
+  variants: {
+    underline: {
+      hover: "hover:underline",
+      true: "underline",
+      false: "no-underline",
+    },
+  },
+  compoundVariants: [],
+  defaultVariants: {},
+});
 
 type LinkProps = {
   children: ReactNode;
-  underline?: LinkUnderlineType;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+} & AnchorHTMLAttributes<HTMLAnchorElement> &
+  VariantProps<typeof linkVariants>;
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ children, underline = "hover", ...restProps }, ref) => {
     return (
       <a
-        className={cn(
-          "text-sky-600 dark:text-sky-500",
-          underline === "hover" ? "hover:underline" : "",
-          underline === true ? "underline" : "no-underline",
-          "disabled:text-red-500"
-        )}
+        className={cn(linkVariants({ underline }))}
         ref={ref}
         target="_blank"
         rel="noopener noreferrer"
@@ -31,4 +37,4 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
 Link.displayName = "Link";
 
-export { Link, type LinkProps };
+export { Link, type LinkProps, linkVariants };

@@ -3,7 +3,9 @@
 import { FunctionComponent } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { linkVariants } from "@/components/ui/link";
 import { usePosts } from "@/hooks";
+import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/format-date";
 import { allPosts } from "contentlayer/generated";
 
@@ -39,7 +41,7 @@ const PostsList: FunctionComponent = () => {
                 {renderMetric(relatedPost?.views)} views ·{" "}
                 {renderMetric(relatedPost?.likes.length)} likes
               </span>
-              <span className="flex items-center text-sky-600 group-hover:underline">
+              <span className={cn("flex items-center", linkVariants())}>
                 Read More
                 <ArrowRight size={15} className="ml-2 transition-spacing group-hover:ml-3" />
               </span>
