@@ -16,7 +16,6 @@ module.exports = {
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "error",
     "prettier/prettier": "error",
-    "@next/next/no-document-import-in-page": "off",
     "prefer-const": "warn",
     "prefer-arrow-callback": "warn",
     "import/no-duplicates": "error",
