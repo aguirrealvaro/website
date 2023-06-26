@@ -16,7 +16,6 @@ Deployed to Vercel & PlanetScale
 ### Posts:
 
 - react query
-- flex 1
 - z index
 - keyboard interactions
 - precommit + lint staged with tsc + lint

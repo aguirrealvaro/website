@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import Image, { ImageProps } from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { Link, Typography } from "@/components/ui";
 
@@ -21,5 +22,10 @@ const components = {
   p: (props: any) => <Typography.Paragraph {...props} />,
   hr: (props: any) => <br {...props} />,
   //code: (props: any) => <Typography.Code {...props} />,
-  a: (props: any) => <Link disabled {...props} />,
+  a: (props: any) => <Link {...props} />,
+  Image: (props: ImageProps) => (
+    <div className="mb-4 flex justify-center">
+      <Image {...props} />
+    </div>
+  ),
 };
