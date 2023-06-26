@@ -1,6 +1,7 @@
 "use client";
 
 import { FunctionComponent } from "react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { usePosts } from "@/hooks";
 import { formatDate } from "@/utils/format-date";
@@ -30,13 +31,17 @@ const PostsList: FunctionComponent = () => {
         if (process.env.NODE_ENV === "production" && !enabled) return null;
 
         return (
-          <li key={slug} className="border-b last:border-b-0 ">
+          <li key={slug} className="group border-b last:border-b-0">
             <Link href={`/blog/${slug}`} className="flex flex-col py-4 transition">
               <h2 className="font-medium text-text-heading">{title}</h2>
               <span className="text-text-secondary">
                 <time dateTime={dateString}>{formattedDate}</time> ·{" "}
                 {renderMetric(relatedPost?.views)} views ·{" "}
                 {renderMetric(relatedPost?.likes.length)} likes
+              </span>
+              <span className="flex items-center text-sky-600 group-hover:underline">
+                Read More
+                <ArrowRight size={15} className="ml-2 transition-spacing group-hover:ml-3" />
               </span>
             </Link>
           </li>

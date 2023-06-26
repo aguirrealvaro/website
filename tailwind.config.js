@@ -46,6 +46,9 @@ module.exports = {
         "navbar-open": "fade-in 150ms ease-in-out forwards",
         "navbar-close": "fade-out 150ms ease-in-out forwards",
       },
+      transitionProperty: {
+        spacing: "margin, padding",
+      },
     },
   },
   plugins: [],
