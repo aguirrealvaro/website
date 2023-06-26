@@ -8,6 +8,7 @@ export const fetcher = async <T>(
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      cache: "no-store",
     },
   };
 
