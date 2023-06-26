@@ -6,20 +6,14 @@ import { usePosts } from "@/hooks";
 import { formatDate } from "@/utils/format-date";
 import { allPosts } from "contentlayer/generated";
 
-type PostsListProps = {
-  sliced?: boolean;
-};
-
-const PostsList: FunctionComponent<PostsListProps> = ({ sliced = false }) => {
+const PostsList: FunctionComponent = () => {
   const sortedPosts = allPosts.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-
-  const displayPosts = sliced ? sortedPosts.slice(0, 3) : allPosts;
 
   const { posts, isFetching } = usePosts();
 
   return (
     <ul>
-      {displayPosts.map((post) => {
+      {sortedPosts.map((post) => {
         const { title, slug, publishedAt, enabled } = post;
         const { dateString, formattedDate } = formatDate(publishedAt);
 

@@ -18,8 +18,8 @@ const Home: FunctionComponent = () => {
           </div>
         </div>
         <div>
-          <Typography.H2 className="mb-4">Latest Posts</Typography.H2>
-          <PostsList sliced />
+          <Typography.H2 className="mb-4">Posts</Typography.H2>
+          <PostsList />
         </div>
       </Wrapper>
     </PageContainer>
