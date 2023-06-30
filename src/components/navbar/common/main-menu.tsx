@@ -8,8 +8,6 @@ const MainMenu: FunctionComponent = () => {
 
   const [activeElement, setActiveElement] = useState<number | undefined>(undefined);
 
-  console.log(activeElement);
-
   const siblingSizes = (() => {
     if (activeElement === undefined) return undefined;
     const listLeft = listRef.current?.getBoundingClientRect().left || 0;
@@ -24,15 +22,21 @@ const MainMenu: FunctionComponent = () => {
 
   return (
     <nav className="sm:hidden">
-      <ul className="relative flex gap-4" ref={listRef}>
-        <span
-          className="pointer-events-none absolute rounded bg-hover-primary transition-all"
-          style={{
-            width: `${siblingSizes?.width}px`,
-            height: `${siblingSizes?.height}px`,
-            left: `${siblingSizes?.left}px`,
-          }}
-        />
+      <ul
+        className="relative flex gap-4"
+        ref={listRef}
+        onMouseLeave={() => setActiveElement(undefined)}
+      >
+        {activeElement !== undefined && (
+          <span
+            className="pointer-events-none absolute rounded bg-hover-primary transition-all"
+            style={{
+              width: `${siblingSizes?.width}px`,
+              height: `${siblingSizes?.height}px`,
+              left: `${siblingSizes?.left}px`,
+            }}
+          />
+        )}
         {NAVIGATION_LINKS.map(({ name, href }, index) => {
           return (
             <li key={index}>
