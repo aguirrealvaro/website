@@ -27,13 +27,13 @@ const MainMenu: FunctionComponent = () => {
         ref={listRef}
         onMouseLeave={() => setActiveElement(undefined)}
       >
-        {activeElement !== undefined && (
+        {siblingSizes && (
           <span
             className="pointer-events-none absolute rounded bg-hover-primary transition-all"
             style={{
-              width: `${siblingSizes?.width}px`,
-              height: `${siblingSizes?.height}px`,
-              left: `${siblingSizes?.left}px`,
+              width: `${siblingSizes.width}px`,
+              height: `${siblingSizes.height}px`,
+              left: `${siblingSizes.left}px`,
             }}
           />
         )}
