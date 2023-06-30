@@ -48,7 +48,7 @@ const MainMenu: FunctionComponent = () => {
                   }
                 }}
                 onMouseEnter={() => setActiveElement(index)}
-                className="px-4 py-2"
+                className="px-4 py-2 transition hover:text-text-heading"
               >
                 {name}
               </Link>
