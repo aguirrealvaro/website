@@ -1,6 +1,6 @@
 import { FunctionComponent, HTMLAttributes } from "react";
 import { useRouter } from "next/navigation";
-import { navigationLinks } from "@/constants";
+import { NAVIGATION_LINKS } from "@/constants";
 import { useKeyPress } from "@/hooks";
 import { cn } from "@/utils/cn";
 
@@ -42,7 +42,7 @@ const MobileMenu: FunctionComponent<MobileMenuProps> = ({
     >
       <nav className="mb-4">
         <ul className="flex flex-col gap-4">
-          {navigationLinks.map(({ name, href }, index) => {
+          {NAVIGATION_LINKS.map(({ name, href }, index) => {
             return (
               <li key={index} className="text-center">
                 <button

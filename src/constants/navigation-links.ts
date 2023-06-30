@@ -3,7 +3,7 @@ type NavigationLinkType = {
   href: string;
 };
 
-export const navigationLinks: NavigationLinkType[] = [
+export const NAVIGATION_LINKS: NavigationLinkType[] = [
   { name: "Home", href: "/" },
   { name: "Trajectory", href: "/trajectory" },
   { name: "Blog", href: "/blog" },
