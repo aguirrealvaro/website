@@ -1,20 +1,17 @@
-import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { FunctionComponent, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { NAVIGATION_LINKS } from "@/constants";
 
 const MainMenu: FunctionComponent = () => {
-  const pathname = usePathname();
   const listRef = useRef<HTMLUListElement>(null);
   const linksRef = useRef<HTMLAnchorElement[]>([]);
 
-  const [activeElement, setActiveElement] = useState<number>(0);
+  const [activeElement, setActiveElement] = useState<number | undefined>(undefined);
 
-  useEffect(() => {
-    setActiveElement(NAVIGATION_LINKS.findIndex((link) => pathname === link.href));
-  }, [pathname]);
+  console.log(activeElement);
 
   const siblingSizes = (() => {
+    if (activeElement === undefined) return undefined;
     const listLeft = listRef.current?.getBoundingClientRect().left || 0;
     const activeLinkLeft = linksRef.current[activeElement]?.getBoundingClientRect().left || 0;
 
@@ -31,9 +28,9 @@ const MainMenu: FunctionComponent = () => {
         <span
           className="pointer-events-none absolute rounded bg-hover-primary transition-all"
           style={{
-            width: `${siblingSizes.width}px`,
-            height: `${siblingSizes.height}px`,
-            left: `${siblingSizes.left}px`,
+            width: `${siblingSizes?.width}px`,
+            height: `${siblingSizes?.height}px`,
+            left: `${siblingSizes?.left}px`,
           }}
         />
         {NAVIGATION_LINKS.map(({ name, href }, index) => {
