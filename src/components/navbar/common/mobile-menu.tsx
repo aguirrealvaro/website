@@ -36,8 +36,8 @@ const MobileMenu: FunctionComponent<MobileMenuProps> = ({
       className={cn(
         "flex items-center justify-center",
         "fixed inset-x-0 bottom-0 bg-bg-secondary",
-        isMobileMenuOpen && !isUnmounting && "animate-navbar-open",
-        isUnmounting && "animate-navbar-close"
+        isMobileMenuOpen && !isUnmounting && "animate-fade-in",
+        isUnmounting && "animate-fade-out"
       )}
     >
       <nav className="mb-4">

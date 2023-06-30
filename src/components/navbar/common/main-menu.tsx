@@ -32,7 +32,7 @@ const MainMenu: FunctionComponent = () => {
       >
         {siblingSizes && (
           <span
-            className="pointer-events-none absolute rounded bg-hover-primary transition-all"
+            className="pointer-events-none absolute animate-fade-in rounded bg-hover-primary transition-all"
             style={{
               width: `${siblingSizes.width}px`,
               height: `${siblingSizes.height}px`,
