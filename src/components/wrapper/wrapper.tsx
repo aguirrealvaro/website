@@ -1,11 +1,13 @@
 import { FunctionComponent, ReactNode } from "react";
+import { cn } from "@/utils/cn";
 
 type WrapperProps = {
   children: ReactNode;
+  className?: string;
 };
 
-const Wrapper: FunctionComponent<WrapperProps> = ({ children }) => {
-  return <div className="mx-auto w-4/5 max-w-6xl sm:w-11/12">{children}</div>;
+const Wrapper: FunctionComponent<WrapperProps> = ({ children, className }) => {
+  return <div className={cn("mx-auto w-4/5 max-w-6xl sm:w-11/12", className)}>{children}</div>;
 };
 
 export { Wrapper };

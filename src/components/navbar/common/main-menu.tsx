@@ -1,8 +1,11 @@
 import { FunctionComponent, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAVIGATION_LINKS } from "@/constants";
+import { cn } from "@/utils/cn";
 
 const MainMenu: FunctionComponent = () => {
+  const pathname = usePathname();
   const listRef = useRef<HTMLUListElement>(null);
   const linksRef = useRef<HTMLAnchorElement[]>([]);
 
@@ -21,9 +24,9 @@ const MainMenu: FunctionComponent = () => {
   })();
 
   return (
-    <nav className="sm:hidden">
+    <nav className="h-full sm:hidden">
       <ul
-        className="relative flex"
+        className="relative flex h-full items-center"
         ref={listRef}
         onMouseLeave={() => setActiveElement(undefined)}
       >
@@ -38,8 +41,16 @@ const MainMenu: FunctionComponent = () => {
           />
         )}
         {NAVIGATION_LINKS.map(({ name, href }, index) => {
+          const isActive = pathname === href;
+
           return (
-            <li key={index} className="flex">
+            <li
+              key={index}
+              className={cn(
+                "-mb-px flex h-full items-center border-b-2 border-transparent",
+                isActive ? "border-sky-500" : ""
+              )}
+            >
               <Link
                 href={href}
                 ref={(el) => {
@@ -48,7 +59,10 @@ const MainMenu: FunctionComponent = () => {
                   }
                 }}
                 onMouseEnter={() => setActiveElement(index)}
-                className="px-4 py-2 transition hover:text-text-heading"
+                className={cn(
+                  "px-4 py-2 transition hover:text-text-heading",
+                  isActive ? "text-text-heading" : ""
+                )}
               >
                 {name}
               </Link>

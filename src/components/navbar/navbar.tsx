@@ -33,8 +33,8 @@ const Navbar: FunctionComponent = () => {
       ref={containerRef}
       className={cn("fixed inset-x-0 top-0 h-20 bg-bg-secondary shadow", "flex items-center")}
     >
-      <Wrapper>
-        <div className="flex items-center justify-between">
+      <Wrapper className="h-full">
+        <div className="flex h-full items-center justify-between">
           <Link href="/">
             <h1 className="text-lg font-medium text-text-heading">Alvaro Aguirre </h1>
           </Link>
