@@ -47,7 +47,7 @@ const MainMenu: FunctionComponent = () => {
             <li
               key={index}
               className={cn(
-                "-mb-px flex h-full items-center border-b-2 border-transparent",
+                "flex h-full items-center border-b-2 border-transparent",
                 isActive ? "border-sky-500" : ""
               )}
             >
@@ -60,7 +60,7 @@ const MainMenu: FunctionComponent = () => {
                 }}
                 onMouseEnter={() => setActiveElement(index)}
                 className={cn(
-                  "px-4 py-2 transition hover:text-text-heading",
+                  "-mb-0.5 px-4 py-2 transition hover:text-text-heading",
                   isActive ? "text-text-heading" : ""
                 )}
               >
