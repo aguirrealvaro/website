@@ -48,7 +48,7 @@ const MainMenu: FunctionComponent = () => {
                   }
                 }}
                 onMouseEnter={() => setActiveElement(index)}
-                className="rounded p-1.5 transition"
+                className="p-1.5"
               >
                 {name}
               </Link>
