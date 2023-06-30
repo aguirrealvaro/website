@@ -39,7 +39,7 @@ const MainMenu: FunctionComponent = () => {
         )}
         {NAVIGATION_LINKS.map(({ name, href }, index) => {
           return (
-            <li key={index}>
+            <li key={index} className="flex">
               <Link
                 href={href}
                 ref={(el) => {
