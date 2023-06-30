@@ -23,7 +23,7 @@ const MainMenu: FunctionComponent = () => {
   return (
     <nav className="sm:hidden">
       <ul
-        className="relative flex gap-4"
+        className="relative flex"
         ref={listRef}
         onMouseLeave={() => setActiveElement(undefined)}
       >
@@ -48,7 +48,7 @@ const MainMenu: FunctionComponent = () => {
                   }
                 }}
                 onMouseEnter={() => setActiveElement(index)}
-                className="p-1.5"
+                className="px-4 py-2"
               >
                 {name}
               </Link>
