@@ -29,7 +29,7 @@ const MainMenu: FunctionComponent = () => {
     <nav className="sm:hidden">
       <ul className="relative flex gap-4" ref={listRef}>
         <span
-          className="absolute rounded bg-hover-primary transition-all"
+          className="pointer-events-none absolute rounded bg-hover-primary transition-all"
           style={{
             width: `${siblingSizes.width}px`,
             height: `${siblingSizes.height}px`,
