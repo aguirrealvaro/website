@@ -30,16 +30,18 @@ const MainMenu: FunctionComponent = () => {
         ref={listRef}
         onMouseLeave={() => setActiveElement(undefined)}
       >
-        {siblingSizes && (
-          <span
-            className="pointer-events-none absolute animate-fade-in rounded bg-hover-primary transition-all"
-            style={{
-              width: `${siblingSizes.width}px`,
-              height: `${siblingSizes.height}px`,
-              left: `${siblingSizes.left}px`,
-            }}
-          />
-        )}
+        <span
+          role="none"
+          className={cn(
+            "pointer-events-none absolute rounded bg-hover-primary transition-all",
+            siblingSizes ? "opacity-100" : "opacity-0"
+          )}
+          style={{
+            width: `${siblingSizes?.width}px`,
+            height: `${siblingSizes?.height}px`,
+            left: `${siblingSizes?.left}px`,
+          }}
+        />
         {NAVIGATION_LINKS.map(({ name, href }, index) => {
           const isActive = pathname === href;
 
