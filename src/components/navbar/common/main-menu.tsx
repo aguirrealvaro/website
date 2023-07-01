@@ -62,7 +62,7 @@ const MainMenu: FunctionComponent = () => {
                 }}
                 onMouseEnter={() => setActiveElement(index)}
                 className={cn(
-                  "-mb-0.5 px-4 py-2 transition hover:text-text-heading",
+                  "-mb-0.5 px-4 py-2 transition",
                   isActive ? "text-text-heading" : ""
                 )}
               >
