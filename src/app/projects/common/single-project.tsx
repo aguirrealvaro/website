@@ -8,7 +8,7 @@ type SingleProjectType = {
   description: string;
   image: string;
   projectLink: string;
-  codeLink: string;
+  codeLink?: string;
 };
 
 const SingleProject: FunctionComponent<SingleProjectType> = ({
@@ -20,13 +20,15 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({
 }) => {
   return (
     <div>
-      <Image
-        src={image}
-        alt={`${title} Picture`}
-        width={600}
-        height={300}
-        className="mb-4 rounded shadow-lg md:w-full"
-      />
+      <div>
+        <Image
+          src={image}
+          alt={`${title} Picture`}
+          width={600}
+          height={300}
+          className="mb-4 h-52 rounded object-cover shadow-lg md:w-full"
+        />
+      </div>
       <Typography.H4 className="mb-2">{title}</Typography.H4>
       <Typography.Paragraph className="mb-4 text-text-secondary">
         {description}
@@ -40,14 +42,16 @@ const SingleProject: FunctionComponent<SingleProjectType> = ({
         >
           View Project
         </a>
-        <a
-          href={codeLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: "outlined" }))}
-        >
-          View Source Code
-        </a>
+        {codeLink && (
+          <a
+            href={codeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ variant: "outlined" }))}
+          >
+            View Source Code
+          </a>
+        )}
       </div>
     </div>
   );

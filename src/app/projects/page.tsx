@@ -19,6 +19,12 @@ const Projects: FunctionComponent = () => {
             projectLink="https://ui-kit7.vercel.app"
             codeLink="https://github.com/aguirrealvaro/ui-kit"
           />
+          <SingleProject
+            title="Estudio AGR"
+            description="Web page of a real estate company"
+            image="/agr.png"
+            projectLink="https://www.estudioagr.com/"
+          />
         </div>
       </Wrapper>
     </PageContainer>
