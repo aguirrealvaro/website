@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { PostType } from "@/client/interfaces";
 import { getSinglePost, getUserHasLiked, incrementView, likePost } from "@/client/query-fns";
 
@@ -27,7 +27,7 @@ const useSinglePost = (slug: string): UseSinglePostReturnType => {
     {
       onSuccess: () => {
         getSinglePostQuery.refetch();
-        queryClient.invalidateQueries({ queryKey: "posts" });
+        queryClient.invalidateQueries({ queryKey: ["posts"] });
       },
     }
   );

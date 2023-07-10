@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
+    "@tanstack/react-query": "^4.29.19",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.3",
@@ -26,7 +27,6 @@
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-query": "^3.39.3",
     "rehype-pretty-code": "^0.9.9",
     "shiki": "^0.14.2",
     "tailwind-merge": "^1.12.0"

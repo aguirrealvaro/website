@@ -1,4 +1,4 @@
-import { QueryFunctionContext } from "react-query";
+import { QueryFunctionContext } from "@tanstack/react-query";
 import { fetcher } from "./fetcher";
 import { PostType } from "@/client/interfaces";
 

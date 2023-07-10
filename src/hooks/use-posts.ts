@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { PostType } from "@/client/interfaces";
 import { getPosts } from "@/client/query-fns";
 
@@ -9,7 +9,7 @@ type UsePostsReturnType = {
 
 const usePosts = (): UsePostsReturnType => {
   const { data: posts, isFetching } = useQuery({
-    queryKey: "posts",
+    queryKey: ["posts"],
     queryFn: getPosts,
   });
 
