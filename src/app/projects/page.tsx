@@ -18,12 +18,14 @@ const Projects: FunctionComponent = () => {
             image="/components.webp"
             projectLink="https://ui-kit7.vercel.app"
             codeLink="https://github.com/aguirrealvaro/ui-kit"
+            imgClassname="object-cover"
           />
           <SingleProject
             title="Estudio AGR"
             description="Web page of a real estate company"
-            image="/agr.png"
+            image="/agr.jpeg"
             projectLink="https://www.estudioagr.com/"
+            imgClassname="object-contain bg-white"
           />
         </div>
       </Wrapper>
