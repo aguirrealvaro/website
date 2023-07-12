@@ -19,7 +19,8 @@ const IntroductionText: FunctionComponent = () => {
       <Typography.Paragraph>
         I specialize in working with technologies such as{" "}
         <Typography.Bold>
-          React, TypeScript, Next, React Query, Styled Components, Tailwind and Node
+          React, TypeScript, NextJS, React Query, Styled Components, Tailwind, Node, NestJS and
+          Prisma
         </Typography.Bold>
         , among others. I am always willing to learn and stay up-to-date with the latest trends
         and technologies.
