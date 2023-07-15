@@ -28,7 +28,7 @@ const RootLayout: FunctionComponent<RootLayoutProps> = ({ children }) => {
       >
         <QueryProvider>
           <ThemeProvider>
-            <div className="flex h-screen flex-col">
+            <div className="flex min-h-screen flex-col">
               <Navbar />
               <main className="flex-1">{children}</main>
               <Footer />
